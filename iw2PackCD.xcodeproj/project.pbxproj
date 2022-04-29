@@ -13,6 +13,9 @@
 		A59486EE2817578900C34782 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A59486ED2817578900C34782 /* Preview Assets.xcassets */; };
 		A59486F02817578900C34782 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59486EF2817578900C34782 /* Persistence.swift */; };
 		A59486F32817578900C34782 /* iw2PackCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A59486F12817578900C34782 /* iw2PackCD.xcdatamodeld */; };
+		A59AD713281CA02B00EDCD8E /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59AD712281CA02B00EDCD8E /* BaseModel.swift */; };
+		A59AD715281CA13800EDCD8E /* Category+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59AD714281CA13800EDCD8E /* Category+Extension.swift */; };
+		A59AD718281CA20300EDCD8E /* CategoryFormScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59AD717281CA20300EDCD8E /* CategoryFormScreen.swift */; };
 		A5D8EBB4281A07E200D5CC0B /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8EBB3281A07E200D5CC0B /* CategoryList.swift */; };
 		A5D8EBB6281A088A00D5CC0B /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8EBB5281A088A00D5CC0B /* StartView.swift */; };
 		A5D8EBB8281A0E1900D5CC0B /* LocationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8EBB7281A0E1900D5CC0B /* LocationList.swift */; };
@@ -26,6 +29,9 @@
 		A59486ED2817578900C34782 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A59486EF2817578900C34782 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		A59486F22817578900C34782 /* iw2PackCD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iw2PackCD.xcdatamodel; sourceTree = "<group>"; };
+		A59AD712281CA02B00EDCD8E /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		A59AD714281CA13800EDCD8E /* Category+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+Extension.swift"; sourceTree = "<group>"; };
+		A59AD717281CA20300EDCD8E /* CategoryFormScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFormScreen.swift; sourceTree = "<group>"; };
 		A5D8EBB3281A07E200D5CC0B /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		A5D8EBB5281A088A00D5CC0B /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		A5D8EBB7281A0E1900D5CC0B /* LocationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationList.swift; sourceTree = "<group>"; };
@@ -61,6 +67,7 @@
 		A59486E52817578800C34782 /* iw2PackCD */ = {
 			isa = PBXGroup;
 			children = (
+				A59AD711281CA01900EDCD8E /* Models */,
 				A5D8EBB5281A088A00D5CC0B /* StartView.swift */,
 				A5D8EBB2281A07A900D5CC0B /* MetaData */,
 				A59486E62817578800C34782 /* iw2PackCDApp.swift */,
@@ -81,10 +88,28 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		A5D8EBB2281A07A900D5CC0B /* MetaData */ = {
+		A59AD711281CA01900EDCD8E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A59AD712281CA02B00EDCD8E /* BaseModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A59AD716281CA1C800EDCD8E /* Category */ = {
 			isa = PBXGroup;
 			children = (
 				A5D8EBB3281A07E200D5CC0B /* CategoryList.swift */,
+				A59AD717281CA20300EDCD8E /* CategoryFormScreen.swift */,
+				A59AD714281CA13800EDCD8E /* Category+Extension.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		A5D8EBB2281A07A900D5CC0B /* MetaData */ = {
+			isa = PBXGroup;
+			children = (
+				A59AD716281CA1C800EDCD8E /* Category */,
 				A5D8EBB7281A0E1900D5CC0B /* LocationList.swift */,
 			);
 			path = MetaData;
@@ -162,10 +187,13 @@
 			files = (
 				A59486F02817578900C34782 /* Persistence.swift in Sources */,
 				A59486E92817578800C34782 /* ContentView.swift in Sources */,
+				A59AD715281CA13800EDCD8E /* Category+Extension.swift in Sources */,
 				A5D8EBB8281A0E1900D5CC0B /* LocationList.swift in Sources */,
 				A5D8EBB4281A07E200D5CC0B /* CategoryList.swift in Sources */,
 				A5D8EBB6281A088A00D5CC0B /* StartView.swift in Sources */,
+				A59AD718281CA20300EDCD8E /* CategoryFormScreen.swift in Sources */,
 				A59486F32817578900C34782 /* iw2PackCD.xcdatamodeld in Sources */,
+				A59AD713281CA02B00EDCD8E /* BaseModel.swift in Sources */,
 				A59486E72817578800C34782 /* iw2PackCDApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

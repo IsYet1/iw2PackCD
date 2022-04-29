@@ -10,6 +10,7 @@ import SwiftUI
 struct CategoryList: View {
 
     @Environment(\.managedObjectContext) private var viewContext
+    @State private var showForm: Bool = false
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Category.name, ascending: true)],
@@ -28,6 +29,10 @@ struct CategoryList: View {
                 }
                 .onDelete(perform: deleteItems)
             }
+            .navigationTitle("Categories")
+            .navigationBarItems(trailing: Button("Add Category") {
+                self.showForm = true
+            })
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
@@ -38,6 +43,9 @@ struct CategoryList: View {
                     }
                 }
             }
+            .sheet(isPresented: $showForm, content: {
+                CategoryFormScreen()
+            })
             Text("Select an item")
         }
     }
