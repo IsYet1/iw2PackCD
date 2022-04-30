@@ -30,16 +30,13 @@ struct CategoryList: View {
                 .onDelete(perform: deleteItems)
             }
             .navigationTitle("Categories")
-            .navigationBarItems(trailing: Button("Add Category") {
-                self.showForm = true
-            })
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
                 }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Add") {
+                        self.showForm = true
                     }
                 }
             }
@@ -47,22 +44,6 @@ struct CategoryList: View {
                 CategoryFormScreen()
             })
             Text("Select an item")
-        }
-    }
-    
-    private func addItem() {
-        withAnimation {
-            let newItem = Category(context: viewContext)
-            newItem.name = "Category 123"
-            
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
         }
     }
     
@@ -81,13 +62,6 @@ struct CategoryList: View {
         }
     }
 }
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 struct CategoryList_Previews: PreviewProvider {
     static var previews: some View {
