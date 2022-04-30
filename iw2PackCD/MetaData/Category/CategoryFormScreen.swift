@@ -16,15 +16,22 @@ struct CategoryFormScreen: View {
                 .font(.title)
             Form {
                 TextField("Category Name", text: $categoryFormVM.name)
+                    .padding(.all, 10.0)
                 
                 HStack {
-                    Spacer()
                     Button("Save") {
                         categoryFormVM.save()
                         presentationMode.wrappedValue.dismiss()
                     }
+                    .frame(width: 80.0)
                     Spacer()
+                    Button("Cancel") {
+                        // TODO: This shouldn't save blank items.
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                    .frame(width: 80.0)
                 }
+                .padding(.vertical)
             }
         }
     }

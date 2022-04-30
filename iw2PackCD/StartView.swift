@@ -10,9 +10,9 @@ import SwiftUI
 struct StartView: View {
     var body: some View {
         TabView {
-            ContentView().tabItem() {Text("Time Stamps")}
             CategoryList().tabItem() {Text("Category")}
             LocationList().tabItem() {Text("Location")}
+            ContentView().tabItem() {Text("Time Stamps")}
         }
     }
 }
