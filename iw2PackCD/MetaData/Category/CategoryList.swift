@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct CategoryList: View {
-
+    
     @Environment(\.managedObjectContext) private var viewContext
     @State private var showForm: Bool = false
-
+    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Category.name, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Category>
-
+    
     var body: some View {
         NavigationView {
             List {
@@ -49,12 +49,12 @@ struct CategoryList: View {
             Text("Select an item")
         }
     }
-
+    
     private func addItem() {
         withAnimation {
             let newItem = Category(context: viewContext)
             newItem.name = "Category 123"
-
+            
             do {
                 try viewContext.save()
             } catch {
@@ -65,11 +65,11 @@ struct CategoryList: View {
             }
         }
     }
-
+    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
-
+            
             do {
                 try viewContext.save()
             } catch {

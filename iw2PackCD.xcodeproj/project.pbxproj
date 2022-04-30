@@ -19,6 +19,7 @@
 		A5D8EBB4281A07E200D5CC0B /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8EBB3281A07E200D5CC0B /* CategoryList.swift */; };
 		A5D8EBB6281A088A00D5CC0B /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8EBB5281A088A00D5CC0B /* StartView.swift */; };
 		A5D8EBB8281A0E1900D5CC0B /* LocationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8EBB7281A0E1900D5CC0B /* LocationList.swift */; };
+		F6862BE5281DD20500B12816 /* CategoryFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6862BE4281DD20500B12816 /* CategoryFormViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		A5D8EBB3281A07E200D5CC0B /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		A5D8EBB5281A088A00D5CC0B /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		A5D8EBB7281A0E1900D5CC0B /* LocationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationList.swift; sourceTree = "<group>"; };
+		F6862BE4281DD20500B12816 /* CategoryFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFormViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				A5D8EBB3281A07E200D5CC0B /* CategoryList.swift */,
 				A59AD717281CA20300EDCD8E /* CategoryFormScreen.swift */,
+				F6862BE4281DD20500B12816 /* CategoryFormViewModel.swift */,
 				A59AD714281CA13800EDCD8E /* Category+Extension.swift */,
 			);
 			path = Category;
@@ -193,6 +196,7 @@
 				A5D8EBB6281A088A00D5CC0B /* StartView.swift in Sources */,
 				A59AD718281CA20300EDCD8E /* CategoryFormScreen.swift in Sources */,
 				A59486F32817578900C34782 /* iw2PackCD.xcdatamodeld in Sources */,
+				F6862BE5281DD20500B12816 /* CategoryFormViewModel.swift in Sources */,
 				A59AD713281CA02B00EDCD8E /* BaseModel.swift in Sources */,
 				A59486E72817578800C34782 /* iw2PackCDApp.swift in Sources */,
 			);
@@ -251,7 +255,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -305,7 +309,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
