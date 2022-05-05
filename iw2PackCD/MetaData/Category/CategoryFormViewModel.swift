@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 class CategoryFormViewModel: ObservableObject {
     var name: String = ""
@@ -16,4 +17,11 @@ class CategoryFormViewModel: ObservableObject {
         
         try? category.save()
     }
+}
+
+struct CategoryViewModel {
+    let category: Category
+    
+    var categoryId: NSManagedObjectID { return category.objectID }
+    var name: String { return category.name ?? "" }
 }

@@ -69,10 +69,10 @@
 		A59486E52817578800C34782 /* iw2PackCD */ = {
 			isa = PBXGroup;
 			children = (
-				A59AD711281CA01900EDCD8E /* Models */,
-				A5D8EBB5281A088A00D5CC0B /* StartView.swift */,
-				A5D8EBB2281A07A900D5CC0B /* MetaData */,
 				A59486E62817578800C34782 /* iw2PackCDApp.swift */,
+				A5D8EBB5281A088A00D5CC0B /* StartView.swift */,
+				A59AD711281CA01900EDCD8E /* Models */,
+				A5D8EBB2281A07A900D5CC0B /* MetaData */,
 				A59486E82817578800C34782 /* ContentView.swift */,
 				A59486EA2817578900C34782 /* Assets.xcassets */,
 				A59486EF2817578900C34782 /* Persistence.swift */,

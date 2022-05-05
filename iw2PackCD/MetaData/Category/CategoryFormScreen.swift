@@ -10,6 +10,8 @@ import SwiftUI
 struct CategoryFormScreen: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject private var categoryFormVM = CategoryFormViewModel()
+//    let category: CategoryViewModel
+    
     var body: some View {
         VStack {
             Text("Add a Category")
@@ -39,6 +41,8 @@ struct CategoryFormScreen: View {
 
 struct CategoryFormScreen_Previews: PreviewProvider {
     static var previews: some View {
+//        let category = CategoryViewModel(category: Category(context: PersistenceController.shared.container.viewContext))
+//        CategoryFormScreen(category: category)
         CategoryFormScreen()
     }
 }
