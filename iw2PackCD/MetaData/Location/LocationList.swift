@@ -1,5 +1,5 @@
 //
-//  CategoryList.swift
+//  LocationList.swift
 //  iw2PackCD
 //
 //  Created by Don McKenzie on 27-Apr-22.
@@ -7,25 +7,25 @@
 
 import SwiftUI
 
-struct CategoryList: View {
+struct LocationList: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     @State private var showForm: Bool = false
     
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Category.name, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Location.name, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<Category>
+    private var items: FetchedResults<Location>
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(items) { item in
-                    CategoryItemCell(item: item)
+                    LocationItemCell(item: item)
                 }
                 .onDelete(perform: deleteItems)
             }
-            .navigationTitle("Categories")
+            .navigationTitle("Locations")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
@@ -37,7 +37,7 @@ struct CategoryList: View {
                 }
             }
             .sheet(isPresented: $showForm, content: {
-                CategoryFormScreen()
+                LocationFormScreen()
             })
             Text("Select an item")
         }
@@ -57,14 +57,15 @@ struct CategoryList: View {
     }
 }
 
-struct CategoryList_Previews: PreviewProvider {
+
+struct LocationList_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryList()
+        LocationList()
     }
 }
 
-struct CategoryItemCell: View {
-    let item: Category
+struct LocationItemCell: View {
+    let item: Location
     var body: some View {
         NavigationLink {
             Text("Item at \(item.name!)")

@@ -1,28 +1,27 @@
 //
-//  CategoryFormViewModel.swift
+//  LocationFormScreen.swift
 //  iw2PackCD
 //
-//  Created by Don McKenzie on 29-Apr-22.
+//  Created by Don McKenzie on 05-May-22.
 //
 
 import SwiftUI
 
-struct CategoryFormScreen: View {
+struct LocationFormScreen: View {
     @Environment(\.presentationMode) var presentationMode
-    @StateObject private var categoryFormVM = CategoryFormViewModel()
-//    let category: CategoryViewModel
+    @StateObject private var locationFormVM = LocationFormViewModel()
     
     var body: some View {
         VStack {
-            Text("Add a Category")
+            Text("Add a Location")
                 .font(.title)
             Form {
-                TextField("Category Name", text: $categoryFormVM.name)
+                TextField("Location Name", text: $locationFormVM.name)
                     .padding(.all, 10.0)
                 
                 HStack {
                     Button("Save") {
-                        categoryFormVM.save()
+                        locationFormVM.save()
                         presentationMode.wrappedValue.dismiss()
                     }
                     .frame(width: 80.0)
@@ -39,8 +38,8 @@ struct CategoryFormScreen: View {
     }
 }
 
-struct CategoryFormScreen_Previews: PreviewProvider {
+struct LocationFormScreen_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryFormScreen()
+        LocationFormScreen()
     }
 }
