@@ -19,9 +19,3 @@ class LocationFormViewModel: ObservableObject {
     }
 }
 
-struct LocationViewModel {
-    let location: Location
-    
-    var locationId: NSManagedObjectID { return location.objectID }
-    var name: String { return location.name ?? "" }
-}
