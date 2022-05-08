@@ -22,7 +22,7 @@ struct PackItemFormScreen: View {
             Text("Add a Pack Item")
                 .font(.title)
             TextField("Pack Item Name", text: $formVM.name)
-                .padding(.all, 10.0)
+                .padding(.all, 30.0)
             Picker("Category", selection: $selectedCategory) {
                 ForEach(categories, id: \.self) {(category ) in
                     Text(category.name!)
