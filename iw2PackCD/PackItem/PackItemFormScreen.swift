@@ -15,7 +15,7 @@ struct PackItemFormScreen: View {
     private var categories: FetchedResults<Category>
     
     @StateObject private var formVM = PackItemFormViewModel()
-    @State private var selectedCategory = "Test"
+    @State private var selectedCategory = Category(context: Category.viewContext)
     
     var body: some View {
         VStack {
@@ -25,7 +25,7 @@ struct PackItemFormScreen: View {
                 .padding(.all, 30.0)
             Picker("Category", selection: $selectedCategory) {
                 ForEach(categories, id: \.self) {(category ) in
-                    Text(category.name!)
+                    Text(category.name ?? "Select")
                 }
             }
             HStack {
@@ -39,7 +39,12 @@ struct PackItemFormScreen: View {
                 }.padding()
             }
             .padding(.vertical)
+            VStack {
+                Text("Selected Category").font(.title)
+                Text(selectedCategory.name ?? "None Selected")
+            }
         }
+        
     }
 }
 
