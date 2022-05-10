@@ -11,10 +11,12 @@ import CoreData
 class PackItemFormViewModel: ObservableObject {
     var name: String = ""
     
-    func save() {
+    func save(category: Category) {
         let packItem = PackItem(context: PackItem.viewContext)
         packItem.name = name
         
         try? packItem.save()
+        print("Category \(category.name!) - Item \(packItem.name!)")
+        category.addToPackitem(packItem)
     }
 }

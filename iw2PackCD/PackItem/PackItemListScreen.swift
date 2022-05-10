@@ -59,10 +59,13 @@ struct PackItemListScreen: View {
 struct PackItemListCell: View {
     let item: PackItem
     var body: some View {
-        NavigationLink {
-            Text("Item at \(item.name!)")
-        } label: {
-            Text(item.name!)
+        VStack {
+            NavigationLink {
+                Text("Item at \(item.name!)")
+            } label: {
+                Text(item.name!)
+            }
+            Text(item.category?.name ?? "No Category")
         }
     }
 }

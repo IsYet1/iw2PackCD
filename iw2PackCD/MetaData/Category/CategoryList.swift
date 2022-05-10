@@ -67,9 +67,9 @@ struct CategoryItemCell: View {
     let item: Category
     var body: some View {
         NavigationLink {
-            Text("Item at \(item.name!)")
+            Text("Item at \(item.name ?? "No Category")")
         } label: {
-            Text(item.name!)
+            Text(item.name ?? "No category")
         }
     }
 }

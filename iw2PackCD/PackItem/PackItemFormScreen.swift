@@ -14,8 +14,9 @@ struct PackItemFormScreen: View {
     )
     private var categories: FetchedResults<Category>
     
+    @State var selectedCategory: Category?
+    
     @StateObject private var formVM = PackItemFormViewModel()
-    @State private var selectedCategory = Category(context: Category.viewContext)
     
     var body: some View {
         VStack {
@@ -23,25 +24,25 @@ struct PackItemFormScreen: View {
                 .font(.title)
             TextField("Pack Item Name", text: $formVM.name)
                 .padding(.all, 30.0)
-            Picker("Category", selection: $selectedCategory) {
-                ForEach(categories, id: \.self) {(category ) in
-                    Text(category.name ?? "Select")
+            Picker("", selection: $selectedCategory) {
+                ForEach(categories, id: \.self) {(category: Category ) in
+                    Text(category.name!).tag(category as Category?)
                 }
             }
             HStack {
                 Button("Save") {
-                    formVM.save()
+                    formVM.save(category: selectedCategory!)
                     presentationMode.wrappedValue.dismiss()
                 }.padding()
-                Button("Cancel") {
-                    // TODO: This shouldn't save blank items.
-                    presentationMode.wrappedValue.dismiss()
-                }.padding()
+//                Button("Cancel") {
+//                    // TODO: This shouldn't save blank items.
+//                    presentationMode.wrappedValue.dismiss()
+//                }.padding()
             }
             .padding(.vertical)
             VStack {
                 Text("Selected Category").font(.title)
-                Text(selectedCategory.name ?? "None Selected")
+                Text(selectedCategory?.name ?? "None Selected").font(.body)
             }
         }
         
