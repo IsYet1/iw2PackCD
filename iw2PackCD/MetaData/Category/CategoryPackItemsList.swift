@@ -51,15 +51,13 @@ func mapPackItemNames (packItems: [PackItem]) -> [String] {
 }
 
 func getPackItemNames(category: Category) -> [String] {
-    guard let packItemSet = category.packitems, let packItemAry = packItemSet.allObjects as? [PackItem]
+    guard let packItemSet = category.packitems,
+          let packItemAry = packItemSet.allObjects as? [PackItem]
         else { return ["No Items"] }
     let mappedNames = mapPackItemNames(packItems: packItemAry)
-//    return mappedNames
-    let names = getCategoryPackItemsCount(category: category) == 0
+    return getCategoryPackItemsCount(category: category) == 0
     ? ["None"]
     : mappedNames
-    
-    return names
 }
 
 struct CategoryPackItemsList_Previews: PreviewProvider {
