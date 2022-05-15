@@ -51,6 +51,7 @@ func mapPackItemNames (packItems: [PackItem]) -> [String] {
 }
 
 func getPackItemNames(category: Category) -> [String] {
+    // TODO: Streamline this.
     guard let packItemSet = category.packitems,
           let packItemAry = packItemSet.allObjects as? [PackItem]
         else { return ["No Items"] }
