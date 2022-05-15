@@ -10,4 +10,10 @@ import CoreData
 
 extension PackItem: BaseModel {
     
-}
+    static func mapPackItemNames (packItems: [PackItem]) -> [String] {
+        let names = packItems.compactMap({packItem in
+            return packItem.name
+        })
+        return names
+    }
+ }

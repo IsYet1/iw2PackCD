@@ -18,5 +18,6 @@ class PackItemFormViewModel: ObservableObject {
         try? packItem.save()
         print("Category \(category.name!) - Item \(packItem.name!)")
         category.addToPackitems(packItem)
+        try? category.save()
     }
 }

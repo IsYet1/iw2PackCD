@@ -23,42 +23,18 @@ struct CategoryPackItemsList: View {
 struct PackItemsCell: View {
     let category: Category
     var body: some View {
-        Text("Category pack items here \(getCategoryPackItemsCount(category: category))")
+        Text("Category pack items here \(category.getCategoryPackItemsCount(category: category))")
     }
 }
 
 struct ListPackItems: View {
     let category: Category
     var body: some View {
-        let names = getPackItemNames(category: category)
-        List(names, id: \.self) {name in
+        let names1 = category.getPackItemNames(category: category)
+        List(names1, id: \.self) {name in
             Text(name)
         }
     }
-}
-
-func getCategoryPackItemsCount (category: Category) -> Int {
-    let packItems = category.packitems
-    let count = packItems?.count ?? 0
-    return count
-}
-
-func mapPackItemNames (packItems: [PackItem]) -> [String] {
-    let names = packItems.compactMap({packItem in
-        return packItem.name
-    })
-    return names
-}
-
-func getPackItemNames(category: Category) -> [String] {
-    // TODO: Streamline this.
-    guard let packItemSet = category.packitems,
-          let packItemAry = packItemSet.allObjects as? [PackItem]
-        else { return ["No Items"] }
-    let mappedNames = mapPackItemNames(packItems: packItemAry)
-    return getCategoryPackItemsCount(category: category) == 0
-    ? ["None"]
-    : mappedNames
 }
 
 struct CategoryPackItemsList_Previews: PreviewProvider {
