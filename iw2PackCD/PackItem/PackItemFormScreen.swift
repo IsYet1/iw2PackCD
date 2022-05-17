@@ -16,13 +16,13 @@ struct PackItemFormScreen: View {
     
     @State var selectedCategory: Category?
     
-    @StateObject private var formVM = PackItemFormViewModel()
+    @StateObject private var packItemFormVM = PackItemFormViewModel()
     
     var body: some View {
         VStack {
             Text("Add a Pack Item")
                 .font(.title)
-            TextField("Pack Item Name", text: $formVM.name)
+            TextField("Pack Item Name", text: $packItemFormVM.name)
                 .padding(.all, 30.0)
             Picker("", selection: $selectedCategory) {
                 ForEach(categories, id: \.self) {(category: Category ) in
@@ -31,7 +31,7 @@ struct PackItemFormScreen: View {
             }
             HStack {
                 Button("Save") {
-                    formVM.save(category: selectedCategory!)
+                    packItemFormVM.save(category: selectedCategory!)
                     presentationMode.wrappedValue.dismiss()
                 }.padding()
 //                Button("Cancel") {
