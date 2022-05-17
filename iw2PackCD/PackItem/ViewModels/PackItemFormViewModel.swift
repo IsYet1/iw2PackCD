@@ -14,10 +14,8 @@ class PackItemFormViewModel: ObservableObject {
     func save(category: Category) {
         let packItem = PackItem(context: PackItem.viewContext)
         packItem.name = name
+        packItem.category = category
         
         try? packItem.save()
-        print("Category \(category.name!) - Item \(packItem.name!)")
-        category.addToPackitems(packItem)
-        try? category.save()
     }
 }
