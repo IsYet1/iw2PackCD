@@ -14,6 +14,10 @@ extension PackItem: BaseModel {
         return name ?? "Not Set"
     }
     
+    var packItemCategory: Category {
+        return category!
+    }
+    
     var categoryName: String {
         return category?.name ?? "Not Set"
     }

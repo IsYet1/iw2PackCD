@@ -61,7 +61,7 @@ struct PackItemListCell: View {
     var body: some View {
         VStack {
             NavigationLink {
-                //                PackItemEditScreen(packItemVM: PackItemViewModel(packItem: item))
+//                PackItemEditScreen(packItem: PackItemViewModel(packItem: item))
                 PackItemEditScreen(packItem: item)
                 //                Text("\(item.packItemName!)")
             } label: {

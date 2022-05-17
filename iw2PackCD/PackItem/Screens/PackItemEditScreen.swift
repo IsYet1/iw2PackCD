@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct PackItemEditScreen: View {
-    let packItem: PackItem
-    @State private var itemName = ""
+//    let packItem: PackItem
+//    let packItem: PackItemViewModel
+    @State private var itemName: String
+    @State private var category: Category
+    
+    init(packItem: PackItem) {
+        itemName = packItem.packItemName
+        category = packItem.packItemCategory
+    }
     
     @State private var packItemName = ""
     var body: some View {
@@ -17,7 +24,8 @@ struct PackItemEditScreen: View {
             Form {
                 TextField("Item Name", text: $itemName)
             }
-            Text(packItem.packItemName)
+            Text(itemName) // packItemName)
+            Text(category.name!) // packItemName)
             Spacer()
         }
     }
