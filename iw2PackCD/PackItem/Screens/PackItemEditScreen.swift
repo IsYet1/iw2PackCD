@@ -12,10 +12,12 @@ struct PackItemEditScreen: View {
 //    let packItem: PackItemViewModel
     @State private var itemName: String
     @State private var category: Category
+    @State private var formPackItem: PackItem
     
     init(packItem: PackItem) {
         itemName = packItem.packItemName
         category = packItem.packItemCategory
+        formPackItem = packItem
     }
     
     @State private var packItemName = ""
@@ -24,9 +26,19 @@ struct PackItemEditScreen: View {
             Form {
                 TextField("Item Name", text: $itemName)
             }
+            HStack {
+                Button("Save") {
+                    formPackItem.setValue(itemName, forKey: "name")
+                    try? formPackItem.save()
+                }.padding()
+//                Button("Cancel") {
+//                    // TODO: This shouldn't save blank items.
+//                    presentationMode.wrappedValue.dismiss()
+//                }.padding()
+            }
+//            Spacer()
             Text(itemName) // packItemName)
             Text(category.name!) // packItemName)
-            Spacer()
         }
     }
 }
