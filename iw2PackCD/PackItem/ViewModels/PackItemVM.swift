@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-struct PackItemViewModel {
+struct PackItemVM {
     let packItem: PackItem
     
     var packItemId: NSManagedObjectID { return packItem.objectID }

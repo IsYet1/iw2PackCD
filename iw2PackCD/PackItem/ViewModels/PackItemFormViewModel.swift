@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 class PackItemFormViewModel: ObservableObject {
-    var name: String = "init"
+    var name: String = ""
     
     func save(category: Category) {
         let packItem = PackItem(context: PackItem.viewContext)

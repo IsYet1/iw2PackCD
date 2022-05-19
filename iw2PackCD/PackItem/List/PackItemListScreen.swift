@@ -12,6 +12,8 @@ struct PackItemListScreen: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State private var showForm: Bool = false
     
+    @StateObject private var packItemListVm = PackItemListVM()
+    
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \PackItem.name, ascending: true)],
         animation: .default)
@@ -20,8 +22,9 @@ struct PackItemListScreen: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(items) { item in
-                    PackItemListCell(item: item)
+                ForEach(packItemListVm.packItems, id: \.packItemId) { item in
+                    //                    PackItemListCell(item: item)
+                    Text(item.name)
                 }
                 .onDelete(perform: deleteItems)
             }
@@ -38,6 +41,9 @@ struct PackItemListScreen: View {
             }
             .sheet(isPresented: $showForm, content: {
                 PackItemFormScreen()
+            })
+            .onAppear(perform: {
+                packItemListVm.getAllPackItems()
             })
         }
     }
@@ -61,9 +67,8 @@ struct PackItemListCell: View {
     var body: some View {
         VStack {
             NavigationLink {
-//                PackItemEditScreen(packItem: PackItemViewModel(packItem: item))
+                //                PackItemEditScreen(packItem: PackItemViewModel(packItem: item))
                 PackItemEditScreen(packItem: item)
-                //                Text("\(item.packItemName!)")
             } label: {
                 Text(item.packItemName)
             }
