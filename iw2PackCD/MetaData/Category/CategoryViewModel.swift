@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-struct CategoryViewModel {
+struct CategoryViewModel: Hashable {
     let category: Category
     
     var categoryId: NSManagedObjectID { return category.objectID }
