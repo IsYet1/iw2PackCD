@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PackItemFormScreen: View {
+struct PackItemAddScreen: View {
     @Environment(\.presentationMode) var presentationMode
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Category.name, ascending: true)]
@@ -16,7 +16,7 @@ struct PackItemFormScreen: View {
     
     @State var selectedCategory: Category?
     
-    @StateObject private var packItemFormVM = PackItemFormViewModel()
+    @StateObject private var packItemFormVM = PackItemAddViewModel()
     
     var body: some View {
         VStack {
@@ -31,7 +31,8 @@ struct PackItemFormScreen: View {
             }
             HStack {
                 Button("Save") {
-                    packItemFormVM.save(category: selectedCategory!)
+                    packItemFormVM.save()
+//                    packItemFormVM.save(category: selectedCategory!)
                     presentationMode.wrappedValue.dismiss()
                 }.padding()
 //                Button("Cancel") {
@@ -51,7 +52,7 @@ struct PackItemFormScreen: View {
 
 struct PackItemFormScreen_Previews: PreviewProvider {
     static var previews: some View {
-        PackItemFormScreen()
+        PackItemAddScreen()
     }
 }
 

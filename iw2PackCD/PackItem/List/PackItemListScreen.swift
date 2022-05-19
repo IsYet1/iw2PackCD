@@ -39,12 +39,13 @@ struct PackItemListScreen: View {
                     }
                 }
             }
-            .sheet(isPresented: $showForm, content: {
-                PackItemFormScreen()
-            })
             .onAppear(perform: {
                 packItemListVm.getAllPackItems()
             })
+            .sheet(isPresented: $showForm,
+               onDismiss: { packItemListVm.getAllPackItems() },
+               content: { AddPackItemScreen() }
+            )
         }
     }
     

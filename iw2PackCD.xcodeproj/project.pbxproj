@@ -11,6 +11,7 @@
 		A5174DF328248AF4004DC2A1 /* LocationFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5174DF228248AF4004DC2A1 /* LocationFormViewModel.swift */; };
 		A5174DF528248BB2004DC2A1 /* Location+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5174DF428248BB2004DC2A1 /* Location+Extension.swift */; };
 		A53717B82836D87D00185FE3 /* PackItemListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53717B72836D87D00185FE3 /* PackItemListVM.swift */; };
+		A53717BC2836F88B00185FE3 /* AddPackItemScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53717BB2836F88B00185FE3 /* AddPackItemScreen.swift */; };
 		A54703382833194400659AA6 /* PackItemEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54703372833194400659AA6 /* PackItemEditScreen.swift */; };
 		A58AFDB02825D4140050B7A0 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AFDAF2825D4140050B7A0 /* CategoryViewModel.swift */; };
 		A58AFDB22825D4510050B7A0 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AFDB12825D4510050B7A0 /* LocationViewModel.swift */; };
@@ -30,9 +31,9 @@
 		A5EFFB5428271798003CC39F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFFB5328271798003CC39F /* CoreDataManager.swift */; };
 		A5EFFB5928272368003CC39F /* PackItemListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFFB5828272368003CC39F /* PackItemListScreen.swift */; };
 		A5EFFB5B2827266E003CC39F /* PackItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFFB5A2827266E003CC39F /* PackItemVM.swift */; };
-		A5EFFB5D282726EA003CC39F /* PackItemFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFFB5C282726EA003CC39F /* PackItemFormViewModel.swift */; };
+		A5EFFB5D282726EA003CC39F /* PackItemAddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFFB5C282726EA003CC39F /* PackItemAddViewModel.swift */; };
 		A5EFFB5F28272763003CC39F /* PackItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFFB5E28272763003CC39F /* PackItem+Extension.swift */; };
-		A5EFFB61282727B0003CC39F /* PackItemFormScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFFB60282727AF003CC39F /* PackItemFormScreen.swift */; };
+		A5EFFB61282727B0003CC39F /* PackItemAddScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFFB60282727AF003CC39F /* PackItemAddScreen.swift */; };
 		F6862BE5281DD20500B12816 /* CategoryFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6862BE4281DD20500B12816 /* CategoryFormViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		A5174DF228248AF4004DC2A1 /* LocationFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormViewModel.swift; sourceTree = "<group>"; };
 		A5174DF428248BB2004DC2A1 /* Location+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+Extension.swift"; sourceTree = "<group>"; };
 		A53717B72836D87D00185FE3 /* PackItemListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemListVM.swift; sourceTree = "<group>"; };
+		A53717BB2836F88B00185FE3 /* AddPackItemScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPackItemScreen.swift; sourceTree = "<group>"; };
 		A54703372833194400659AA6 /* PackItemEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemEditScreen.swift; sourceTree = "<group>"; };
 		A58AFDAF2825D4140050B7A0 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		A58AFDB12825D4510050B7A0 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
@@ -61,9 +63,9 @@
 		A5EFFB5328271798003CC39F /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		A5EFFB5828272368003CC39F /* PackItemListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemListScreen.swift; sourceTree = "<group>"; };
 		A5EFFB5A2827266E003CC39F /* PackItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemVM.swift; sourceTree = "<group>"; };
-		A5EFFB5C282726EA003CC39F /* PackItemFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemFormViewModel.swift; sourceTree = "<group>"; };
+		A5EFFB5C282726EA003CC39F /* PackItemAddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemAddViewModel.swift; sourceTree = "<group>"; };
 		A5EFFB5E28272763003CC39F /* PackItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PackItem+Extension.swift"; sourceTree = "<group>"; };
-		A5EFFB60282727AF003CC39F /* PackItemFormScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemFormScreen.swift; sourceTree = "<group>"; };
+		A5EFFB60282727AF003CC39F /* PackItemAddScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemAddScreen.swift; sourceTree = "<group>"; };
 		F6862BE4281DD20500B12816 /* CategoryFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFormViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,10 +101,19 @@
 			path = List;
 			sourceTree = "<group>";
 		};
+		A53717BA2836F73C00185FE3 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				A5EFFB60282727AF003CC39F /* PackItemAddScreen.swift */,
+				A5EFFB5C282726EA003CC39F /* PackItemAddViewModel.swift */,
+				A53717BB2836F88B00185FE3 /* AddPackItemScreen.swift */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
 		A57851E628345AF1006492D1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				A5EFFB60282727AF003CC39F /* PackItemFormScreen.swift */,
 				A54703372833194400659AA6 /* PackItemEditScreen.swift */,
 			);
 			path = Screens;
@@ -112,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				A5EFFB5A2827266E003CC39F /* PackItemVM.swift */,
-				A5EFFB5C282726EA003CC39F /* PackItemFormViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -200,6 +210,7 @@
 		A5EFFB5728272310003CC39F /* PackItem */ = {
 			isa = PBXGroup;
 			children = (
+				A53717BA2836F73C00185FE3 /* Add */,
 				A53717B62836D82100185FE3 /* List */,
 				A57851E628345AF1006492D1 /* Screens */,
 				A57851E728345B0B006492D1 /* ViewModels */,
@@ -288,17 +299,18 @@
 				A5D8EBB6281A088A00D5CC0B /* StartView.swift in Sources */,
 				A5B583DC28319F250093E808 /* CategoryPackItemsList.swift in Sources */,
 				A5EFFB5F28272763003CC39F /* PackItem+Extension.swift in Sources */,
-				A5EFFB61282727B0003CC39F /* PackItemFormScreen.swift in Sources */,
+				A5EFFB61282727B0003CC39F /* PackItemAddScreen.swift in Sources */,
 				A58AFDB22825D4510050B7A0 /* LocationViewModel.swift in Sources */,
 				A58AFDB02825D4140050B7A0 /* CategoryViewModel.swift in Sources */,
 				A53717B82836D87D00185FE3 /* PackItemListVM.swift in Sources */,
 				A5EFFB5928272368003CC39F /* PackItemListScreen.swift in Sources */,
 				A5174DF328248AF4004DC2A1 /* LocationFormViewModel.swift in Sources */,
 				A59AD718281CA20300EDCD8E /* CategoryFormScreen.swift in Sources */,
+				A53717BC2836F88B00185FE3 /* AddPackItemScreen.swift in Sources */,
 				A59486F32817578900C34782 /* iw2PackCD.xcdatamodeld in Sources */,
 				A5174DF528248BB2004DC2A1 /* Location+Extension.swift in Sources */,
 				F6862BE5281DD20500B12816 /* CategoryFormViewModel.swift in Sources */,
-				A5EFFB5D282726EA003CC39F /* PackItemFormViewModel.swift in Sources */,
+				A5EFFB5D282726EA003CC39F /* PackItemAddViewModel.swift in Sources */,
 				A59AD713281CA02B00EDCD8E /* BaseModel.swift in Sources */,
 				A5EFFB522827175C003CC39F /* CoreDataManagerCloudKit.swift in Sources */,
 				A59486E72817578800C34782 /* iw2PackCDApp.swift in Sources */,
