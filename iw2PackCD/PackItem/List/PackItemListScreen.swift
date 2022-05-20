@@ -72,9 +72,6 @@ struct PackItemListCell: View {
             } label: {
                 PackItemRow(packItem: item)
             }
-//            .onDisappear(perform: {
-//                packItemListVM.getAllPackItems()
-//            })
         }
     }
 }
@@ -86,7 +83,7 @@ struct PackItemRow: View {
         HStack {
             Text(packItem.name ?? "")
             Spacer()
-//            Text(item.categoryName)
+            Text(packItem.category?.name ?? "No category")
         }
     }
 }
