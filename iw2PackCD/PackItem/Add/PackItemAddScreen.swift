@@ -31,7 +31,7 @@ struct PackItemAddScreen: View {
             }
             HStack {
                 Button("Save") {
-                    packItemFormVM.save()
+                    packItemFormVM.save(category: selectedCategory!)
 //                    packItemFormVM.save(category: selectedCategory!)
                     presentationMode.wrappedValue.dismiss()
                 }.padding()

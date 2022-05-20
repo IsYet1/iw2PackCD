@@ -38,9 +38,9 @@ struct PackItemListScreenFR: View {
                     }
                 }
             }
-            .sheet(isPresented: $showForm, content: {
-                PackItemAddScreen()
-            })
+            .sheet(isPresented: $showForm,
+                   content: { PackItemAddScreen() }
+            )
         }
     }
     

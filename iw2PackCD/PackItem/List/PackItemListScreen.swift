@@ -23,12 +23,11 @@ struct PackItemListScreen: View {
         NavigationView {
             List {
                 ForEach(packItemListVm.packItems, id: \.packItemId) { item in
-                    //                    PackItemListCell(item: item)
-                    Text(item.name)
+                    PackItemListCell(item: item.packItem, packItemListVM: packItemListVm)
                 }
                 .onDelete(perform: deleteItems)
             }
-            .navigationTitle("Pack Items")
+            .navigationTitle("Pack Items VM")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
@@ -44,7 +43,7 @@ struct PackItemListScreen: View {
             })
             .sheet(isPresented: $showForm,
                onDismiss: { packItemListVm.getAllPackItems() },
-               content: { AddPackItemScreen() }
+               content: { PackItemAddScreen() }
             )
         }
     }
@@ -65,15 +64,29 @@ struct PackItemListScreen: View {
 
 struct PackItemListCell: View {
     let item: PackItem
+    let packItemListVM: PackItemListVM
     var body: some View {
         VStack {
             NavigationLink {
-                //                PackItemEditScreen(packItem: PackItemViewModel(packItem: item))
                 PackItemEditScreen(packItem: item)
             } label: {
-                Text(item.packItemName)
+                PackItemRow(packItem: item)
             }
-            Text(item.categoryName)
+//            .onDisappear(perform: {
+//                packItemListVM.getAllPackItems()
+//            })
+        }
+    }
+}
+
+struct PackItemRow: View {
+    @ObservedObject var packItem: PackItem
+    
+    var body: some View {
+        HStack {
+            Text(packItem.name ?? "")
+            Spacer()
+//            Text(item.categoryName)
         }
     }
 }

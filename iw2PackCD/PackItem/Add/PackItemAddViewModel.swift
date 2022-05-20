@@ -11,11 +11,11 @@ import CoreData
 class PackItemAddViewModel: ObservableObject {
     var name: String = ""
     
-    func save() {
-//    func save(category: Category) {
+//    func save() {
+    func save(category: Category) {
         let packItem = PackItem(context: PackItem.viewContext)
         packItem.name = name
-//        packItem.category = category
+        packItem.category = category
         
         try? packItem.save()
     }

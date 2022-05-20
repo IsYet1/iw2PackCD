@@ -25,14 +25,14 @@ struct AddPackItemScreen: View {
                 .padding(.all, 30.0)
             Picker("", selection: $selectedCategory) {
                 ForEach($categoryListVM.categories, id: \.categoryId) {($category) in
-                    Text(category.name).tag(category)
+//                    Text(category.name).tag(category)
                 }
             }
         }
         HStack {
             Spacer()
             Button("Save") {
-                addPackItemVM.save()
+//                addPackItemVM.save()
                 presentationMode.wrappedValue.dismiss()
             }
             Spacer()

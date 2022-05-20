@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 // TODO: Why do I need this Delegate here? Not in Movies. See fetchedResultController line commented out below
-class PackItemListVM: NSObject, ObservableObject, NSFetchedResultsControllerDelegate  {
+class PackItemListVM: NSObject, ObservableObject   {
     @Published var packItems = [PackItemVM]()
     
     private var fetchedResultsController: NSFetchedResultsController<PackItem>!
@@ -25,6 +25,15 @@ class PackItemListVM: NSObject, ObservableObject, NSFetchedResultsControllerDele
         try? fetchedResultsController.performFetch()
         DispatchQueue.main.async {
             self.packItems = (self.fetchedResultsController.fetchedObjects ?? []).map(PackItemVM.init)
+        }
+    }
+}
+
+extension PackItemListVM: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        DispatchQueue.main.async {
+            self.packItems = (controller.fetchedObjects as? [PackItem] ?? []).map(PackItemVM.init)
+            print(self.packItems)
         }
     }
 }
