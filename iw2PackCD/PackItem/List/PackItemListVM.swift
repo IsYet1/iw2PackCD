@@ -14,7 +14,7 @@ class PackItemListVM: NSObject, ObservableObject   {
     private var fetchedResultsController: NSFetchedResultsController<PackItem>!
     
     func getAllPackItems() {
-        print("getAllPackItems")
+//        print("getAllPackItems")
         let request: NSFetchRequest<PackItem> = PackItem.fetchRequest()
         
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
@@ -33,7 +33,7 @@ extension PackItemListVM: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         DispatchQueue.main.async {
             self.packItems = (controller.fetchedObjects as? [PackItem] ?? []).map(PackItemVM.init)
-            print(self.packItems)
+//            print(self.packItems)
         }
     }
 }

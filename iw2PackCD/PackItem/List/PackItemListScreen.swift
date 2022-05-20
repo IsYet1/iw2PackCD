@@ -15,6 +15,11 @@ struct PackItemListScreen: View {
     @StateObject private var packItemListVm = PackItemListVM()
     
     @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Category.name, ascending: true)]
+    )
+    private var categories: FetchedResults<Category>
+    
+    @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \PackItem.name, ascending: true)],
         animation: .default)
     private var items: FetchedResults<PackItem>
