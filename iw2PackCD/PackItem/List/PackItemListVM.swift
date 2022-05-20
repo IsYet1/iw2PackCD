@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 // TODO: Why do I need this Delegate here? Not in Movies. See fetchedResultController line commented out below
-class PackItemListVM: NSObject, ObservableObject  {
+class PackItemListVM: NSObject, ObservableObject, NSFetchedResultsControllerDelegate  {
     @Published var packItems = [PackItemVM]()
     
     private var fetchedResultsController: NSFetchedResultsController<PackItem>!
@@ -19,8 +19,8 @@ class PackItemListVM: NSObject, ObservableObject  {
         
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: CoreDataManager.shared.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-//        fetchedResultsController.delegate = self
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: PersistenceController.shared.container.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
         
         try? fetchedResultsController.performFetch()
         DispatchQueue.main.async {

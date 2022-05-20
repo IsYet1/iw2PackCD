@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct PackItemListScreen: View {
+struct PackItemListScreenFR: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     @State private var showForm: Bool = false
     
-    @StateObject private var packItemListVm = PackItemListVM()
+//    @StateObject private var packItemListVm = PackItemListVM()
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \PackItem.name, ascending: true)],
@@ -22,13 +22,12 @@ struct PackItemListScreen: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(packItemListVm.packItems, id: \.packItemId) { item in
-                    //                    PackItemListCell(item: item)
-                    Text(item.name)
+                ForEach(items) { item in
+                    PackItemListCellFR(item: item)
                 }
                 .onDelete(perform: deleteItems)
             }
-            .navigationTitle("Pack Items")
+            .navigationTitle("Pack Items FR")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
@@ -39,13 +38,9 @@ struct PackItemListScreen: View {
                     }
                 }
             }
-            .onAppear(perform: {
-                packItemListVm.getAllPackItems()
+            .sheet(isPresented: $showForm, content: {
+                PackItemAddScreen()
             })
-            .sheet(isPresented: $showForm,
-               onDismiss: { packItemListVm.getAllPackItems() },
-               content: { AddPackItemScreen() }
-            )
         }
     }
     
@@ -63,23 +58,23 @@ struct PackItemListScreen: View {
     }
 }
 
-struct PackItemListCell: View {
+struct PackItemListCellFR: View {
     let item: PackItem
     var body: some View {
         VStack {
             NavigationLink {
-                //                PackItemEditScreen(packItem: PackItemViewModel(packItem: item))
-                PackItemEditScreen(packItem: item)
+                Text("Item at \(item.name!)")
             } label: {
-                Text(item.packItemName)
+                Text(item.name!)
             }
-            Text(item.categoryName)
+            Text(item.category?.name ?? "No Category")
         }
     }
 }
 
-//struct PackItemListScreen_Previews: PreviewProvider {
+//struct PackItemListScreenFR_Previews: PreviewProvider {
 //    static var previews: some View {
-//        PackItemListScreen()
+//        PackItemListScreenFR()
 //    }
 //}
+//

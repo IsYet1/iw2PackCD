@@ -9,6 +9,10 @@ import Foundation
 import CoreData
 import SwiftUI
 
+// For example only. Use the Persistence class for actual functionality.
+// Using both classes causes the ManagedObjectController to be overwritten and breaks the app.
+// In place of: CoreDataManager.shared.viewContext
+// Use          PersistenceController.shared.container.viewContext
 class CoreDataManager {
     
     let persistentContainer: NSPersistentContainer
