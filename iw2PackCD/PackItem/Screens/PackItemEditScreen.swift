@@ -43,10 +43,10 @@ struct PackItemEditScreen: View {
     }
 }
 
-struct PackItemEditScreen_Previews: PreviewProvider {
-    static var previews: some View {
-//        let packItem = PackItemViewModel(packItem: PackItem(context: PackItem.viewContext))
-        let packItem = PackItem(context: PackItem.viewContext)
-        PackItemEditScreen(packItem: packItem)
-    }
-}
+//struct PackItemEditScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+////        let packItem = PackItemViewModel(packItem: PackItem(context: PackItem.viewContext))
+//        let packItem = PackItem(context: PackItem.viewContext)
+//        PackItemEditScreen(packItem: packItem)
+//    }
+//}

@@ -24,11 +24,7 @@ struct PackItemAddScreen: View {
                 .font(.title)
             TextField("Pack Item Name", text: $packItemFormVM.name)
                 .padding(.all, 30.0)
-            Picker("", selection: $selectedCategory) {
-                ForEach(categories, id: \.self) {(category: Category ) in
-                    Text(category.name!).tag(category as Category?)
-                }
-            }
+            CategoryPicker(selectedCategory: $selectedCategory)
             HStack {
                 Button("Save") {
                     packItemFormVM.save(category: selectedCategory!)
@@ -50,9 +46,27 @@ struct PackItemAddScreen: View {
     }
 }
 
-struct PackItemFormScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        PackItemAddScreen()
+struct CategoryPicker: View {
+    @Binding var selectedCategory: Category?
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Category.name, ascending: true)]
+    )
+    private var categoriesFR: FetchedResults<Category>
+    
+    var body: some View {
+        Text("In the Category Picker")
+        Picker("", selection: $selectedCategory) {
+            ForEach(categoriesFR, id: \.self) {(category: Category ) in
+                Text(category.name!).tag(category as Category?)
+            }
+        }
     }
 }
+
+//struct PackItemFormScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PackItemAddScreen()
+//    }
+//}
 

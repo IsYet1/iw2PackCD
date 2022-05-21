@@ -70,6 +70,7 @@ struct PackItemListScreen: View {
 struct PackItemListCell: View {
     let item: PackItem
     let packItemListVM: PackItemListVM
+    
     var body: some View {
         VStack {
             NavigationLink {
