@@ -19,7 +19,6 @@ class PackItemAddViewModel: ObservableObject {
     
 //    func save() {
     func save(category: Category) {
-//        let packItem = PackItem(context: PackItem.viewContext)
         vmPackItem = PackItem(context: PackItem.viewContext)
         vmPackItem.name = name
         vmPackItem.category = category

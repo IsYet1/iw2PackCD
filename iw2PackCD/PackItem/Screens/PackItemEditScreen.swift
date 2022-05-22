@@ -15,6 +15,7 @@ struct PackItemEditScreen: View {
     @State private var formPackItem: PackItem
     @State var selectedCategory: Category?
     
+    
     init(packItem: PackItem) {
         itemName = packItem.packItemName
         category = packItem.packItemCategory
@@ -28,9 +29,9 @@ struct PackItemEditScreen: View {
             CategoryPicker(selectedCategory: $selectedCategory)
             HStack {
                 Button("Save") {
-                    formPackItem.setValue(itemName, forKey: "name")
-                    formPackItem.setValue($selectedCategory, forKey: "category")
-                    try? formPackItem.save()
+                    let vmForSave = PackItemAddViewModel(packItemIn: formPackItem)
+                    vmForSave.name = itemName
+                    vmForSave.save(category: selectedCategory!)
                 }.padding()
 //                Button("Cancel") {
 //                    // TODO: This shouldn't save blank items.
