@@ -20,12 +20,14 @@ struct PackItemEditScreen: View {
         itemName = packItem.packItemName
         category = packItem.packItemCategory
         formPackItem = packItem
+        selectedCategory = packItem.category
     }
     
     @State private var packItemName = ""
     var body: some View {
         VStack {
             TextField("Item Name", text: $itemName)
+                .padding(.all, 30.0)
             CategoryPicker(selectedCategory: $selectedCategory)
             HStack {
                 Button("Save") {
