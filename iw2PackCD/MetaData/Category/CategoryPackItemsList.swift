@@ -37,9 +37,9 @@ struct ListPackItems: View {
     }
 }
 
-struct CategoryPackItemsList_Previews: PreviewProvider {
-    static var previews: some View {
-        let category = Category(context: Category.viewContext)
-        CategoryPackItemsList(category: category)
-    }
-}
+//struct CategoryPackItemsList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let category = Category(context: Category.viewContext)
+//        CategoryPackItemsList(category: category)
+//    }
+//}

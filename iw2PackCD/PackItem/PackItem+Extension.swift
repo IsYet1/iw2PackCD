@@ -15,7 +15,7 @@ extension PackItem: BaseModel {
     }
     
     var packItemCategory: Category {
-        return category!
+        return category ?? Category(context: Category.viewContext)
     }
     
     var categoryName: String {

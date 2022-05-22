@@ -9,14 +9,10 @@ import SwiftUI
 
 struct PackItemAddScreen: View {
     @Environment(\.presentationMode) var presentationMode
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Category.name, ascending: true)]
-    )
-    private var categories: FetchedResults<Category>
     
     @State var selectedCategory: Category?
     
-    @StateObject private var packItemFormVM = PackItemAddViewModel()
+    @StateObject private var packItemFormVM = PackItemAddViewModel(packItemIn: nil)
     
     var body: some View {
         VStack {
@@ -28,13 +24,9 @@ struct PackItemAddScreen: View {
             HStack {
                 Button("Save") {
                     packItemFormVM.save(category: selectedCategory!)
-//                    packItemFormVM.save(category: selectedCategory!)
                     presentationMode.wrappedValue.dismiss()
                 }.padding()
-//                Button("Cancel") {
-//                    // TODO: This shouldn't save blank items.
-//                    presentationMode.wrappedValue.dismiss()
-//                }.padding()
+                // TODO: Add a cancel button
             }
             .padding(.vertical)
             VStack {
@@ -43,24 +35,6 @@ struct PackItemAddScreen: View {
             }
         }
         
-    }
-}
-
-struct CategoryPicker: View {
-    @Binding var selectedCategory: Category?
-    
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Category.name, ascending: true)]
-    )
-    private var categoriesFR: FetchedResults<Category>
-    
-    var body: some View {
-        Text("In the Category Picker")
-        Picker("", selection: $selectedCategory) {
-            ForEach(categoriesFR, id: \.self) {(category: Category ) in
-                Text(category.name!).tag(category as Category?)
-            }
-        }
     }
 }
 

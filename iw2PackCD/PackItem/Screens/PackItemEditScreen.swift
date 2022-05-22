@@ -13,6 +13,7 @@ struct PackItemEditScreen: View {
     @State private var itemName: String
     @State private var category: Category
     @State private var formPackItem: PackItem
+    @State var selectedCategory: Category?
     
     init(packItem: PackItem) {
         itemName = packItem.packItemName
@@ -23,12 +24,12 @@ struct PackItemEditScreen: View {
     @State private var packItemName = ""
     var body: some View {
         VStack {
-            Form {
-                TextField("Item Name", text: $itemName)
-            }
+            TextField("Item Name", text: $itemName)
+            CategoryPicker(selectedCategory: $selectedCategory)
             HStack {
                 Button("Save") {
                     formPackItem.setValue(itemName, forKey: "name")
+                    formPackItem.setValue($selectedCategory, forKey: "category")
                     try? formPackItem.save()
                 }.padding()
 //                Button("Cancel") {
