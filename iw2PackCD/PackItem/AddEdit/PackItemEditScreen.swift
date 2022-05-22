@@ -31,8 +31,8 @@ struct PackItemEditScreen: View {
             CategoryPicker(selectedCategory: $selectedCategory)
             HStack {
                 Button("Save") {
-                    let vmForSave = PackItemAddViewModel(packItemIn: formPackItem)
-                    vmForSave.name = itemName
+                    let vmForSave = PackItemEditVM(packItemIn: formPackItem)
+                    vmForSave.vmName = itemName
                     vmForSave.save(category: selectedCategory!)
                 }.padding()
 //                Button("Cancel") {

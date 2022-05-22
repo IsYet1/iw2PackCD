@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class PackItemAddViewModel: ObservableObject {
+class PackItemAddVM: ObservableObject {
     var name: String
     var vmPackItem: PackItem
     

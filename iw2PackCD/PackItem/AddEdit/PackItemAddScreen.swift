@@ -12,7 +12,7 @@ struct PackItemAddScreen: View {
     
     @State var selectedCategory: Category?
     
-    @StateObject private var packItemFormVM = PackItemAddViewModel(packItemIn: nil)
+    @StateObject private var packItemFormVM = PackItemAddVM(packItemIn: nil)
     
     var body: some View {
         VStack {
