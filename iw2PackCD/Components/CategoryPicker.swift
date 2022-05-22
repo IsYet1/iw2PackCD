@@ -16,7 +16,6 @@ struct CategoryPicker: View {
     private var categoriesFR: FetchedResults<Category>
     
     var body: some View {
-        Text("In the Category Picker")
         Picker("", selection: $selectedCategory) {
             ForEach(categoriesFR, id: \.self) {(category: Category ) in
                 Text(category.name ?? "").tag(category as Category?)

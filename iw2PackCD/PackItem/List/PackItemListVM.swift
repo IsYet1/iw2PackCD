@@ -17,7 +17,7 @@ class PackItemListVM: NSObject, ObservableObject   {
 //        print("getAllPackItems")
         let request: NSFetchRequest<PackItem> = PackItem.fetchRequest()
         
-        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: false)]
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: PersistenceController.shared.container.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self

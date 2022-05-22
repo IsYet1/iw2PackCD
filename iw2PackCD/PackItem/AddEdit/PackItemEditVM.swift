@@ -9,9 +9,9 @@ import Foundation
 import CoreData
 
 class PackItemEditVM: ObservableObject {
-    var vmName: String
     var vmPackItem: PackItem
-    var vmCategory: Category
+    @Published var vmName: String
+    @Published var vmCategory: Category
     
     init(packItemIn: PackItem) {
         vmPackItem = packItemIn
@@ -20,9 +20,9 @@ class PackItemEditVM: ObservableObject {
     }
     
 //    func save() {
-    func save(category: Category) {
+    func save() {
         vmPackItem.name = vmName
-        vmPackItem.category = category
+        vmPackItem.category = vmCategory
         
         try? vmPackItem.save()
     }

@@ -20,7 +20,7 @@ struct PackItemListScreen: View {
     private var categories: FetchedResults<Category>
     
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \PackItem.name, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \PackItem.name, ascending: false)],
         animation: .default)
     private var items: FetchedResults<PackItem>
     
@@ -28,7 +28,7 @@ struct PackItemListScreen: View {
         NavigationView {
             List {
                 ForEach(packItemListVm.packItems, id: \.packItemId) { item in
-                    PackItemListCell(item: item.packItem, packItemListVM: packItemListVm)
+                    PackItemListCell(item: item.packItem)
                 }
                 .onDelete(perform: deleteItems)
             }
@@ -69,12 +69,11 @@ struct PackItemListScreen: View {
 
 struct PackItemListCell: View {
     let item: PackItem
-    let packItemListVM: PackItemListVM
     
     var body: some View {
         VStack {
             NavigationLink {
-                PackItemEditScreen(packItem: item)
+                PackItemEditScreen(packItem: item, editItemVM: PackItemEditVM(packItemIn: item))
             } label: {
                 PackItemRow(packItem: item)
             }

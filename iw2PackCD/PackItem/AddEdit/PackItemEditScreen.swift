@@ -14,36 +14,45 @@ struct PackItemEditScreen: View {
     @State private var category: Category
     @State private var formPackItem: PackItem
     @State var selectedCategory: Category?
+    @FocusState private var focusTextField: Bool
     
     
-    init(packItem: PackItem) {
+    init(packItem: PackItem, editItemVM: PackItemEditVM) {
         itemName = packItem.packItemName
         category = packItem.packItemCategory
         formPackItem = packItem
-        selectedCategory = packItem.category
+        selectedCategory = editItemVM.vmCategory // packItem.category
+        focusTextField = true
     }
     
     @State private var packItemName = ""
     var body: some View {
         VStack {
             TextField("Item Name", text: $itemName)
-                .padding(.all, 30.0)
+                .padding(.leading, 20.0)
+                .padding(.trailing, 20.0)
+                .focused($focusTextField)
+                .textFieldStyle(.roundedBorder)
+            HStack {
+                Text(category.name!)
+                Spacer()
+            }.padding(.leading, 30.0)
+                .font(.caption)
             CategoryPicker(selectedCategory: $selectedCategory)
             HStack {
                 Button("Save") {
-                    let vmForSave = PackItemEditVM(packItemIn: formPackItem)
-                    vmForSave.vmName = itemName
-                    vmForSave.save(category: selectedCategory!)
+                    let editItemVM = PackItemEditVM(packItemIn: formPackItem)
+                    editItemVM.vmName = itemName
+                    editItemVM.vmCategory = selectedCategory!
+                    editItemVM.save()
                 }.padding()
 //                Button("Cancel") {
 //                    // TODO: This shouldn't save blank items.
 //                    presentationMode.wrappedValue.dismiss()
 //                }.padding()
             }
-//            Spacer()
-            Text(itemName) // packItemName)
-            Text(category.name!) // packItemName)
         }
+        Spacer()
     }
 }
 
