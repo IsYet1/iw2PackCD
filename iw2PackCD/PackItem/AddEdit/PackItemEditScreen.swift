@@ -22,7 +22,6 @@ struct PackItemEditScreen: View {
         category = packItem.packItemCategory
         formPackItem = packItem
         selectedCategory = editItemVM.vmCategory // packItem.category
-        focusTextField = true
     }
     
     @State private var packItemName = ""
@@ -31,7 +30,6 @@ struct PackItemEditScreen: View {
             TextField("Item Name", text: $itemName)
                 .padding(.leading, 20.0)
                 .padding(.trailing, 20.0)
-                .focused($focusTextField)
                 .textFieldStyle(.roundedBorder)
             HStack {
                 Text(category.name!)
@@ -45,11 +43,9 @@ struct PackItemEditScreen: View {
                     editItemVM.vmName = itemName
                     editItemVM.vmCategory = selectedCategory!
                     editItemVM.save()
-                }.padding()
-//                Button("Cancel") {
-//                    // TODO: This shouldn't save blank items.
-//                    presentationMode.wrappedValue.dismiss()
-//                }.padding()
+                }
+                .padding()
+                .buttonStyle(.bordered)
             }
         }
         Spacer()
