@@ -47,8 +47,8 @@ struct PackItemListScreen: View {
                 packItemListVm.getAllPackItems()
             })
             .sheet(isPresented: $showForm,
-               onDismiss: { packItemListVm.getAllPackItems() },
-               content: { PackItemAddScreen() }
+                   onDismiss: { packItemListVm.getAllPackItems() },
+                   content: { PackItemAddScreen() }
             )
         }
     }
@@ -72,11 +72,11 @@ struct PackItemListCell: View {
     
     var body: some View {
         VStack {
-            NavigationLink {
-                PackItemEditScreen(packItem: item, editItemVM: PackItemEditVM(packItemIn: item))
-            } label: {
-                PackItemRow(packItem: item)
-            }
+            NavigationLink(
+                destination: PackItemEditScreen1(editItemVM: PackItemEditVM(packItemIn: item))
+//                destination: PackItemEditScreen(packItem: item, editItemVM: PackItemEditVM(packItemIn: item))
+                , label: {PackItemRow(packItem: item)}
+            )
         }
     }
 }
