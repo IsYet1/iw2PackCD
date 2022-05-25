@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct PackItemEditScreen2: View {
-    @State var editItemVM: PackItemEditVM
+    @StateObject var editItemVM: PackItemEditVM
     
     var body: some View {
         VStack {
-            Text("Edit Item").font(.headline)
+            Text("Edit a Pack Item").font(.title)
             TextField("Item Name", text: $editItemVM.vmName)
                 .padding([.leading, .trailing], 20.0)
                 .textFieldStyle(.roundedBorder)

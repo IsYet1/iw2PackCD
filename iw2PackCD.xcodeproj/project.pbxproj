@@ -12,7 +12,6 @@
 		A5174DF528248BB2004DC2A1 /* Location+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5174DF428248BB2004DC2A1 /* Location+Extension.swift */; };
 		A53717B82836D87D00185FE3 /* PackItemListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53717B72836D87D00185FE3 /* PackItemListVM.swift */; };
 		A53717BE2836FE1B00185FE3 /* CategoryListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53717BD2836FE1B00185FE3 /* CategoryListVM.swift */; };
-		A54703382833194400659AA6 /* PackItemEditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54703372833194400659AA6 /* PackItemEditScreen.swift */; };
 		A58AFDB02825D4140050B7A0 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AFDAF2825D4140050B7A0 /* CategoryViewModel.swift */; };
 		A58AFDB22825D4510050B7A0 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AFDB12825D4510050B7A0 /* LocationViewModel.swift */; };
 		A59486E72817578800C34782 /* iw2PackCDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59486E62817578800C34782 /* iw2PackCDApp.swift */; };
@@ -25,7 +24,6 @@
 		A59AD718281CA20300EDCD8E /* CategoryFormScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59AD717281CA20300EDCD8E /* CategoryFormScreen.swift */; };
 		A5B583DC28319F250093E808 /* CategoryPackItemsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B583DB28319F250093E808 /* CategoryPackItemsList.swift */; };
 		A5BDCF28283ECF0C004F5C61 /* PackItemEditScreen2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BDCF27283ECF0C004F5C61 /* PackItemEditScreen2.swift */; };
-		A5D4E5C8283D9FA5009D5A04 /* PackItemEditScreen1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D4E5C7283D9FA5009D5A04 /* PackItemEditScreen1.swift */; };
 		A5D8EBB4281A07E200D5CC0B /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8EBB3281A07E200D5CC0B /* CategoryList.swift */; };
 		A5D8EBB6281A088A00D5CC0B /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8EBB5281A088A00D5CC0B /* StartView.swift */; };
 		A5D8EBB8281A0E1900D5CC0B /* LocationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8EBB7281A0E1900D5CC0B /* LocationList.swift */; };
@@ -47,7 +45,6 @@
 		A5174DF428248BB2004DC2A1 /* Location+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+Extension.swift"; sourceTree = "<group>"; };
 		A53717B72836D87D00185FE3 /* PackItemListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemListVM.swift; sourceTree = "<group>"; };
 		A53717BD2836FE1B00185FE3 /* CategoryListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListVM.swift; sourceTree = "<group>"; };
-		A54703372833194400659AA6 /* PackItemEditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemEditScreen.swift; sourceTree = "<group>"; };
 		A58AFDAF2825D4140050B7A0 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		A58AFDB12825D4510050B7A0 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		A59486E32817578800C34782 /* iw2PackCD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iw2PackCD.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,7 +58,6 @@
 		A59AD717281CA20300EDCD8E /* CategoryFormScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFormScreen.swift; sourceTree = "<group>"; };
 		A5B583DB28319F250093E808 /* CategoryPackItemsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPackItemsList.swift; sourceTree = "<group>"; };
 		A5BDCF27283ECF0C004F5C61 /* PackItemEditScreen2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemEditScreen2.swift; sourceTree = "<group>"; };
-		A5D4E5C7283D9FA5009D5A04 /* PackItemEditScreen1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemEditScreen1.swift; sourceTree = "<group>"; };
 		A5D8EBB3281A07E200D5CC0B /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		A5D8EBB5281A088A00D5CC0B /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		A5D8EBB7281A0E1900D5CC0B /* LocationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationList.swift; sourceTree = "<group>"; };
@@ -112,12 +108,10 @@
 		A53717BA2836F73C00185FE3 /* AddEdit */ = {
 			isa = PBXGroup;
 			children = (
-				A54703372833194400659AA6 /* PackItemEditScreen.swift */,
 				A5BDCF27283ECF0C004F5C61 /* PackItemEditScreen2.swift */,
 				A5EFFB60282727AF003CC39F /* PackItemAddScreen.swift */,
 				A5EFFB5C282726EA003CC39F /* PackItemAddVM.swift */,
 				F64E29AE283AD0DC0072B4FC /* PackItemEditVM.swift */,
-				A5D4E5C7283D9FA5009D5A04 /* PackItemEditScreen1.swift */,
 			);
 			path = AddEdit;
 			sourceTree = "<group>";
@@ -325,7 +319,6 @@
 				A58AFDB22825D4510050B7A0 /* LocationViewModel.swift in Sources */,
 				A58AFDB02825D4140050B7A0 /* CategoryViewModel.swift in Sources */,
 				A53717B82836D87D00185FE3 /* PackItemListVM.swift in Sources */,
-				A5D4E5C8283D9FA5009D5A04 /* PackItemEditScreen1.swift in Sources */,
 				A53717BE2836FE1B00185FE3 /* CategoryListVM.swift in Sources */,
 				A5EFFB5928272368003CC39F /* PackItemListScreen.swift in Sources */,
 				A5174DF328248AF4004DC2A1 /* LocationFormViewModel.swift in Sources */,
@@ -338,7 +331,6 @@
 				A59AD713281CA02B00EDCD8E /* BaseModel.swift in Sources */,
 				A5EFFB522827175C003CC39F /* CoreDataManagerCloudKit.swift in Sources */,
 				A59486E72817578800C34782 /* iw2PackCDApp.swift in Sources */,
-				A54703382833194400659AA6 /* PackItemEditScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
