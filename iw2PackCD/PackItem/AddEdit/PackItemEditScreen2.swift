@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PackItemEditScreen2: View {
+    @Environment(\.presentationMode) var presentationMode
     @StateObject var editItemVM: PackItemEditVM
     
     var body: some View {
@@ -22,6 +23,7 @@ struct PackItemEditScreen2: View {
             HStack {
                 Button("Save") {
                     editItemVM.save()
+                    presentationMode.wrappedValue.dismiss()
                 }
                 .padding()
                 .buttonStyle(.bordered)
