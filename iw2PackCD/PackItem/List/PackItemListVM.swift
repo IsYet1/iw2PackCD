@@ -7,7 +7,6 @@
 
 import Foundation
 import CoreData
-// TODO: Why do I need this Delegate here? Not in Movies. See fetchedResultController line commented out below
 class PackItemListVM: NSObject, ObservableObject   {
     @Published var packItems = [PackItemVM]()
     
