@@ -9,21 +9,21 @@ import Foundation
 import CoreData
 
 class PackItemEditVM: ObservableObject {
-    var vmPackItem: PackItem
+    var vmPackItem: PackItemVM
     @Published var vmName: String
-    @Published var vmCategory: Category
+    var vmCategory: Category?
     
     init(packItemIn: PackItem) {
-        vmPackItem = packItemIn
-        vmName = vmPackItem.name!
-        vmCategory = vmPackItem.category!
+        vmPackItem = PackItemVM(packItem: packItemIn)
+        vmName = vmPackItem.name
+        vmCategory = vmPackItem.category
     }
     
 //    func save() {
     func save() {
-        vmPackItem.name = vmName
-        vmPackItem.category = vmCategory
+        vmPackItem.packItem.name = vmName
+        vmPackItem.packItem.category = vmCategory
         
-        try? vmPackItem.save()
+        try? vmPackItem.packItem.save()
     }
 }

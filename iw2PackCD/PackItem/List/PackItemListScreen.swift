@@ -73,7 +73,7 @@ struct PackItemListCell: View {
     var body: some View {
         VStack {
             NavigationLink(
-                destination: PackItemEditScreen1(editItemVM: PackItemEditVM(packItemIn: item))
+                destination: PackItemEditScreen2(editItemVM: PackItemEditVM(packItemIn: item))
 //                destination: PackItemEditScreen(packItem: item, editItemVM: PackItemEditVM(packItemIn: item))
                 , label: {PackItemRow(packItem: item)}
             )

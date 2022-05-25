@@ -36,7 +36,7 @@ struct PackItemEditScreen: View {
                 Spacer()
             }.padding(.leading, 30.0)
                 .font(.caption)
-            CategoryPicker(selectedCategory: $selectedCategory)
+//            CategoryPicker(selectedCategory: $selectedCategory)
             HStack {
                 Button("Save") {
                     let editItemVM = PackItemEditVM(packItemIn: formPackItem)
