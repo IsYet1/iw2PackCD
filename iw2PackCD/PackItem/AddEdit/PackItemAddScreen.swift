@@ -11,13 +11,12 @@ struct PackItemAddScreen: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State var selectedCategory: Category?
-    
-    @StateObject private var packItemFormVM = PackItemAddVM(packItemIn: nil)
+    @State private var packItemName = ""
     
     var body: some View {
         VStack {
             Text("Add a Pack Item").font(.title)
-            TextField("Pack Item Name", text: $packItemFormVM.name)
+            TextField("Pack Item Name", text: $packItemName)
                 .padding([.leading, .trailing], 20.0)
                 .textFieldStyle(.roundedBorder)
             
@@ -25,7 +24,7 @@ struct PackItemAddScreen: View {
             
             HStack {
                 Button("Save") {
-                    packItemFormVM.save(category: selectedCategory!)
+                    PackItem.addPackItem(name: packItemName, category: selectedCategory!)
                     presentationMode.wrappedValue.dismiss()
                 }.padding()
                 .buttonStyle(.bordered)

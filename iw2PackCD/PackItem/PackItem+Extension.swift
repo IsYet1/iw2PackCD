@@ -22,6 +22,14 @@ extension PackItem: BaseModel {
         return category?.name ?? "Not Set"
     }
     
+    static func addPackItem(name: String, category: Category) {
+        let addedPackItem = PackItem(context: PackItem.viewContext)
+        addedPackItem.name = name
+        addedPackItem.category = category
+        
+        try? addedPackItem.save()
+    }
+    
     static func updatePackItem(packItem: PackItem, name: String) {
         packItem.setValue(name, forKey: "packItemName")
         try? packItem.save()
