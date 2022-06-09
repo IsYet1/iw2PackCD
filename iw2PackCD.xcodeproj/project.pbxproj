@@ -206,9 +206,9 @@
 			isa = PBXGroup;
 			children = (
 				A5CA4D4B2851686200808E29 /* EventListScreen.swift */,
+				A5B905E628516D5300E10647 /* EventListVM.swift */,
 				A5B905E828516DD500E10647 /* EventFormVM.swift */,
 				A5B905E428516C8A00E10647 /* EventFormScreen.swift */,
-				A5B905E628516D5300E10647 /* EventListVM.swift */,
 				A5CA4D4D28516A7300808E29 /* Event+Extension.swift */,
 			);
 			path = Events;

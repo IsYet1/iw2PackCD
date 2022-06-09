@@ -6,6 +6,12 @@
     </entity>
     <entity name="Event" representedClassName="Event" syncable="YES" codeGenerationType="class">
         <attribute name="name" attributeType="String" defaultValueString=""/>
+        <relationship name="eventItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventItem" inverseName="event" inverseEntity="EventItem"/>
+    </entity>
+    <entity name="EventItem" representedClassName="EventItem" syncable="YES" codeGenerationType="class">
+        <attribute name="qty" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="eventItems" inverseEntity="Event"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PackItem" inverseName="events" inverseEntity="PackItem"/>
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
         <attribute name="name" attributeType="String" defaultValueString=""/>
@@ -13,11 +19,13 @@
     <entity name="PackItem" representedClassName="PackItem" syncable="YES" codeGenerationType="class">
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="packitems" inverseEntity="Category"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventItem" inverseName="items" inverseEntity="EventItem"/>
     </entity>
     <elements>
         <element name="Category" positionX="-63" positionY="-9" width="128" height="59"/>
+        <element name="Event" positionX="-54" positionY="9" width="128" height="59"/>
         <element name="Location" positionX="-54" positionY="0" width="128" height="44"/>
-        <element name="PackItem" positionX="-63" positionY="-18" width="128" height="59"/>
-        <element name="Event" positionX="-54" positionY="9" width="128" height="44"/>
+        <element name="PackItem" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="EventItem" positionX="-54" positionY="9" width="128" height="74"/>
     </elements>
 </model>
