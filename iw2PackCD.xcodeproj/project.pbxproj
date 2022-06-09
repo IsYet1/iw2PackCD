@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A50921882852B33400BCD547 /* EventPackItemsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50921872852B33400BCD547 /* EventPackItemsList.swift */; };
+		A509218A2852BC8F00BCD547 /* EventItemAddScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50921892852BC8F00BCD547 /* EventItemAddScreen.swift */; };
 		A5174DF128248AB1004DC2A1 /* LocationFormScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5174DF028248AB1004DC2A1 /* LocationFormScreen.swift */; };
 		A5174DF328248AF4004DC2A1 /* LocationFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5174DF228248AF4004DC2A1 /* LocationFormViewModel.swift */; };
 		A5174DF528248BB2004DC2A1 /* Location+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5174DF428248BB2004DC2A1 /* Location+Extension.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A50921872852B33400BCD547 /* EventPackItemsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventPackItemsList.swift; sourceTree = "<group>"; };
+		A50921892852BC8F00BCD547 /* EventItemAddScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventItemAddScreen.swift; sourceTree = "<group>"; };
 		A5174DF028248AB1004DC2A1 /* LocationFormScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormScreen.swift; sourceTree = "<group>"; };
 		A5174DF228248AF4004DC2A1 /* LocationFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormViewModel.swift; sourceTree = "<group>"; };
 		A5174DF428248BB2004DC2A1 /* Location+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+Extension.swift"; sourceTree = "<group>"; };
@@ -123,13 +127,6 @@
 			path = AddEdit;
 			sourceTree = "<group>";
 		};
-		A57851E628345AF1006492D1 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
 		A57851E728345B0B006492D1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				A5CA4D4B2851686200808E29 /* EventListScreen.swift */,
+				A50921892852BC8F00BCD547 /* EventItemAddScreen.swift */,
+				A50921872852B33400BCD547 /* EventPackItemsList.swift */,
 				A5B905E628516D5300E10647 /* EventListVM.swift */,
 				A5B905E828516DD500E10647 /* EventFormVM.swift */,
 				A5B905E428516C8A00E10647 /* EventFormScreen.swift */,
@@ -238,7 +237,6 @@
 			children = (
 				A53717BA2836F73C00185FE3 /* AddEdit */,
 				A53717B62836D82100185FE3 /* List */,
-				A57851E628345AF1006492D1 /* Screens */,
 				A57851E728345B0B006492D1 /* ViewModels */,
 				A5EFFB5E28272763003CC39F /* PackItem+Extension.swift */,
 			);
@@ -323,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A50921882852B33400BCD547 /* EventPackItemsList.swift in Sources */,
 				F64E29AF283AD0DC0072B4FC /* PackItemEditVM.swift in Sources */,
 				A59486F02817578900C34782 /* Persistence.swift in Sources */,
 				A5B905E528516C8A00E10647 /* EventFormScreen.swift in Sources */,
@@ -331,6 +330,7 @@
 				A5B905E928516DD500E10647 /* EventFormVM.swift in Sources */,
 				A5D8EBB8281A0E1900D5CC0B /* LocationList.swift in Sources */,
 				A5174DF128248AB1004DC2A1 /* LocationFormScreen.swift in Sources */,
+				A509218A2852BC8F00BCD547 /* EventItemAddScreen.swift in Sources */,
 				A5EFFB5428271798003CC39F /* CoreDataManager.swift in Sources */,
 				A5B905E728516D5300E10647 /* EventListVM.swift in Sources */,
 				A5D8EBB4281A07E200D5CC0B /* CategoryList.swift in Sources */,

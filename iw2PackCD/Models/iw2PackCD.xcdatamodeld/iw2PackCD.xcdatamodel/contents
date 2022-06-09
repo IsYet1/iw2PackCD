@@ -9,6 +9,7 @@
         <relationship name="eventItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventItem" inverseName="event" inverseEntity="EventItem"/>
     </entity>
     <entity name="EventItem" representedClassName="EventItem" syncable="YES" codeGenerationType="class">
+        <attribute name="packed" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="qty" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Event" inverseName="eventItems" inverseEntity="Event"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PackItem" inverseName="events" inverseEntity="PackItem"/>
@@ -26,6 +27,6 @@
         <element name="Event" positionX="-54" positionY="9" width="128" height="59"/>
         <element name="Location" positionX="-54" positionY="0" width="128" height="44"/>
         <element name="PackItem" positionX="-63" positionY="-18" width="128" height="74"/>
-        <element name="EventItem" positionX="-54" positionY="9" width="128" height="74"/>
+        <element name="EventItem" positionX="-54" positionY="9" width="128" height="89"/>
     </elements>
 </model>

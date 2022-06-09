@@ -56,18 +56,18 @@ struct EventListScreen: View {
     }
 }
 
-struct EventListScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        EventListScreen()
-    }
-}
+//struct EventListScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EventListScreen()
+//    }
+//}
 
 struct EventItemCell: View {
     let item: Event
     var body: some View {
         NavigationLink {
-//            CategoryPackItemsList(category: item)
-//            Text("Item at \(item.name ?? "No Category")")
+            EventPackItemsList(event: item)
+//            Text("Item at \(item.name ?? "No Event")")
         } label: {
             Text(item.name ?? "No Event")
         }
