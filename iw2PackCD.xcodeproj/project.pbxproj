@@ -202,12 +202,12 @@
 		A5CA4D4A2851650E00808E29 /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				A5CA4D4B2851686200808E29 /* EventListScreen.swift */,
-				A50921892852BC8F00BCD547 /* EventItemAddScreen.swift */,
+				F64E1E052852C5070062EF09 /* ItemsAddEdit */,
+				F64E1E042852C4E80062EF09 /* List */,
+				F64E1E032852C4DC0062EF09 /* AddEdit */,
 				A50921872852B33400BCD547 /* EventPackItemsList.swift */,
 				A5B905E628516D5300E10647 /* EventListVM.swift */,
 				A5B905E828516DD500E10647 /* EventFormVM.swift */,
-				A5B905E428516C8A00E10647 /* EventFormScreen.swift */,
 				A5CA4D4D28516A7300808E29 /* Event+Extension.swift */,
 			);
 			path = Events;
@@ -241,6 +241,30 @@
 				A5EFFB5E28272763003CC39F /* PackItem+Extension.swift */,
 			);
 			path = PackItem;
+			sourceTree = "<group>";
+		};
+		F64E1E032852C4DC0062EF09 /* AddEdit */ = {
+			isa = PBXGroup;
+			children = (
+				A5B905E428516C8A00E10647 /* EventFormScreen.swift */,
+			);
+			path = AddEdit;
+			sourceTree = "<group>";
+		};
+		F64E1E042852C4E80062EF09 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				A5CA4D4B2851686200808E29 /* EventListScreen.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		F64E1E052852C5070062EF09 /* ItemsAddEdit */ = {
+			isa = PBXGroup;
+			children = (
+				A50921892852BC8F00BCD547 /* EventItemAddScreen.swift */,
+			);
+			path = ItemsAddEdit;
 			sourceTree = "<group>";
 		};
 		F64E29AB2839ADDC0072B4FC /* Components */ = {
