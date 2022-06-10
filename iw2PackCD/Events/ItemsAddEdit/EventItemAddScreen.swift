@@ -39,6 +39,9 @@ struct EventItemAddScreen: View {
                 .buttonStyle(.bordered)
             }
         }
+            .onAppear(perform: {
+                packItemListVm.getAllPackItems()
+            })
         Spacer()
     }
 }
