@@ -27,10 +27,6 @@ struct EventItemAddScreen: View {
                     EventItemListCell(item: item.packItem)
                 }
             }
-            TextField("Pack Item Name", text: $packItemName)
-                .padding([.leading, .trailing], 20.0)
-                .textFieldStyle(.roundedBorder)
-            
             HStack {
                 Button("Save") {
 //                    PackItem.addPackItem(name: packItemName, category: selectedCategory!)

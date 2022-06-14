@@ -12,7 +12,7 @@ struct EventItemVM {
     let eventItem: EventItem
     
     var eventItemId: NSManagedObjectID { return eventItem.objectID }
-//    var name: String { return event.name ?? "" }
-//    var packItem: PackItem { return eventItem.items ?? Event() }
+    var packItem: PackItem { return eventItem.item ?? PackItem() }
     var event: Event { return eventItem.event ?? Event() }
+    var packed: Bool { return eventItem.packed }
 }
