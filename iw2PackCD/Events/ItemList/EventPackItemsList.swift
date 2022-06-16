@@ -24,14 +24,14 @@ struct EventPackItemsList: View {
             //                    EditButton()
             //                }
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Add") {
+                Button("Add Items to this Event") {
                     self.showForm = true
                 }
             }
         }
         .sheet(isPresented: $showForm,
 //               onDismiss: { packItemListVm.getAllPackItems() },
-               content: { EventItemAddScreen() }
+               content: { EventItemAddScreen(event: event) }
         )
     }
 }

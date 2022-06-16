@@ -10,7 +10,7 @@ import CoreData
 
 extension EventItem: BaseModel {
     
-    func addEventItem(event: Event, item: PackItem) {
+    static func addEventItem(event: Event, item: PackItem) {
         let newEventItem = EventItem(context: EventItem.viewContext)
         newEventItem.event = event
         newEventItem.item = item

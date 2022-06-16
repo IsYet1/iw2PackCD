@@ -30,7 +30,7 @@ struct EventListScreen: View {
                     EditButton()
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Add") {
+                    Button("Add an Event") {
                         self.showForm = true
                     }
                 }

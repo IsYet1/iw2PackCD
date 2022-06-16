@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 class PackItemListVM: NSObject, ObservableObject   {
     @Published var packItems = [PackItemVM]()
+    @Published var firstPackItem = PackItemVM(packItem: PackItem(context: PackItem.viewContext))
     
     private var fetchedResultsController: NSFetchedResultsController<PackItem>!
     
@@ -24,6 +25,7 @@ class PackItemListVM: NSObject, ObservableObject   {
         try? fetchedResultsController.performFetch()
         DispatchQueue.main.async {
             self.packItems = (self.fetchedResultsController.fetchedObjects ?? []).map(PackItemVM.init)
+            self.firstPackItem = self.packItems[0]
         }
     }
 }
