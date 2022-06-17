@@ -31,7 +31,7 @@ struct EventItemAddScreen: View {
             }
             HStack {
                 Button("Add Item To Event") {
-                    EventItem.addEventItem(event: event, item: packItemListVm.firstPackItem.packItem)
+                    EventItem.addEventItem(event: event, item: packItemListVm.firstPackItem!.packItem)
                     presentationMode.wrappedValue.dismiss()
                 }.padding()
                 .buttonStyle(.bordered)

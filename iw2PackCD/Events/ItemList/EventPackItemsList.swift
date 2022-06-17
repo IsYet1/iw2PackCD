@@ -15,7 +15,7 @@ struct EventPackItemsList: View {
     var body: some View {
         VStack {
             Text("\(event.name! ) Items").font(.headline)
-            //            PackItemsCell(category: event)
+            EventItemsCell(event: event)
             //            ListPackItems(category: event)
             Spacer()
         }
@@ -37,9 +37,9 @@ struct EventPackItemsList: View {
 }
 
 struct EventItemsCell: View {
-    let category: Category
+    let event: Event
     var body: some View {
-        Text("Category pack items here \(category.getCategoryPackItemsCount(category: category))")
+        Text("Event pack items here \(event.getEventPackItemsCount(event: event))")
     }
 }
 
