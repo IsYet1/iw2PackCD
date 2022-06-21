@@ -20,6 +20,12 @@ extension EventItem: BaseModel {
         
         try? newEventItem.save()
     }
+   
     
-    
+    static func mapEventItemNames (eventItems: [EventItem]) -> [String] {
+        let names = eventItems.compactMap({eventItem in
+            return eventItem.item?.name
+        })
+        return names
+    }
 }
