@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EventItemAddCell: View {
-    var packItem: PackItem
+    @State var packItem: PackItem
     var event: Event
     
     var body: some View {
@@ -20,17 +20,13 @@ struct EventItemAddCell: View {
                     get: {
                         var eventHasPackItem = false;
                         let packItemEvents = packItem.events
-                        var packItemEventsCount = packItem.events?.count
                         if let packItemEvents = packItemEvents {
                             packItemEvents.forEach({itemEvent in
                                 let eventItem = (itemEvent as! EventItem)
                                 let eventItemEvent = eventItem.event
                                 eventHasPackItem = eventItemEvent == event
-                                var eventPackItemName = eventItemEvent?.name
+                                let eventPackItemName = eventItemEvent?.name
                                 print(eventPackItemName)
-//                                var itemEventEvent as Event = itemEvent.event
-//                                if (itemEvent.event == event) { eventHasPackItem = true }
-//                                else { eventHasPackItem = false }
                             })
                         }
 //                        return (packItem.events?.contains(event))!
