@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct EventItemAddCell: View {
-    @ObservedObject var packItem: PackItem
+    var packItem: PackItem
+    var event: Event
     
     var body: some View {
         var selected: Bool = false
@@ -16,8 +17,29 @@ struct EventItemAddCell: View {
             Toggle(
                 packItem.name!,
                 isOn: Binding<Bool> (
-                    get: {return false},
-                    set: {selected = $0 }
+                    get: {
+                        var eventHasPackItem = false;
+                        let packItemEvents = packItem.events
+                        var packItemEventsCount = packItem.events?.count
+                        if let packItemEvents = packItemEvents {
+                            packItemEvents.forEach({itemEvent in
+                                let eventItem = (itemEvent as! EventItem)
+                                let eventItemEvent = eventItem.event
+                                eventHasPackItem = eventItemEvent == event
+                                var eventPackItemName = eventItemEvent?.name
+                                print(eventPackItemName)
+//                                var itemEventEvent as Event = itemEvent.event
+//                                if (itemEvent.event == event) { eventHasPackItem = true }
+//                                else { eventHasPackItem = false }
+                            })
+                        }
+//                        return (packItem.events?.contains(event))!
+                        return eventHasPackItem
+                    },
+                    set: {
+                        selected = $0
+                        EventItem.addEventItem(event: event, item: packItem)
+                    }
                 )
             )
             .toggleStyle(CheckboxToggleStyle(style: .circle))

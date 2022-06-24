@@ -19,7 +19,7 @@ struct EventItemAddScreen: View {
         animation: .default)
     private var items: FetchedResults<PackItem>
     
-    @State private var packItemName = ""
+    @State private var addedPackItems: [PackItem] = []
     
     var body: some View {
         VStack {
@@ -27,7 +27,7 @@ struct EventItemAddScreen: View {
             Divider()
             List {
                 ForEach(packItemListVm.packItems, id: \.packItemId) { item in
-                    EventItemAddCell(packItem: item.packItem)
+                    EventItemAddCell(packItem: item.packItem, event: event)
                 }
             }
             HStack {
