@@ -14,6 +14,8 @@
 		A5174DF528248BB2004DC2A1 /* Location+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5174DF428248BB2004DC2A1 /* Location+Extension.swift */; };
 		A53717B82836D87D00185FE3 /* PackItemListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53717B72836D87D00185FE3 /* PackItemListVM.swift */; };
 		A53717BE2836FE1B00185FE3 /* CategoryListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53717BD2836FE1B00185FE3 /* CategoryListVM.swift */; };
+		A55473A128665E810009B2C7 /* EventItemAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55473A028665E810009B2C7 /* EventItemAddCell.swift */; };
+		A55473A4286661AC0009B2C7 /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55473A3286661AC0009B2C7 /* CheckboxToggleStyle.swift */; };
 		A58AFDB02825D4140050B7A0 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AFDAF2825D4140050B7A0 /* CategoryViewModel.swift */; };
 		A58AFDB22825D4510050B7A0 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AFDB12825D4510050B7A0 /* LocationViewModel.swift */; };
 		A59486E72817578800C34782 /* iw2PackCDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59486E62817578800C34782 /* iw2PackCDApp.swift */; };
@@ -56,6 +58,8 @@
 		A5174DF428248BB2004DC2A1 /* Location+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+Extension.swift"; sourceTree = "<group>"; };
 		A53717B72836D87D00185FE3 /* PackItemListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemListVM.swift; sourceTree = "<group>"; };
 		A53717BD2836FE1B00185FE3 /* CategoryListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListVM.swift; sourceTree = "<group>"; };
+		A55473A028665E810009B2C7 /* EventItemAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItemAddCell.swift; sourceTree = "<group>"; };
+		A55473A3286661AC0009B2C7 /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		A58AFDAF2825D4140050B7A0 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		A58AFDB12825D4510050B7A0 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		A59486E32817578800C34782 /* iw2PackCD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iw2PackCD.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +137,14 @@
 			path = AddEdit;
 			sourceTree = "<group>";
 		};
+		A55473A2286661580009B2C7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A55473A3286661AC0009B2C7 /* CheckboxToggleStyle.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		A57851E728345B0B006492D1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +181,7 @@
 				A5D8EBB2281A07A900D5CC0B /* MetaData */,
 				A5CA4D4A2851650E00808E29 /* Events */,
 				A59486EA2817578900C34782 /* Assets.xcassets */,
+				A55473A2286661580009B2C7 /* Utils */,
 				A59486EC2817578900C34782 /* Preview Content */,
 			);
 			path = iw2PackCD;
@@ -280,6 +293,7 @@
 			children = (
 				F62A68C62856A1C90005AB22 /* EventItemEditVM.swift */,
 				A50921892852BC8F00BCD547 /* EventItemAddScreen.swift */,
+				A55473A028665E810009B2C7 /* EventItemAddCell.swift */,
 			);
 			path = ItemsAddEdit;
 			sourceTree = "<group>";
@@ -375,6 +389,7 @@
 				A5EFFB5428271798003CC39F /* CoreDataManager.swift in Sources */,
 				A5B905E728516D5300E10647 /* EventListVM.swift in Sources */,
 				A5D8EBB4281A07E200D5CC0B /* CategoryList.swift in Sources */,
+				A55473A4286661AC0009B2C7 /* CheckboxToggleStyle.swift in Sources */,
 				A5EFFB5B2827266E003CC39F /* PackItemVM.swift in Sources */,
 				F62A68C72856A1C90005AB22 /* EventItemEditVM.swift in Sources */,
 				A5D8EBB6281A088A00D5CC0B /* StartView.swift in Sources */,
@@ -397,6 +412,7 @@
 				A59AD713281CA02B00EDCD8E /* BaseModel.swift in Sources */,
 				A5EFFB522827175C003CC39F /* CoreDataManagerCloudKit.swift in Sources */,
 				A5CA4D4E28516A7300808E29 /* Event+Extension.swift in Sources */,
+				A55473A128665E810009B2C7 /* EventItemAddCell.swift in Sources */,
 				A5FEBDB7285947BA005DED25 /* EventItem+Extension.swift in Sources */,
 				A59486E72817578800C34782 /* iw2PackCDApp.swift in Sources */,
 			);

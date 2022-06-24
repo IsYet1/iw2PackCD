@@ -23,10 +23,11 @@ struct EventItemAddScreen: View {
     
     var body: some View {
         VStack {
-            Text("Add an Item To: \(event.name!)").font(.title)
+            Text("Add Items To: \(event.name!)").font(.title)
+            Divider()
             List {
                 ForEach(packItemListVm.packItems, id: \.packItemId) { item in
-                    EventItemListCell(item: item.packItem)
+                    EventItemAddCell(packItem: item.packItem)
                 }
             }
             HStack {
@@ -44,30 +45,6 @@ struct EventItemAddScreen: View {
     }
 }
 
-struct EventItemListCell: View {
-    let item: PackItem
-    
-    var body: some View {
-        VStack {
-            NavigationLink(
-                destination: PackItemEditScreen2(editItemVM: PackItemEditVM(packItemIn: item))
-                , label: {EventItemRow(packItem: item)}
-            )
-        }
-    }
-}
-
-struct EventItemRow: View {
-    @ObservedObject var packItem: PackItem
-    
-    var body: some View {
-        HStack {
-            Text(packItem.name ?? "")
-            Spacer()
-            Text(packItem.category?.name ?? "No category")
-        }
-    }
-}
 //struct PackItemFormScreen_Previews: PreviewProvider {
 //    static var previews: some View {
 //        PackItemAddScreen()
