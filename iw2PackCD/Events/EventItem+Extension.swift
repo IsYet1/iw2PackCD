@@ -20,7 +20,6 @@ extension EventItem: BaseModel {
         
         try? newEventItem.save()
     }
-   
     
     static func mapEventItem_PackItemNames (eventItems: [EventItem]) -> [String] {
         let names = eventItems.compactMap({eventItem in
@@ -41,5 +40,20 @@ extension EventItem: BaseModel {
             return eventItem.event?.id
         })
         return ids
+    }
+    
+    static func deletePackItemFromEvent(event: Event, packItem: PackItem) -> EventItem? {
+        // TODO: Convert this to NSFetch, etc..
+        guard let eventItemSet = event.eventItems,
+              let eventItemAry = eventItemSet.allObjects as? [EventItem]
+        else {
+            print("Guard failed at line 50")
+            return nil
+        }
+        try? eventItemAry[0].delete()
+//        return eventItemAry[0]
+//        return eventItemAry.first(where: {$0.item.id == packItem.id})
+        
+        return nil
     }
 }

@@ -24,7 +24,12 @@ struct EventItemAddCell: View {
                     },
                     set: {
                         selected = $0
-                        EventItem.addEventItem(event: currentEvent, item: packItem)
+                        let item = $1
+                        if (selected) {
+                            EventItem.addEventItem(event: currentEvent, item: packItem)
+                        } else {
+                            EventItem.deletePackItemFromEvent(event: currentEvent, packItem: packItem )
+                        }
                     }
                 )
             )
