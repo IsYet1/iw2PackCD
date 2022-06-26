@@ -14,6 +14,7 @@
 		A5174DF528248BB2004DC2A1 /* Location+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5174DF428248BB2004DC2A1 /* Location+Extension.swift */; };
 		A53717B82836D87D00185FE3 /* PackItemListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53717B72836D87D00185FE3 /* PackItemListVM.swift */; };
 		A53717BE2836FE1B00185FE3 /* CategoryListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53717BD2836FE1B00185FE3 /* CategoryListVM.swift */; };
+		A540F1572868F82100994128 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A540F1562868F82100994128 /* CloseButton.swift */; };
 		A55473A128665E810009B2C7 /* EventItemAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55473A028665E810009B2C7 /* EventItemAddCell.swift */; };
 		A55473A4286661AC0009B2C7 /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55473A3286661AC0009B2C7 /* CheckboxToggleStyle.swift */; };
 		A58AFDB02825D4140050B7A0 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AFDAF2825D4140050B7A0 /* CategoryViewModel.swift */; };
@@ -58,6 +59,7 @@
 		A5174DF428248BB2004DC2A1 /* Location+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+Extension.swift"; sourceTree = "<group>"; };
 		A53717B72836D87D00185FE3 /* PackItemListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemListVM.swift; sourceTree = "<group>"; };
 		A53717BD2836FE1B00185FE3 /* CategoryListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListVM.swift; sourceTree = "<group>"; };
+		A540F1562868F82100994128 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		A55473A028665E810009B2C7 /* EventItemAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItemAddCell.swift; sourceTree = "<group>"; };
 		A55473A3286661AC0009B2C7 /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		A58AFDAF2825D4140050B7A0 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				A55473A3286661AC0009B2C7 /* CheckboxToggleStyle.swift */,
+				A540F1562868F82100994128 /* CloseButton.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				A59AD718281CA20300EDCD8E /* CategoryFormScreen.swift in Sources */,
 				A59486F32817578900C34782 /* iw2PackCD.xcdatamodeld in Sources */,
 				F62A68CA2856A2B50005AB22 /* EventItemVM.swift in Sources */,
+				A540F1572868F82100994128 /* CloseButton.swift in Sources */,
 				F64E29AD2839AE010072B4FC /* CategoryPicker.swift in Sources */,
 				A5174DF528248BB2004DC2A1 /* Location+Extension.swift in Sources */,
 				F6862BE5281DD20500B12816 /* CategoryFormViewModel.swift in Sources */,

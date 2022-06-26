@@ -10,8 +10,6 @@ import SwiftUI
 struct EventItemAddScreen: View {
     let event: Event
     
-    @Environment(\.presentationMode) var presentationMode
-    
     @StateObject private var packItemListVm = PackItemListVM()
     
     @FetchRequest(
@@ -23,19 +21,14 @@ struct EventItemAddScreen: View {
     
     var body: some View {
         VStack {
+            CloseButton()
+            Divider()
             Text("Add Items To: \(event.name!)").font(.title)
             Divider()
             List {
                 ForEach(packItemListVm.packItems, id: \.packItemId) { item in
                     EventItemAddCell(packItem: item.packItem, event: event)
                 }
-            }
-            HStack {
-                Button("Add Item To Event") {
-                    EventItem.addEventItem(event: event, item: packItemListVm.firstPackItem!.packItem)
-                    presentationMode.wrappedValue.dismiss()
-                }.padding()
-                .buttonStyle(.bordered)
             }
         }
             .onAppear(perform: {
@@ -50,4 +43,5 @@ struct EventItemAddScreen: View {
 //        PackItemAddScreen()
 //    }
 //}
+
 
