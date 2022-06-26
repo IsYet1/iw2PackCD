@@ -41,4 +41,36 @@ extension PackItem: BaseModel {
         })
         return names
     }
+    
+    func getPackItemsEventCount (packItem: PackItem) -> Int {
+        let eventItemRecords = packItem.events
+        let count = eventItemRecords?.count ?? 0
+        return count
+    }
+    
+    func getEventNamesForPackItem(packItem: PackItem) -> [String] {
+        // TODO: Streamline this.
+        guard let eventItemSet = packItem.events,
+              let eventItemAry = eventItemSet.allObjects as? [EventItem]
+        else { return ["No Event Items"] }
+        let mappedNames = EventItem.mapEventItem_EventNames(eventItems: eventItemAry)
+        return getPackItemsEventCount(packItem: packItem) == 0
+        ? ["None"]
+        : mappedNames
+        
+//        return ["Found some items"]
+    }
+    
+    func getEventIdsForPackItem(packItem: PackItem) -> [ObjectIdentifier] {
+        // TODO: Streamline this.
+        guard let eventItemSet = packItem.events,
+              let eventItemAry = eventItemSet.allObjects as? [EventItem]
+        else { return [] }
+        let mappedIds = EventItem.mapEventItem_EventIds(eventItems: eventItemAry)
+        return getPackItemsEventCount(packItem: packItem) == 0
+        ? []
+        : mappedIds
+        
+//        return ["Found some items"]
+    }
  }

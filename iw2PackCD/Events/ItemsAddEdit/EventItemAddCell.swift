@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EventItemAddCell: View {
     @State var packItem: PackItem
-    var event: Event
+    var currentEvent: Event
     
     var body: some View {
         var selected: Bool = false
@@ -18,23 +18,13 @@ struct EventItemAddCell: View {
                 packItem.name!,
                 isOn: Binding<Bool> (
                     get: {
-                        var eventHasPackItem = false;
-                        let packItemEvents = packItem.events
-                        if let packItemEvents = packItemEvents {
-                            packItemEvents.forEach({itemEvent in
-                                let eventItem = (itemEvent as! EventItem)
-                                let eventItemEvent = eventItem.event
-                                eventHasPackItem = eventItemEvent == event
-                                let eventPackItemName = eventItemEvent?.name
-                                print(eventPackItemName)
-                            })
-                        }
-//                        return (packItem.events?.contains(event))!
-                        return eventHasPackItem
+                        // TODO: This could be streamlined
+                        let packItemEventIds = packItem.getEventIdsForPackItem(packItem: packItem)
+                        return packItemEventIds.contains(currentEvent.id)
                     },
                     set: {
                         selected = $0
-                        EventItem.addEventItem(event: event, item: packItem)
+                        EventItem.addEventItem(event: currentEvent, item: packItem)
                     }
                 )
             )

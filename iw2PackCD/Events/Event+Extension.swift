@@ -20,7 +20,7 @@ extension Event: BaseModel {
         guard let eventItemSet = event.eventItems,
               let eventItemAry = eventItemSet.allObjects as? [EventItem]
         else { return ["No Event Items"] }
-        let mappedNames = EventItem.mapEventItemNames(eventItems: eventItemAry)
+        let mappedNames = EventItem.mapEventItem_PackItemNames(eventItems: eventItemAry)
         return getEventPackItemsCount(event: event) == 0
         ? ["None"]
         : mappedNames
