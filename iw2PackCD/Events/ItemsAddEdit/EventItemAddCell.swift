@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct EventItemAddCell: View {
     @State var packItem: PackItem
@@ -24,9 +25,9 @@ struct EventItemAddCell: View {
                     },
                     set: {
                         selected = $0
-                        let item = $1
                         if (selected) {
                             EventItem.addEventItem(event: currentEvent, item: packItem)
+                            
                         } else {
                             EventItem.deletePackItemFromEvent(event: currentEvent, packItem: packItem )
                         }
@@ -34,9 +35,13 @@ struct EventItemAddCell: View {
                 )
             )
             .toggleStyle(CheckboxToggleStyle(style: .circle))
-//            .foregroundColor(.blue)
+            //            .foregroundColor(.blue)
         }
     }
+//    func updatePackItem () {
+//        let request: NSFetchRequest<PackItem> = PackItem.fetchRequest()
+//        request.predicate = NSPredicate(format: "%K = %@", #keyPath(PackItem.id), packItem.id)
+//    }
 }
 
 //struct EventItemAddCell_Previews: PreviewProvider {

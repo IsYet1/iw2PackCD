@@ -8,22 +8,16 @@
 import Foundation
 import CoreData
 
-class EventItemAddVM: ObservableObject {
-    var vmPackItem: PackItemVM
-    @Published var vmName: String
-    var vmCategory: Category?
-    
-    init(packItemIn: PackItem) {
-        vmPackItem = PackItemVM(packItem: packItemIn)
-        vmName = vmPackItem.name
-        vmCategory = vmPackItem.category
+class EventItemEditVM: ObservableObject {
+//    let packItem: PackItem?
+//    let event: Event?
+//    @Published var vmName: String
+    @Published var eventItem: EventItem?
+
+    init(packItemIn: PackItem, eventIn: Event) {
+        eventItem = EventItem.findPackItemFromEvent(event: eventIn, packItem: packItemIn)
     }
     
-//    func save() {
-    func save() {
-        vmPackItem.packItem.name = vmName
-        vmPackItem.packItem.category = vmCategory
-        
-        try? vmPackItem.packItem.save()
-    }
 }
+
+

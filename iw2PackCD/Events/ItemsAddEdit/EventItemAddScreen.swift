@@ -12,13 +12,6 @@ struct EventItemAddScreen: View {
     
     @StateObject private var packItemListVm = PackItemListVM()
     
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \PackItem.name, ascending: false)],
-        animation: .default)
-    private var items: FetchedResults<PackItem>
-    
-    @State private var addedPackItems: [PackItem] = []
-    
     var body: some View {
         VStack {
             CloseButton()
