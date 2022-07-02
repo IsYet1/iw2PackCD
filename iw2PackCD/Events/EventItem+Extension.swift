@@ -57,19 +57,15 @@ extension EventItem: BaseModel {
         return nil
     }
     
-    static func deletePackItemFromEvent(event: Event, packItem: PackItem) -> EventItem? {
+    static func deletePackItemFromEvent(event: Event, packItem: PackItem) {
         // TODO: Convert this to NSFetch, etc..
-        guard let eventItemSet = findItemEvent(event: event, packItem: packItem),
-              let eventItemAry: [EventItem]? = eventItemSet // .allObjects as? [EventItem]
+        guard let eventItemAry = findItemEvent(event: event, packItem: packItem),
+              eventItemAry.count > 0
         else {
-            print("Guard failed at line 50")
-            return nil
+            print("Guard failed deletePackItemFromEvent")
+            return
         }
-        try? eventItemAry![0].delete()
-//        return eventItemAry[0]
-//        return eventItemAry.first(where: {$0.item.id == packItem.id})
-        
-        return nil
+        try? eventItemAry[0].delete()
     }
     
     static func findItemEvent(event: Event, packItem: PackItem) -> [EventItem]? {
