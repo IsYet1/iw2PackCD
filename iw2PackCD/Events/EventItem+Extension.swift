@@ -45,7 +45,8 @@ extension EventItem: BaseModel {
     static func findPackItemFromEvent(event: Event, packItem: PackItem) -> EventItem? {
         // TODO: Convert this to NSFetch, etc..
         guard let eventItemSet = event.eventItems,
-              let eventItemAry = eventItemSet.allObjects as? [EventItem]
+              let eventItemAry = eventItemSet.allObjects as? [EventItem],
+              eventItemAry.count > 0
         else {
             print("Guard failed at line 50")
             return nil

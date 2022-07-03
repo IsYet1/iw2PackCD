@@ -148,6 +148,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		A56BC08928710DBC006895C5 /* EventItems */ = {
+			isa = PBXGroup;
+			children = (
+				F62A68C92856A2B50005AB22 /* EventItemVM.swift */,
+			);
+			path = EventItems;
+			sourceTree = "<group>";
+		};
 		A57851E728345B0B006492D1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +190,7 @@
 				A59AD711281CA01900EDCD8E /* Models */,
 				A5EFFB5728272310003CC39F /* PackItem */,
 				A5D8EBB2281A07A900D5CC0B /* MetaData */,
+				A56BC08928710DBC006895C5 /* EventItems */,
 				A5CA4D4A2851650E00808E29 /* Events */,
 				A59486EA2817578900C34782 /* Assets.xcassets */,
 				A55473A2286661580009B2C7 /* Utils */,
@@ -224,7 +233,6 @@
 		A5CA4D4A2851650E00808E29 /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				F62A68C92856A2B50005AB22 /* EventItemVM.swift */,
 				F62A68C82856A2720005AB22 /* ItemList */,
 				F64E1E052852C5070062EF09 /* ItemsAddEdit */,
 				F64E1E042852C4E80062EF09 /* List */,

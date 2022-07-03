@@ -9,27 +9,25 @@ import SwiftUI
 import CoreData
 
 struct EventItemAddCell: View {
-    @State var packItem: PackItem
-    var currentEvent: Event
+    @State var eventItemEditVM: EventItemEditVM
     
     var body: some View {
         var selected: Bool = false
         HStack {
             Toggle(
-                packItem.name!,
+                eventItemEditVM.packItem.name!,
                 isOn: Binding<Bool> (
                     get: {
                         // TODO: This could be streamlined
-                        let packItemEventIds = packItem.getEventIdsForPackItem(packItem: packItem)
-                        return packItemEventIds.contains(currentEvent.id)
+                        return eventItemEditVM.itemIsInEvent
                     },
                     set: {
                         selected = $0
                         if (selected) {
-                            EventItem.addEventItem(event: currentEvent, item: packItem)
+                            eventItemEditVM.addOrRemoveItemToEvent(addItem: true)
                             
                         } else {
-                            EventItem.deletePackItemFromEvent(event: currentEvent, packItem: packItem )
+                            eventItemEditVM.addOrRemoveItemToEvent(addItem: false)
                         }
                     }
                 )
@@ -38,10 +36,6 @@ struct EventItemAddCell: View {
             //            .foregroundColor(.blue)
         }
     }
-//    func updatePackItem () {
-//        let request: NSFetchRequest<PackItem> = PackItem.fetchRequest()
-//        request.predicate = NSPredicate(format: "%K = %@", #keyPath(PackItem.id), packItem.id)
-//    }
 }
 
 //struct EventItemAddCell_Previews: PreviewProvider {

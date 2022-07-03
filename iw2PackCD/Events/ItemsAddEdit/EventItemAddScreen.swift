@@ -20,7 +20,9 @@ struct EventItemAddScreen: View {
             Divider()
             List {
                 ForEach(packItemListVm.packItems, id: \.packItemId) { item in
-                    EventItemAddCell(packItem: item.packItem, currentEvent: event)
+                    EventItemAddCell(
+                        eventItemEditVM: EventItemEditVM(packItemIn: item.packItem, eventIn: event)
+                    )
                 }
             }
         }
