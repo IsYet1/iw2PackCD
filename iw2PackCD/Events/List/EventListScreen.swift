@@ -66,7 +66,7 @@ struct EventItemCell: View {
     let item: Event
     var body: some View {
         NavigationLink {
-            EventPackItemsList(event: item)
+            EventPackItemsList(eventPackItemListVM: EventPackItemListVM(event: item))
 //            Text("Item at \(item.name ?? "No Event")")
         } label: {
             Text(item.name ?? "No Event")
