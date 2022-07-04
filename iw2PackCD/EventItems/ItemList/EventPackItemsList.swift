@@ -9,7 +9,8 @@ import SwiftUI
 
 struct EventPackItemsList: View {
     
-    @State var eventPackItemListVM: EventPackItemListVM
+    @State private var eventPackItemListVM: EventPackItemListVM
+    @State private var eventItems: [EventItem] = []
     @State private var showEditEventItemList: Bool = false
     
     init(event: Event) {
@@ -19,9 +20,12 @@ struct EventPackItemsList: View {
     var body: some View {
         VStack {
             Text("\(eventPackItemListVM.vmEvent.name! ) Items").font(.headline)
-            List(eventPackItemListVM.eventPackItems, id: \.id) {packItem in
-                Text(packItem.name!)
+            
+            List(eventItems, id: \.id) {eventItem in
+                Text(String(eventItem.packed))
+                Text(eventItem.item!.name!)
             }
+            
             Spacer()
         }
         .toolbar {
@@ -35,7 +39,10 @@ struct EventPackItemsList: View {
            onDismiss: { eventPackItemListVM.refreshEventPackItemList() },
            content: { EventItemAddScreen(event: eventPackItemListVM.vmEvent) }
         )
-        .onAppear(perform: {eventPackItemListVM.refreshEventPackItemList() })
+        .onAppear(perform: {
+            eventPackItemListVM.refreshEventPackItemList()
+            eventItems = eventPackItemListVM.eventItems
+        })
     }
 }
 

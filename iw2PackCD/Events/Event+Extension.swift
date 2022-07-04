@@ -15,6 +15,16 @@ extension Event: BaseModel {
         return count
     }
     
+    func getEventItemsForEvent(event: Event) -> [EventItem] {
+        // TODO: Streamline this.
+        guard let eventItemSet = event.eventItems,
+              let eventItemAry = eventItemSet.allObjects as? [EventItem]
+        else { return [] }
+        return getEventPackItemsCount(event: event) == 0
+        ? []
+        : eventItemAry
+    }
+    
     func getPackItems(event: Event) -> [PackItem] {
         // TODO: Streamline this.
         guard let eventItemSet = event.eventItems,
