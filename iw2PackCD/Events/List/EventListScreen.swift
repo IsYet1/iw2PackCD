@@ -20,7 +20,7 @@ struct EventListScreen: View {
         NavigationView {
             List {
                 ForEach(items) { item in
-                    EventItemCell(item: item)
+                    EventItemCell(event: item)
                 }
                 .onDelete(perform: deleteItems)
             }
@@ -63,13 +63,12 @@ struct EventListScreen: View {
 //}
 
 struct EventItemCell: View {
-    let item: Event
+    let event: Event
     var body: some View {
         NavigationLink {
-            EventPackItemsList(eventPackItemListVM: EventPackItemListVM(event: item))
-//            Text("Item at \(item.name ?? "No Event")")
+            EventPackItemsList(event: event)
         } label: {
-            Text(item.name ?? "No Event")
+            Text(event.name ?? "No Event")
         }
     }
 }

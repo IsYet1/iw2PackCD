@@ -8,15 +8,15 @@
 import Foundation
 
 class EventPackItemListVM: ObservableObject {
-    @Published var eventPackItemNames: [String]
+    @Published var eventPackItems: [PackItem]
     var vmEvent: Event
 
     init (event: Event) {
-        eventPackItemNames = event.getPackItemNames(event: event)
+        eventPackItems = event.getPackItems(event: event)
         vmEvent = event
     }
     
-    func refreshEventPackItemListNames () {
-        eventPackItemNames = vmEvent.getPackItemNames(event: vmEvent)
+    func refreshEventPackItemList () {
+        eventPackItems = vmEvent.getPackItems(event: vmEvent)
     }
 }

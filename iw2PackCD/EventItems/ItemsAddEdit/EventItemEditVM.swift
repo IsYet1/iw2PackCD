@@ -12,10 +12,8 @@ class EventItemEditVM: ObservableObject {
     let packItem: PackItem
     let event: Event
     @Published var itemIsInEvent: Bool
-    @Published var eventItem: EventItem?
 
     init(packItemIn: PackItem, eventIn: Event) {
-        eventItem = EventItem.findPackItemFromEvent(event: eventIn, packItem: packItemIn)
         packItem = packItemIn
         event = eventIn
         

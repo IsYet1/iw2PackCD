@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct EventPackItemsList: View {
+    
     @State var eventPackItemListVM: EventPackItemListVM
     @State private var showEditEventItemList: Bool = false
+    
+    init(event: Event) {
+        self.eventPackItemListVM = EventPackItemListVM(event: event)
+    }
     
     var body: some View {
         VStack {
             Text("\(eventPackItemListVM.vmEvent.name! ) Items").font(.headline)
-            List(eventPackItemListVM.eventPackItemNames, id: \.self) {packItemName in
-                Text(packItemName)
+            List(eventPackItemListVM.eventPackItems, id: \.id) {packItem in
+                Text(packItem.name!)
             }
             Spacer()
         }
@@ -27,9 +32,10 @@ struct EventPackItemsList: View {
             }
         }
         .sheet(isPresented: $showEditEventItemList,
-           onDismiss: { eventPackItemListVM.refreshEventPackItemListNames() },
+           onDismiss: { eventPackItemListVM.refreshEventPackItemList() },
            content: { EventItemAddScreen(event: eventPackItemListVM.vmEvent) }
         )
+        .onAppear(perform: {eventPackItemListVM.refreshEventPackItemList() })
     }
 }
 

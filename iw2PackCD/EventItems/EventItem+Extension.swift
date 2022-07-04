@@ -21,6 +21,13 @@ extension EventItem: BaseModel {
         try? newEventItem.save()
     }
     
+    static func mapEventItem_PackItems (eventItems: [EventItem]) -> [PackItem] {
+        let packItems = eventItems.compactMap({eventItem in
+            return eventItem.item
+        })
+        return packItems
+    }
+    
     static func mapEventItem_PackItemNames (eventItems: [EventItem]) -> [String] {
         let names = eventItems.compactMap({eventItem in
             return eventItem.item?.name
@@ -42,6 +49,7 @@ extension EventItem: BaseModel {
         return ids
     }
     
+    // TODO: Is this needed?
     static func findPackItemFromEvent(event: Event, packItem: PackItem) -> EventItem? {
         // TODO: Convert this to NSFetch, etc..
         guard let eventItemSet = event.eventItems,

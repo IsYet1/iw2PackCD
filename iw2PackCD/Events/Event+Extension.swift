@@ -15,6 +15,17 @@ extension Event: BaseModel {
         return count
     }
     
+    func getPackItems(event: Event) -> [PackItem] {
+        // TODO: Streamline this.
+        guard let eventItemSet = event.eventItems,
+              let eventItemAry = eventItemSet.allObjects as? [EventItem]
+        else { return [] }
+        let eventItems = EventItem.mapEventItem_PackItems(eventItems: eventItemAry)
+        return getEventPackItemsCount(event: event) == 0
+        ? []
+        : eventItems
+    }
+    
     func getPackItemNames(event: Event) -> [String] {
         // TODO: Streamline this.
         guard let eventItemSet = event.eventItems,
@@ -24,8 +35,6 @@ extension Event: BaseModel {
         return getEventPackItemsCount(event: event) == 0
         ? ["None"]
         : mappedNames
-        
-//        return ["Found some items"]
     }
     
     
