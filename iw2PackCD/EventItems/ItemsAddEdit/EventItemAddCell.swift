@@ -12,23 +12,15 @@ struct EventItemAddCell: View {
     @State var eventItemEditVM: EventItemEditVM
     
     var body: some View {
-        var selected: Bool = false
         HStack {
             Toggle(
                 eventItemEditVM.packItem.name!,
                 isOn: Binding<Bool> (
                     get: {
-                        // TODO: This could be streamlined
                         return eventItemEditVM.itemIsInEvent
                     },
                     set: {
-                        selected = $0
-                        if (selected) {
-                            eventItemEditVM.addOrRemoveItemToEvent(addItem: true)
-                            
-                        } else {
-                            eventItemEditVM.addOrRemoveItemToEvent(addItem: false)
-                        }
+                        eventItemEditVM.addOrRemoveItemToEvent(addItem: $0)
                     }
                 )
             )

@@ -9,21 +9,17 @@ import SwiftUI
 
 struct EventPackItemsList: View {
     
-    @State private var eventPackItemListVM: EventPackItemListVM
+    let event: Event
+    @StateObject private var eventPackItemListVM = EventPackItemListVM()
     @State private var eventItems: [EventItem] = []
     @State private var showEditEventItemList: Bool = false
     
-    init(event: Event) {
-        self.eventPackItemListVM = EventPackItemListVM(event: event)
-    }
-    
     var body: some View {
         VStack {
-            Text("\(eventPackItemListVM.vmEvent.name! ) Items").font(.headline)
+            Text("\(event.name! ) Items").font(.headline)
             
-            List(eventItems, id: \.id) {eventItem in
-                Text(String(eventItem.packed))
-                Text(eventItem.item!.name!)
+            List(eventPackItemListVM.eventItems, id: \.id) {eventItem in
+                EventPackItemsListCell(eventItemListCellVM: EventItemListCellVM(eventItemIn: eventItem))
             }
             
             Spacer()
@@ -36,10 +32,14 @@ struct EventPackItemsList: View {
             }
         }
         .sheet(isPresented: $showEditEventItemList,
-           onDismiss: { eventPackItemListVM.refreshEventPackItemList() },
-           content: { EventItemAddScreen(event: eventPackItemListVM.vmEvent) }
+               onDismiss: {
+            eventPackItemListVM.getEventPackItems(event: event)
+//            eventPackItemListVM.refreshEventPackItemList()
+        },
+               content: { EventItemAddScreen(event: event) }
         )
         .onAppear(perform: {
+            eventPackItemListVM.getEventPackItems(event: event)
             eventPackItemListVM.refreshEventPackItemList()
             eventItems = eventPackItemListVM.eventItems
         })

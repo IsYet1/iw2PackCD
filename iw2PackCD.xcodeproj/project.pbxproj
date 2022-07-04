@@ -12,6 +12,8 @@
 		A5174DF128248AB1004DC2A1 /* LocationFormScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5174DF028248AB1004DC2A1 /* LocationFormScreen.swift */; };
 		A5174DF328248AF4004DC2A1 /* LocationFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5174DF228248AF4004DC2A1 /* LocationFormViewModel.swift */; };
 		A5174DF528248BB2004DC2A1 /* Location+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5174DF428248BB2004DC2A1 /* Location+Extension.swift */; };
+		A5324DDE28738ED600F59A68 /* EventPackItemsListCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5324DDD28738ED600F59A68 /* EventPackItemsListCellVM.swift */; };
+		A5324DE028738EE000F59A68 /* EventPackItemsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5324DDF28738EE000F59A68 /* EventPackItemsListCell.swift */; };
 		A53717B82836D87D00185FE3 /* PackItemListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53717B72836D87D00185FE3 /* PackItemListVM.swift */; };
 		A53717BE2836FE1B00185FE3 /* CategoryListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53717BD2836FE1B00185FE3 /* CategoryListVM.swift */; };
 		A540F1572868F82100994128 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A540F1562868F82100994128 /* CloseButton.swift */; };
@@ -58,6 +60,8 @@
 		A5174DF028248AB1004DC2A1 /* LocationFormScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormScreen.swift; sourceTree = "<group>"; };
 		A5174DF228248AF4004DC2A1 /* LocationFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormViewModel.swift; sourceTree = "<group>"; };
 		A5174DF428248BB2004DC2A1 /* Location+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+Extension.swift"; sourceTree = "<group>"; };
+		A5324DDD28738ED600F59A68 /* EventPackItemsListCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPackItemsListCellVM.swift; sourceTree = "<group>"; };
+		A5324DDF28738EE000F59A68 /* EventPackItemsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPackItemsListCell.swift; sourceTree = "<group>"; };
 		A53717B72836D87D00185FE3 /* PackItemListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemListVM.swift; sourceTree = "<group>"; };
 		A53717BD2836FE1B00185FE3 /* CategoryListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListVM.swift; sourceTree = "<group>"; };
 		A540F1562868F82100994128 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
@@ -280,6 +284,8 @@
 			children = (
 				A50921872852B33400BCD547 /* EventPackItemsList.swift */,
 				A596675F287257CB00ADCDD4 /* EventPackItemsListVM.swift */,
+				A5324DDD28738ED600F59A68 /* EventPackItemsListCellVM.swift */,
+				A5324DDF28738EE000F59A68 /* EventPackItemsListCell.swift */,
 			);
 			path = ItemList;
 			sourceTree = "<group>";
@@ -393,6 +399,7 @@
 				A50921882852B33400BCD547 /* EventPackItemsList.swift in Sources */,
 				F64E29AF283AD0DC0072B4FC /* PackItemEditVM.swift in Sources */,
 				A59486F02817578900C34782 /* Persistence.swift in Sources */,
+				A5324DE028738EE000F59A68 /* EventPackItemsListCell.swift in Sources */,
 				A5B905E528516C8A00E10647 /* EventFormScreen.swift in Sources */,
 				A5CA4D4C2851686200808E29 /* EventListScreen.swift in Sources */,
 				A59AD715281CA13800EDCD8E /* Category+Extension.swift in Sources */,
@@ -417,6 +424,7 @@
 				A53717BE2836FE1B00185FE3 /* CategoryListVM.swift in Sources */,
 				A5EFFB5928272368003CC39F /* PackItemListScreen.swift in Sources */,
 				A5174DF328248AF4004DC2A1 /* LocationFormViewModel.swift in Sources */,
+				A5324DDE28738ED600F59A68 /* EventPackItemsListCellVM.swift in Sources */,
 				A59AD718281CA20300EDCD8E /* CategoryFormScreen.swift in Sources */,
 				A5966760287257CB00ADCDD4 /* EventPackItemsListVM.swift in Sources */,
 				A59486F32817578900C34782 /* iw2PackCD.xcdatamodeld in Sources */,
