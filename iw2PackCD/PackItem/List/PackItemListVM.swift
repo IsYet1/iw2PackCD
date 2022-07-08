@@ -25,7 +25,7 @@ class PackItemListVM: NSObject, ObservableObject   {
         try? fetchedResultsController.performFetch()
         DispatchQueue.main.async {
             self.packItems = (self.fetchedResultsController.fetchedObjects ?? []).map(PackItemVM.init)
-            self.firstPackItem = self.packItems[0] 
+//            self.firstPackItem = self.packItems[0] 
         }
     }
 }
