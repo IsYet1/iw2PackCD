@@ -21,7 +21,7 @@ struct CategoryPicker: View {
                 Text(category.name ?? "").tag(category as Category?)
             }
         }
-        .pickerStyle(.segmented)
+        .pickerStyle(.wheel)
     }
 }
 
