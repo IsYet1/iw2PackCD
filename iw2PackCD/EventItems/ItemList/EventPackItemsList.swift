@@ -14,25 +14,25 @@ struct EventPackItemsList: View {
     @State private var eventItems: [EventItem] = []
     @State private var showEditEventItemList: Bool = false
     
+    @State private var byLocation: Bool = false
+    @State private var filterUnpacked: Bool = false
+    
     var body: some View {
         let itemsCount = event.eventItems?.count ?? 0
-        let itemsForList = eventPackItemListVM.eventItems
-        let groupedItems = groupItems(items: itemsForList)
+        let groupedItems = groupItems(items: eventPackItemListVM.eventItems)
         
         VStack {
             Text("\(event.name! )").font(.title)
             Text("\(itemsCount) items").font(.footnote)
             
-//            List(itemsForList, id: \.id) {eventItem in
-//                EventPackItemsListCell(eventItemListCellVM: EventItemListCellVM(eventItemIn: eventItem))
-//            }
             List {
                 ForEach(groupedItems, id:\.key) {sections in
                     Section(header: Text(sections.key)) {
                         ForEach(sections.value, id: \.id) {eventItem in
                             EventPackItemsListCell(eventItemListCellVM: EventItemListCellVM(eventItemIn: eventItem))
                         }
-//                        .onDelete {self.removeItemFromEvent(at: $0, items: sections.value )}
+                        // TODO: Re-enable swipe to delete from the event ?
+                        //                        .onDelete {self.removeItemFromEvent(at: $0, items: sections.value )}
                     }
                 }
             }
@@ -43,6 +43,12 @@ struct EventPackItemsList: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Edit Item List For This Event") {
                     self.showEditEventItemList = true
+                }
+            }
+            ToolbarItem(placement: .bottomBar) {
+                HStack {
+                    Toggle("Unpacked", isOn: $filterUnpacked).toggleStyle(.switch)
+                    Toggle("By Location", isOn: $byLocation).toggleStyle(.switch)
                 }
             }
         }
@@ -59,23 +65,24 @@ struct EventPackItemsList: View {
             eventItems = eventPackItemListVM.eventItems
         })
     }
-}
 
-private func groupItems(items: [EventItem]) -> [(key: String, value: [EventItem] ) ]  {
-    var orderList: [(key: String, value: [EventItem] ) ] {
-        let itemsSorted = items.sorted(by: { $0.item?.name ?? "___ no name" < $1.item?.name ?? "___ no name" })
-        let itemsFiltered = true // !filterUnpacked
-        ? itemsSorted
-        : itemsSorted.filter() {!($0.packed) }
-        let listGroup: [String: [EventItem]] = Dictionary(grouping: itemsFiltered, by: { eventItem in
-            return eventItem.item?.category?.name ?? "___ No Category"
-            //            return false //byLocation
-//            ? packItem.location ?? "___ LOCATION not set"
-//            : packItem.category ?? "___ CATEGORY not set"
-        })
-        return listGroup.sorted(by: {$0.key < $1.key})
+    // TODO: Move this to the VM (service)?
+    private func groupItems(items: [EventItem]) -> [(key: String, value: [EventItem] ) ]  {
+        var orderList: [(key: String, value: [EventItem] ) ] {
+            let itemsSorted = items.sorted(by: { $0.item?.name ?? "___ no name" < $1.item?.name ?? "___ no name" })
+            let itemsFiltered = filterUnpacked
+            ? itemsSorted
+            : itemsSorted.filter() {!($0.packed) }
+            let listGroup: [String: [EventItem]] = Dictionary(grouping: itemsFiltered, by: { eventItem in
+                return eventItem.item?.category?.name ?? "___ No Category"
+                //            return false //byLocation
+    //            ? packItem.location ?? "___ LOCATION not set"
+    //            : packItem.category ?? "___ CATEGORY not set"
+            })
+            return listGroup.sorted(by: {$0.key < $1.key})
+        }
+        return orderList
     }
-    return orderList
 }
 
 //struct CategoryPackItemsList_Previews: PreviewProvider {
