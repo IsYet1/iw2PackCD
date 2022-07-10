@@ -15,8 +15,10 @@ struct EventPackItemsList: View {
     @State private var showEditEventItemList: Bool = false
     
     var body: some View {
+        let itemsCount = event.eventItems?.count ?? 0
         VStack {
-            Text("\(event.name! ) Items").font(.headline)
+            Text("\(event.name! )").font(.title)
+            Text("\(itemsCount) items").font(.footnote)
             
             List(eventPackItemListVM.eventItems, id: \.id) {eventItem in
                 EventPackItemsListCell(eventItemListCellVM: EventItemListCellVM(eventItemIn: eventItem))

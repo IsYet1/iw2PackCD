@@ -32,7 +32,7 @@ struct PackItemListScreen: View {
                 }
                 .onDelete(perform: deleteItems)
             }
-            .navigationTitle("Pack Items VM")
+            .navigationTitle("Items")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
