@@ -11,6 +11,7 @@ import CoreData
 class EventItemListCellVM: ObservableObject {
     let eventItem: EventItem
     var packItemName: String
+    var packItemCategory: String
     
     @Published var itemPacked: Bool
     
@@ -20,6 +21,7 @@ class EventItemListCellVM: ObservableObject {
         
         // TODO: Add error check and handle here.
         packItemName = eventItemIn.item!.name!
+        packItemCategory = eventItemIn.item!.categoryName
     }
     
     func updatePackedStatus(packed: Bool) {
