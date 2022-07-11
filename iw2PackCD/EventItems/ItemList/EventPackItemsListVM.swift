@@ -13,7 +13,6 @@ class EventPackItemListVM: ObservableObject {
     @Published var eventPackItems: [PackItem] = []
     @Published var eventItems: [EventItem] = []
     
-    // NOTE: These properties aren't being used as of Mon 11-Jul
     @Published var filterItems: Bool = false
     @Published var groupedSortedFiltered: [(key: String, value: [EventItem] ) ] = []
 
