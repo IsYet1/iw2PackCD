@@ -70,7 +70,7 @@ struct EventPackItemsList: View {
     private func groupItems(items: [EventItem]) -> [(key: String, value: [EventItem] ) ]  {
         var orderList: [(key: String, value: [EventItem] ) ] {
             let itemsSorted = items.sorted(by: { $0.item?.name ?? "___ no name" < $1.item?.name ?? "___ no name" })
-            let itemsFiltered = filterUnpacked
+            let itemsFiltered = !filterUnpacked
             ? itemsSorted
             : itemsSorted.filter() {!($0.packed) }
             let listGroup: [String: [EventItem]] = Dictionary(grouping: itemsFiltered, by: { eventItem in
