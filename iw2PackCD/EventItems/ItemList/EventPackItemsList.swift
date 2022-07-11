@@ -46,7 +46,8 @@ struct EventPackItemsList: View {
             }
             ToolbarItem(placement: .bottomBar) {
                 HStack {
-                    Toggle("Unpacked", isOn: $filterUnpacked).toggleStyle(.switch)
+//                    toggleUnPacked(filterItems: $filterUnpacked)
+                    toggleUnPacked(filterItems: $eventPackItemListVM.filterItems)
                     Toggle("By Location", isOn: $byLocation).toggleStyle(.switch)
                 }
             }
@@ -70,3 +71,21 @@ struct EventPackItemsList: View {
 //        CategoryPackItemsList(category: category)
 //    }
 //}
+
+struct toggleUnPacked: View {
+    @Binding var filterItems: Bool
+    var body: some View {
+        Toggle("Unpacked",
+                isOn: Binding<Bool> (
+                    get: {
+                        return filterItems
+                    },
+                    set: {
+                        filterItems = $0
+                    }
+                )
+//               isOn: $filterItems
+        )
+        .toggleStyle(.switch)
+    }
+}
