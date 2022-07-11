@@ -28,7 +28,7 @@ class EventPackItemListVM: ObservableObject {
         eventItems = event.getEventItemsForEvent(event: event)
         eventPackItems = event.getPackItems(event: event)
         
-        groupedSortedFiltered = groupItems(items: eventItems, filterItems: self.filterItems)
+        groupedSortedFiltered = groupItems(items: eventItems)
     }
     
     func refreshEventPackItemList () {
@@ -36,10 +36,10 @@ class EventPackItemListVM: ObservableObject {
 //        eventPackItems = vmEvent!.getPackItems(event: vmEvent!)
     }
     
-    func groupItems(items: [EventItem], filterItems: Bool = false) -> [(key: String, value: [EventItem] ) ]  {
+    func groupItems(items: [EventItem] ) -> [(key: String, value: [EventItem] ) ]  {
         var orderList: [(key: String, value: [EventItem] ) ] {
             let itemsSorted = items.sorted(by: { $0.item?.name ?? "___ no name" < $1.item?.name ?? "___ no name" })
-            let itemsFiltered = !filterItems
+            let itemsFiltered = !self.filterItems
             ? itemsSorted
             : itemsSorted.filter() {!($0.packed) }
             let listGroup: [String: [EventItem]] = Dictionary(grouping: itemsFiltered, by: { eventItem in

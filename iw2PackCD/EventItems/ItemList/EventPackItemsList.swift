@@ -14,18 +14,16 @@ struct EventPackItemsList: View {
     @State private var showEditEventItemList: Bool = false
     
     @State private var byLocation: Bool = false
-    @State private var filterUnpacked: Bool = false
     
     var body: some View {
         let itemsCount = event.eventItems?.count ?? 0
-        let groupedItems = eventPackItemListVM.groupItems(items: eventPackItemListVM.eventItems, filterItems: filterUnpacked)
         
         VStack {
             Text("\(event.name! )").font(.title)
             Text("\(itemsCount) items").font(.footnote)
             
             List {
-                ForEach(groupedItems, id:\.key) {sections in
+                ForEach(eventPackItemListVM.groupedSortedFiltered, id:\.key) {sections in
                     Section(header: Text(sections.key)) {
                         ForEach(sections.value, id: \.id) {eventItem in
                             EventPackItemsListCell(eventItemListCellVM: EventItemListCellVM(eventItemIn: eventItem))
@@ -46,8 +44,18 @@ struct EventPackItemsList: View {
             }
             ToolbarItem(placement: .bottomBar) {
                 HStack {
-                    toggleUnPacked(filterItems: $filterUnpacked)
-//                    toggleUnPacked(filterItems: $eventPackItemListVM.filterItems)
+                    Toggle("Unpacked",
+                           isOn: Binding<Bool> (
+                            get: {
+                                return eventPackItemListVM.filterItems
+                            },
+                            set: {
+                                eventPackItemListVM.filterItems = $0
+                                eventPackItemListVM.getEventPackItems(event: event)
+                            }
+                           )
+                    )
+                    .toggleStyle(.switch)
                     Toggle("By Location", isOn: $byLocation).toggleStyle(.switch)
                 }
             }
@@ -55,7 +63,6 @@ struct EventPackItemsList: View {
         .sheet(isPresented: $showEditEventItemList,
                onDismiss: {
             eventPackItemListVM.getEventPackItems(event: event)
-            //            eventPackItemListVM.refreshEventPackItemList()
         },
                content: { EventItemAddScreen(event: event) }
         )
@@ -72,20 +79,3 @@ struct EventPackItemsList: View {
 //    }
 //}
 
-struct toggleUnPacked: View {
-    @Binding var filterItems: Bool
-    var body: some View {
-        Toggle("Unpacked",
-                isOn: Binding<Bool> (
-                    get: {
-                        return filterItems
-                    },
-                    set: {
-                        filterItems = $0
-                    }
-                )
-//               isOn: $filterItems
-        )
-        .toggleStyle(.switch)
-    }
-}
