@@ -33,6 +33,10 @@ struct EventPackItemsList: View {
                     }
                 }
             }
+            .refreshable(action: {
+                print("Refreshing. *****")
+                eventPackItemListVM.getEventPackItems(event: event)
+            })
             
             Spacer()
         }
