@@ -46,8 +46,8 @@ struct EventPackItemsList: View {
             }
             ToolbarItem(placement: .bottomBar) {
                 HStack {
-//                    toggleUnPacked(filterItems: $filterUnpacked)
-                    toggleUnPacked(filterItems: $eventPackItemListVM.filterItems)
+                    toggleUnPacked(filterItems: $filterUnpacked)
+//                    toggleUnPacked(filterItems: $eventPackItemListVM.filterItems)
                     Toggle("By Location", isOn: $byLocation).toggleStyle(.switch)
                 }
             }

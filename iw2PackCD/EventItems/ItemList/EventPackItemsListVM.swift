@@ -14,7 +14,7 @@ class EventPackItemListVM: ObservableObject {
     @Published var eventItems: [EventItem] = []
     
     // NOTE: These properties aren't being used as of Mon 11-Jul
-    @Published var filterItems: Bool = true
+    @Published var filterItems: Bool = false
     @Published var groupedSortedFiltered: [(key: String, value: [EventItem] ) ] = []
 
 //    init (event: Event) {
@@ -39,7 +39,7 @@ class EventPackItemListVM: ObservableObject {
     func groupItems(items: [EventItem], filterItems: Bool = false) -> [(key: String, value: [EventItem] ) ]  {
         var orderList: [(key: String, value: [EventItem] ) ] {
             let itemsSorted = items.sorted(by: { $0.item?.name ?? "___ no name" < $1.item?.name ?? "___ no name" })
-            let itemsFiltered = !self.filterItems
+            let itemsFiltered = !filterItems
             ? itemsSorted
             : itemsSorted.filter() {!($0.packed) }
             let listGroup: [String: [EventItem]] = Dictionary(grouping: itemsFiltered, by: { eventItem in
