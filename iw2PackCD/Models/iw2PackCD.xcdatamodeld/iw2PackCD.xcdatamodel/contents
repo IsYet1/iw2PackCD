@@ -6,7 +6,7 @@
     </entity>
     <entity name="Event" representedClassName="Event" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" defaultValueString=""/>
-        <relationship name="eventItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventItem" inverseName="event" inverseEntity="EventItem"/>
+        <relationship name="eventItems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EventItem" inverseName="event" inverseEntity="EventItem"/>
     </entity>
     <entity name="EventItem" representedClassName="EventItem" syncable="YES" codeGenerationType="class">
         <attribute name="packed" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
