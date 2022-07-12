@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21256.2" systemVersion="22A5295h" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21256.2" systemVersion="22A5295i" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" defaultValueString=""/>
         <relationship name="packitems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PackItem" inverseName="category" inverseEntity="PackItem"/>
@@ -20,6 +20,6 @@
     <entity name="PackItem" representedClassName="PackItem" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" defaultValueString=""/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="packitems" inverseEntity="Category"/>
-        <relationship name="events" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventItem" inverseName="item" inverseEntity="EventItem"/>
+        <relationship name="events" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EventItem" inverseName="item" inverseEntity="EventItem"/>
     </entity>
 </model>
