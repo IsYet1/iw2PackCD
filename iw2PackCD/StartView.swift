@@ -11,7 +11,7 @@ struct StartView: View {
     var body: some View {
         TabView {
             EventListScreen().tabItem() {Text("Events")}
-            PackItemListScreen().tabItem() {Text("Pack Items VM")}
+            PackItemListScreen().tabItem() {Text("Pack Items")}
             CategoryList().tabItem() {Text("Category")}
 //            LocationList().tabItem() {Text("Location")}
         }

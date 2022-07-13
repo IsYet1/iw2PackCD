@@ -27,10 +27,16 @@ struct PackItemListScreen: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(packItemListVm.packItems, id: \.packItemId) { item in
-                    PackItemListCell(item: item.packItem)
+                ForEach(packItemListVm.groupedSortedFiltered, id:\.key) {sections in
+                    Section(header: Text(sections.key)) {
+                        ForEach(sections.value, id: \.packItemId) {item in
+                            PackItemListCell(item: item.packItem)
+                        }
+                        .onDelete(perform: deleteItems)
+                        // TODO: Re-enable swipe to delete from the event ?
+                        //                        .onDelete {self.removeItemFromEvent(at: $0, items: sections.value )}
+                    }
                 }
-                .onDelete(perform: deleteItems)
             }
             .navigationTitle("Items")
             .toolbar {
