@@ -41,9 +41,10 @@ struct PackItemListScreen: View {
             }
             .navigationTitle("Items")
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    EditButton()
-                }
+                // TODO: Re-enable this to allow deleting multiple items.
+                //                ToolbarItem(placement: .navigationBarLeading) {
+//                    EditButton()
+//                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
                         self.showForm = true
@@ -63,7 +64,10 @@ struct PackItemListScreen: View {
     private func removeGlobalItem( at indexSet: IndexSet, items: [PackItemVM] ){
         print("*** Removing an item")
         if let itemIndex: Int = indexSet.first {
-            print(itemIndex)
+            let itemVMToDelete = items[itemIndex]
+            let itemToDelete = itemVMToDelete.packItem
+            print(itemToDelete)
+            try? itemToDelete.delete()
         }
     }
     
