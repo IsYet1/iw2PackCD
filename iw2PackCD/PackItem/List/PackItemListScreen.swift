@@ -39,6 +39,9 @@ struct PackItemListScreen: View {
                     }
                 }
             }
+            .refreshable {
+                packItemListVm.getAllPackItems()
+            }
             .navigationTitle("Items")
             .toolbar {
                 // TODO: Re-enable this to allow deleting multiple items.
@@ -62,12 +65,13 @@ struct PackItemListScreen: View {
     }
     
     private func removeGlobalItem( at indexSet: IndexSet, items: [PackItemVM] ){
-        print("*** Removing an item")
+//        print("*** Removing an item")
         if let itemIndex: Int = indexSet.first {
             let itemVMToDelete = items[itemIndex]
             let itemToDelete = itemVMToDelete.packItem
             print(itemToDelete)
             try? itemToDelete.delete()
+            packItemListVm.getAllPackItems()
         }
     }
     
@@ -105,7 +109,7 @@ struct PackItemRow: View {
         HStack {
             Text(packItem.name ?? "")
             Spacer()
-            Text(packItem.category?.name ?? "No category")
+//            Text(packItem.category?.name ?? "No category")
         }
     }
 }
