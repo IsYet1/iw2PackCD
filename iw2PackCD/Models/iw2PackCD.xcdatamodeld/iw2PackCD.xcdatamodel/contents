@@ -17,10 +17,12 @@
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" defaultValueString=""/>
+        <relationship name="packitems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PackItem" inverseName="location" inverseEntity="PackItem"/>
     </entity>
     <entity name="PackItem" representedClassName="PackItem" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" defaultValueString=""/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="packitems" inverseEntity="Category"/>
         <relationship name="events" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EventItem" inverseName="item" inverseEntity="EventItem"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="packitems" inverseEntity="Location"/>
     </entity>
 </model>
