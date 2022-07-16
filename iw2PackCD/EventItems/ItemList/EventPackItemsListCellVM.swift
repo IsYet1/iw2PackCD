@@ -42,6 +42,11 @@ class EventItemListCellVM: ObservableObject {
         // TODO: Add error check and handle here.
         switch phase {
         case .staged:
+            // If staged is cleared then ensure that packed is cleared also. 
+            if !checked {
+                itemPacked = checked
+                eventItem.packed = checked
+            }
             itemStaged = checked
             eventItem.staged = checked
         case .packed:
