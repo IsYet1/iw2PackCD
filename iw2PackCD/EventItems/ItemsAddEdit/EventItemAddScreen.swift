@@ -18,17 +18,22 @@ struct EventItemAddScreen: View {
             Divider()
             Text("Add Items To: \(event.name!)").font(.title)
             Divider()
+            
             List {
-                ForEach(packItemListVm.packItems, id: \.packItemId) { item in
-                    EventItemAddCell(
-                        eventItemEditVM: EventItemEditVM(packItemIn: item.packItem, eventIn: event)
-                    )
+                ForEach(packItemListVm.groupedSortedFiltered, id:\.key) {sections in
+                    Section(header: Text(sections.key)) {
+                        ForEach(sections.value, id: \.packItemId) {item in
+                            EventItemAddCell(
+                                eventItemEditVM: EventItemEditVM(packItemIn: item.packItem, eventIn: event)
+                            )
+                        }
+                    }
                 }
             }
         }
-            .onAppear(perform: {
-                packItemListVm.getAllPackItems()
-            })
+        .onAppear(perform: {
+            packItemListVm.getAllPackItems()
+        })
         Spacer()
     }
 }

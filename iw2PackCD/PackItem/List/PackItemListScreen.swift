@@ -27,16 +27,27 @@ struct PackItemListScreen: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(packItemListVm.packItems, id: \.packItemId) { item in
-                    PackItemListCell(item: item.packItem)
+                ForEach(packItemListVm.groupedSortedFiltered, id:\.key) {sections in
+                    Section(header: Text(sections.key)) {
+                        ForEach(sections.value, id: \.packItemId) {item in
+                            PackItemListCell(item: item.packItem)
+                        }
+//                        .onDelete(perform: deleteItems)
+                        .onDelete {self.removeGlobalItem(at: $0, items: sections.value )}
+                        // TODO: Re-enable swipe to delete from the event ?
+                        //                        .onDelete {self.removeItemFromEvent(at: $0, items: sections.value )}
+                    }
                 }
-                .onDelete(perform: deleteItems)
+            }
+            .refreshable {
+                packItemListVm.getAllPackItems()
             }
             .navigationTitle("Items")
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    EditButton()
-                }
+                // TODO: Re-enable this to allow deleting multiple items.
+                //                ToolbarItem(placement: .navigationBarLeading) {
+//                    EditButton()
+//                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
                         self.showForm = true
@@ -50,6 +61,17 @@ struct PackItemListScreen: View {
                    onDismiss: { packItemListVm.getAllPackItems() },
                    content: { PackItemAddScreen() }
             )
+        }
+    }
+    
+    private func removeGlobalItem( at indexSet: IndexSet, items: [PackItemVM] ){
+//        print("*** Removing an item")
+        if let itemIndex: Int = indexSet.first {
+            let itemVMToDelete = items[itemIndex]
+            let itemToDelete = itemVMToDelete.packItem
+            print(itemToDelete)
+            try? itemToDelete.delete()
+            packItemListVm.getAllPackItems()
         }
     }
     
@@ -87,7 +109,7 @@ struct PackItemRow: View {
         HStack {
             Text(packItem.name ?? "")
             Spacer()
-            Text(packItem.category?.name ?? "No category")
+//            Text(packItem.category?.name ?? "No category")
         }
     }
 }

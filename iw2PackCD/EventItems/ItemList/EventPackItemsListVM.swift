@@ -16,23 +16,11 @@ class EventPackItemListVM: ObservableObject {
     @Published var filterItems: Bool = false
     @Published var groupedSortedFiltered: [(key: String, value: [EventItem] ) ] = []
 
-//    init (event: Event) {
-//        eventItems = event.getEventItemsForEvent(event: event)
-//        eventPackItems = event.getPackItems(event: event)
-//        vmEvent = event
-//    }
-    
     func getEventPackItems(event: Event) {
-//        vmEvent = event
         eventItems = event.getEventItemsForEvent(event: event)
         eventPackItems = event.getPackItems(event: event)
         
         groupedSortedFiltered = groupItems(items: eventItems)
-    }
-    
-    func refreshEventPackItemList () {
-//        eventItems = vmEvent!.getEventItemsForEvent(event: vmEvent!)
-//        eventPackItems = vmEvent!.getPackItems(event: vmEvent!)
     }
     
     func groupItems(items: [EventItem] ) -> [(key: String, value: [EventItem] ) ]  {
