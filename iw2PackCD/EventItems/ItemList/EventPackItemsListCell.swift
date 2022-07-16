@@ -14,13 +14,26 @@ struct EventPackItemsListCell: View {
     var body: some View {
         HStack {
             Toggle(
+                "",
+                isOn: Binding<Bool> (
+                    get: {
+                        return eventItemListCellVM.itemStaged
+                    },
+                    set: {
+                        eventItemListCellVM.updatePackedStatus(checked: $0, phase: .staged)
+                    }
+                )
+            )
+            .toggleStyle(CheckboxToggleStyle(style: .circle))
+                            .foregroundColor(.blue)
+            Toggle(
                 eventItemListCellVM.packItemName,
                 isOn: Binding<Bool> (
                     get: {
                         return eventItemListCellVM.itemPacked
                     },
                     set: {
-                        eventItemListCellVM.updatePackedStatus(packed: $0)
+                        eventItemListCellVM.updatePackedStatus(checked: $0, phase: .packed)
                     }
                 )
             )
