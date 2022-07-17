@@ -11,6 +11,8 @@ struct PackItemAddScreen: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State var selectedCategory: Category?
+    @State var selectedLocation: Location?
+    
     @State private var packItemName = ""
     
     var body: some View {
@@ -21,10 +23,11 @@ struct PackItemAddScreen: View {
                 .textFieldStyle(.roundedBorder)
             
             CategoryPicker(selectedCategory: $selectedCategory)
+            LocationPicker(selectedLocation: $selectedLocation)
             
             HStack {
                 Button("Save") {
-                    PackItem.addPackItem(name: packItemName, category: selectedCategory!)
+                    PackItem.addPackItem(name: packItemName, category: selectedCategory!, location: selectedLocation!)
                     presentationMode.wrappedValue.dismiss()
                 }.padding()
                 .buttonStyle(.bordered)
