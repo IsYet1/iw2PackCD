@@ -11,8 +11,8 @@ import CoreData
 class PackItemEditVM: ObservableObject {
     var vmPackItem: PackItemVM
     @Published var vmName: String
-    var vmCategory: Category?
-    var vmLocation: Location?
+    @Published var vmCategory: Category?
+    @Published var vmLocation: Location?
     
     init(packItemIn: PackItem) {
         vmPackItem = PackItemVM(packItem: packItemIn)

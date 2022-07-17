@@ -16,12 +16,16 @@ struct LocationPicker: View {
     private var locationsFR: FetchedResults<Location>
     
     var body: some View {
-        Picker("", selection: $selectedLocation) {
-            ForEach(locationsFR, id: \.self) {(location: Location ) in
-                Text(location.name ?? "").tag(location as Location?)
+        HStack {
+            Text("Location").font(.headline).frame(width: 100)
+            Picker("", selection: $selectedLocation) {
+                ForEach(locationsFR, id: \.self) {(location: Location ) in
+                    Text(location.name ?? "").tag(location as Location?)
+                }
             }
+            .pickerStyle(.menu)
+            Spacer()
         }
-        .pickerStyle(.wheel)
     }
 }
 
