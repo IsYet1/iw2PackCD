@@ -12,17 +12,20 @@ class PackItemEditVM: ObservableObject {
     var vmPackItem: PackItemVM
     @Published var vmName: String
     var vmCategory: Category?
+    var vmLocation: Location?
     
     init(packItemIn: PackItem) {
         vmPackItem = PackItemVM(packItem: packItemIn)
         vmName = vmPackItem.name
         vmCategory = vmPackItem.category
+        vmLocation = vmPackItem.location
     }
     
 //    func save() {
     func save() {
         vmPackItem.packItem.name = vmName
         vmPackItem.packItem.category = vmCategory
+        vmPackItem.packItem.location = vmLocation
         
         try? vmPackItem.packItem.save()
     }

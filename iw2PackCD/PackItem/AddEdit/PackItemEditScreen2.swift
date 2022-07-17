@@ -19,6 +19,7 @@ struct PackItemEditScreen2: View {
                 .textFieldStyle(.roundedBorder)
             
             CategoryPicker(selectedCategory: $editItemVM.vmCategory)
+            LocationPicker(selectedLocation: $editItemVM.vmLocation)
             
             HStack {
                 Button("Save") {
