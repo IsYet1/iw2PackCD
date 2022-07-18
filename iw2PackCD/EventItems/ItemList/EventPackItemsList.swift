@@ -59,7 +59,19 @@ struct EventPackItemsList: View {
                            )
                     )
                     .toggleStyle(.switch)
-                    Toggle("By Location", isOn: $byLocation).toggleStyle(.switch)
+                    
+                    Toggle("Location",
+                           isOn: Binding<Bool> (
+                            get: {
+                                return eventPackItemListVM.byLocation
+                            },
+                            set: {
+                                eventPackItemListVM.byLocation = $0
+                                eventPackItemListVM.getEventPackItems(event: event)
+                            }
+                           )
+                    )
+                    .toggleStyle(.switch)
                 }
             }
         }
