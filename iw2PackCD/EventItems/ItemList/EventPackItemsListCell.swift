@@ -25,7 +25,7 @@ struct EventPackItemsListCell: View {
                 )
             )
             .toggleStyle(CheckboxToggleStyle(style: .circle))
-                            .foregroundColor(.blue)
+//                            .foregroundColor(.blue)
             Toggle(
                 eventItemListCellVM.packItemName,
                 isOn: Binding<Bool> (
@@ -38,7 +38,7 @@ struct EventPackItemsListCell: View {
                 )
             )
             .toggleStyle(CheckboxToggleStyle(style: .square))
-            //            .foregroundColor(.blue)
+                        .foregroundColor(.blue)
         }
     }
 }
