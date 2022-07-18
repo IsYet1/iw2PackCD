@@ -14,7 +14,7 @@ class EventPackItemListVM: ObservableObject {
     @Published var eventItems: [EventItem] = []
     
     @Published var filterItems: Bool = false
-    @Published var byLocation: Bool = true
+    @Published var byLocation: Bool = false
     @Published var groupedSortedFiltered: [(key: String, value: [EventItem] ) ] = []
 
     func getEventPackItems(event: Event) {

@@ -59,6 +59,8 @@ struct EventPackItemsList: View {
                            )
                     )
                     .toggleStyle(.switch)
+                    .frame(width: 150)
+                    .padding([.trailing], 20)
                     
                     Toggle("Location",
                            isOn: Binding<Bool> (
@@ -72,6 +74,9 @@ struct EventPackItemsList: View {
                            )
                     )
                     .toggleStyle(.switch)
+                    .frame(width: 130)
+                    
+                    Spacer()
                 }
             }
         }
