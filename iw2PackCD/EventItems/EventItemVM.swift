@@ -15,4 +15,5 @@ struct EventItemVM {
     var packItem: PackItem { return eventItem.item ?? PackItem() }
     var event: Event { return eventItem.event ?? Event() }
     var packed: Bool { return eventItem.packed }
+    var staged: Bool { return eventItem.staged }
 }

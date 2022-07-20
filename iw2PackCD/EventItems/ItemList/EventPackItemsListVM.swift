@@ -18,10 +18,12 @@ class EventPackItemListVM: ObservableObject {
     @Published var groupedSortedFiltered: [(key: String, value: [EventItem] ) ] = []
 
     func getEventPackItems(event: Event) {
-        eventItems = event.getEventItemsForEvent(event: event)
-        eventPackItems = event.getPackItems(event: event)
+        DispatchQueue.main.async {
+            self.eventItems = event.getEventItemsForEvent(event: event)
+            self.eventPackItems = event.getPackItems(event: event)
         
-        groupedSortedFiltered = groupItems(items: eventItems)
+            self.groupedSortedFiltered = self.groupItems(items: self.eventItems)
+        }
     }
     
     func groupItems(items: [EventItem] ) -> [(key: String, value: [EventItem] ) ]  {
