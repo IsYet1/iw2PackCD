@@ -60,10 +60,6 @@ extension EventItem: BaseModel {
             return nil
         }
         return eventItemAry[0]
-        
-//        let foundEventItem = eventItemAry.first(where: {$0.item.id == packItem.id})
-        
-        return nil
     }
     
     static func deletePackItemFromEvent(event: Event, packItem: PackItem) {

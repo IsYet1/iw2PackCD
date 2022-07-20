@@ -14,6 +14,7 @@ class EventPackItemListVM: ObservableObject {
     @Published var eventItems: [EventItem] = []
     
     @Published var filterItems: Bool = false
+    @Published var byLocation: Bool = false
     @Published var groupedSortedFiltered: [(key: String, value: [EventItem] ) ] = []
 
     func getEventPackItems(event: Event) {
@@ -30,10 +31,10 @@ class EventPackItemListVM: ObservableObject {
             ? itemsSorted
             : itemsSorted.filter() {!($0.packed) }
             let listGroup: [String: [EventItem]] = Dictionary(grouping: itemsFiltered, by: { eventItem in
-                return eventItem.item?.category?.name ?? "___ No Category"
-                //            return false //byLocation
-                //            ? packItem.location ?? "___ LOCATION not set"
-                //            : packItem.category ?? "___ CATEGORY not set"
+//                return eventItem.item?.category?.name ?? "___ No Category"
+                    return byLocation
+                    ? eventItem.item?.location?.name ?? "___ LOCATION not set"
+                    : eventItem.item?.category?.name ?? "___ CATEGORY not set"
             })
             return listGroup.sorted(by: {$0.key < $1.key})
         }

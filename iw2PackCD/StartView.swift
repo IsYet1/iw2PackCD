@@ -13,7 +13,7 @@ struct StartView: View {
             EventListScreen().tabItem() {Text("Events")}
             PackItemListScreen().tabItem() {Text("Pack Items")}
             CategoryList().tabItem() {Text("Category")}
-//            LocationList().tabItem() {Text("Location")}
+            LocationList().tabItem() {Text("Location")}
         }
     }
 }

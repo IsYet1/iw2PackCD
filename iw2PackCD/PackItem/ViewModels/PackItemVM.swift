@@ -14,4 +14,5 @@ struct PackItemVM {
     var packItemId: NSManagedObjectID { return packItem.objectID }
     var name: String { return packItem.name ?? "" }
     var category: Category { return packItem.category ?? Category() }
+    var location: Location { return packItem.location ?? Location() }
 }

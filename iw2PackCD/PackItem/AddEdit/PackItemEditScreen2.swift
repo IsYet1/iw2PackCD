@@ -19,6 +19,9 @@ struct PackItemEditScreen2: View {
                 .textFieldStyle(.roundedBorder)
             
             CategoryPicker(selectedCategory: $editItemVM.vmCategory)
+            LocationPicker(selectedLocation: $editItemVM.vmLocation)
+            
+            Spacer()
             
             HStack {
                 Button("Save") {
@@ -29,7 +32,6 @@ struct PackItemEditScreen2: View {
                 .buttonStyle(.bordered)
             }
         }
-        Spacer()
     }
 }
 

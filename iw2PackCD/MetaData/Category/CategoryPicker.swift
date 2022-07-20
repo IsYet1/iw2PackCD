@@ -16,12 +16,16 @@ struct CategoryPicker: View {
     private var categoriesFR: FetchedResults<Category>
     
     var body: some View {
-        Picker("", selection: $selectedCategory) {
-            ForEach(categoriesFR, id: \.self) {(category: Category ) in
-                Text(category.name ?? "").tag(category as Category?)
+        HStack {
+            Text("Category").font(.headline).frame(width: 100)
+            Picker("", selection: $selectedCategory) {
+                ForEach(categoriesFR, id: \.self) {(category: Category ) in
+                    Text(category.name ?? "").tag(category as Category?)
+                }
             }
+            .pickerStyle(.menu)
+            Spacer()
         }
-        .pickerStyle(.wheel)
     }
 }
 

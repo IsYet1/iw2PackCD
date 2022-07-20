@@ -68,6 +68,7 @@ struct LocationItemCell: View {
     let item: Location
     var body: some View {
         NavigationLink {
+            LocationPackItemsList(location: item)
             Text("Item at \(item.name!)")
         } label: {
             Text(item.name!)
