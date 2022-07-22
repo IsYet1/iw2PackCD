@@ -8,11 +8,6 @@
 import Foundation
 import CoreData
 
-enum PackPhase {
-    case staged
-    case packed
-}
-
 class EventItemListCellVM: ObservableObject {
     let eventItem: EventItem
     var packItemName: String

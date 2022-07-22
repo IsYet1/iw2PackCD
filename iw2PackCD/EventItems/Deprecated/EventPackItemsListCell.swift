@@ -5,11 +5,17 @@
 //  Created by Don McKenzie on 04-Jul-22.
 //
 
+// To invoke this view in the EventPackItemsList:
+// ForEach(sections.value, id: \.id) {eventItem in
+//     EventPackItemsListCell(eventPackItemListVM: eventPackItemListVM, eventItem: eventItem, event: event)
+// in place of the HStack that's there now
 import SwiftUI
 import CoreData
 
 struct EventPackItemsListCell: View {
-    @StateObject var eventItemListCellVM: EventItemListCellVM
+    @ObservedObject var eventPackItemListVM: EventPackItemListVM
+    let eventItem: EventItem
+    let event: Event
 
     var body: some View {
         HStack {
@@ -17,23 +23,25 @@ struct EventPackItemsListCell: View {
                 "",
                 isOn: Binding<Bool> (
                     get: {
-                        return eventItemListCellVM.itemStaged
+                        return eventItem.staged
                     },
                     set: {
-                        eventItemListCellVM.updatePackedStatus(checked: $0, phase: .staged)
+                        eventPackItemListVM.updatePackedStatus(checked: $0, eventItem: eventItem, phase: .staged)
+                        eventPackItemListVM.getEventPackItems(event: event)
                     }
                 )
             )
             .toggleStyle(CheckboxToggleStyle(style: .circle))
-//                            .foregroundColor(.blue)
+            
             Toggle(
-                eventItemListCellVM.packItemName,
+                eventItem.item?.name ?? "No name",
                 isOn: Binding<Bool> (
                     get: {
-                        return eventItemListCellVM.itemPacked
+                        return eventItem.packed
                     },
                     set: {
-                        eventItemListCellVM.updatePackedStatus(checked: $0, phase: .packed)
+                        eventPackItemListVM.updatePackedStatus(checked: $0, eventItem: eventItem, phase: .packed)
+                        eventPackItemListVM.getEventPackItems(event: event)
                     }
                 )
             )
