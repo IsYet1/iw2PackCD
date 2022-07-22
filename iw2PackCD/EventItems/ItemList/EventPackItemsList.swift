@@ -26,10 +26,56 @@ struct EventPackItemsList: View {
                 ForEach(eventPackItemListVM.groupedSortedFiltered, id:\.key) {sections in
                     Section(header: Text(sections.key)) {
                         ForEach(sections.value, id: \.id) {eventItem in
-                            EventPackItemsListCell(eventItemListCellVM: EventItemListCellVM(eventItemIn: eventItem))
+                            
+                            
+                            HStack {
+                                Toggle(
+                                    "",
+                                    isOn: Binding<Bool> (
+                                        get: {
+                                            return eventItem.staged
+                                        },
+                                        set: {
+                                            eventPackItemListVM.updatePackedStatus(checked: $0, eventItem: eventItem, phase: .staged)
+                                            eventPackItemListVM.getEventPackItems(event: event)
+//                                            eventItemListCellVM.updatePackedStatus(checked: $0, phase: .staged)
+                                        }
+                                    )
+                                )
+                                .toggleStyle(CheckboxToggleStyle(style: .circle))
+                                Toggle(
+                                    eventItem.item?.name ?? "No name",
+                                    isOn: Binding<Bool> (
+                                        get: {
+                                            return eventItem.packed
+                                        },
+                                        set: {
+                                            eventPackItemListVM.updatePackedStatus(checked: $0, eventItem: eventItem, phase: .packed)
+                                            eventPackItemListVM.getEventPackItems(event: event)
+//                                            eventItemListCellVM.updatePackedStatus(checked: $0, phase: .packed)
+                                        }
+                                    )
+                                )
+                                .toggleStyle(CheckboxToggleStyle(style: .square))
+                                .foregroundColor(.blue)
+                            }
+                            
+//                            Toggle(
+//                                eventItem.item?.name ?? "No name",
+//                                isOn: Binding<Bool> (
+//                                    get: {
+//                                        return eventItem.packed
+//                                    },
+//                                    set: {
+//                                        eventPackItemListVM.updatePackedStatus(checked: $0, eventItem: eventItem)
+//                                        eventPackItemListVM.getEventPackItems(event: event)
+//                                    }
+//                                )
+//                            )
+                            .toggleStyle(CheckboxToggleStyle(style: .square))
+                            .foregroundColor(.blue)
+                            //                            EventPackItemsListCell(eventItemListCellVM: EventItemListCellVM(eventItemIn: eventItem))
                         }
-                        // TODO: Re-enable swipe to delete from the event ?
-                        //                        .onDelete {self.removeItemFromEvent(at: $0, items: sections.value )}
                     }
                 }
             }
