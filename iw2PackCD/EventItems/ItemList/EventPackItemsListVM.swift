@@ -48,21 +48,18 @@ class EventPackItemListVM: ObservableObject {
     
     
     func updatePackedStatus(checked: Bool, eventItem: EventItem, phase: PackPhase) {
-        //        itemPacked = checked
-        eventItem.packed = checked
-        
         switch phase {
         case .staged:
             // If staged is cleared then ensure that packed is cleared also.
             if !checked {
-                eventItem.packed = checked
+                eventItem.packed = false
             }
             eventItem.staged = checked
         case .packed:
             eventItem.packed = checked
             // If packed is checked then ensure that staged is checked also. Not the inverse, don't clear staged if packed is cleared.
             if checked {
-                eventItem.staged = checked
+                eventItem.staged = true
             }
         }
         try? eventItem.save()
