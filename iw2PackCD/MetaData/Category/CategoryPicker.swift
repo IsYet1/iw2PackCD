@@ -19,6 +19,7 @@ struct CategoryPicker: View {
         HStack {
             Text("Category").font(.headline).frame(width: 100)
             Picker("", selection: $selectedCategory) {
+                Text("Select Category").tag(nil as Category?)
                 ForEach(categoriesFR, id: \.self) {(category: Category ) in
                     Text(category.name ?? "").tag(category as Category?)
                 }
