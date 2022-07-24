@@ -15,4 +15,6 @@ struct PackItemVM {
     var name: String { return packItem.name ?? "" }
     var category: Category { return packItem.category ?? Category() }
     var location: Location { return packItem.location ?? Location() }
+    var locationIsSet: Bool {return packItem.location != nil}
+    var categoryIsSet: Bool {return packItem.category != nil}
 }

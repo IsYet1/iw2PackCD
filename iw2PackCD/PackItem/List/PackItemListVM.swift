@@ -33,7 +33,9 @@ func groupItems(items: [PackItemVM] ) -> [(key: String, value: [PackItemVM] ) ] 
     var orderList: [(key: String, value: [PackItemVM] ) ] {
         let itemsSorted = items.sorted(by: { $0.name < $1.name })
         let listGroup: [String: [PackItemVM]] = Dictionary(grouping: itemsSorted, by: { packItem in
-            return packItem.category.name  ?? "___ No Category"
+            return (packItem.categoryIsSet && packItem.category.name != nil)
+                ?  packItem.category.name!
+                : ""
             //            return false //byLocation
             //            ? packItem.location ?? "___ LOCATION not set"
             //            : packItem.category ?? "___ CATEGORY not set"
