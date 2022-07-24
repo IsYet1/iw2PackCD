@@ -31,6 +31,7 @@ struct PackItemAddScreen: View {
                     packItemName = ""
                 }.padding()
                 .buttonStyle(.bordered)
+                .disabled(selectedCategory == nil || selectedLocation == nil)
                 
                 Button("Close") {
                     presentationMode.wrappedValue.dismiss()
