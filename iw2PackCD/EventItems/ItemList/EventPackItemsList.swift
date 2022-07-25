@@ -26,10 +26,10 @@ struct EventPackItemsList: View {
                 ForEach(eventPackItemListVM.groupedSortedFiltered, id:\.key) {sections in
                     Section(header: Text(sections.key)) {
                         ForEach(sections.value, id: \.id) {eventItem in
-
+                            
                             // This viev is in the deprecated folder. Would like to use it at some point.
                             // EventPackItemsListCell(eventPackItemListVM: eventPackItemListVM, eventItem: eventItem, event: event)
-
+                            
                             HStack {
                                 Toggle(
                                     "",
@@ -77,23 +77,23 @@ struct EventPackItemsList: View {
             }
             ToolbarItem(placement: .bottomBar) {
                 HStack {
-                    Toggle("Unpacked",
-                           isOn: Binding<Bool> (
-                            get: {
-                                return eventPackItemListVM.filterItems
-                            },
-                            set: {
-                                eventPackItemListVM.filterItems = $0
-                                eventPackItemListVM.getEventPackItems(event: event)
-                            }
-                           )
+                    Toggle(isOn: Binding<Bool> (
+                        get: {
+                            return eventPackItemListVM.filterItems
+                        },
+                        set: {
+                            eventPackItemListVM.filterItems = $0
+                            eventPackItemListVM.getEventPackItems(event: event)
+                        }
+                    ),
+                           label: {Text("Unpacked").font(.footnote)}
                     )
-                    .toggleStyle(.switch)
-                    .frame(width: 150)
-                    .padding([.trailing], 20)
+                    .toggleStyle(CheckboxToggleStyle(style: .circle))
+//                    .frame(width: 150)
+//                    .padding([.trailing], 20)
+                    Spacer()
                     
-                    Toggle("Location",
-                           isOn: Binding<Bool> (
+                    Toggle(isOn: Binding<Bool> (
                             get: {
                                 return eventPackItemListVM.byLocation
                             },
@@ -101,12 +101,17 @@ struct EventPackItemsList: View {
                                 eventPackItemListVM.byLocation = $0
                                 eventPackItemListVM.getEventPackItems(event: event)
                             }
-                           )
+                           ),
+                           label: {Text("Location").font(.footnote)}
                     )
-                    .toggleStyle(.switch)
-                    .frame(width: 130)
-                    
+                    .toggleStyle(CheckboxToggleStyle(style: .circle))
+//                    .frame(width: 130)
                     Spacer()
+                    
+                    Button("Reset") {
+                        eventPackItemListVM.resetListStatus()
+                        eventPackItemListVM.getEventPackItems(event: event)
+                    }.buttonStyle(.bordered)
                 }
             }
         }
