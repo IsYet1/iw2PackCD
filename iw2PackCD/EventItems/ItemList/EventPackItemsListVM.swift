@@ -65,5 +65,11 @@ class EventPackItemListVM: ObservableObject {
         try? eventItem.save()
     }
     
+    func resetListStatus() {
+        print ("Resetting the list")
+        eventItems.forEach {self.updatePackedStatus(checked: false, eventItem: $0, phase: .staged) }
+        
+    }
+    
     
 }

@@ -202,7 +202,6 @@
 				A5BDACBD287A52BD006F961D /* Assets.xcassets */,
 				A59486E62817578800C34782 /* iw2PackCDApp.swift */,
 				A5D8EBB5281A088A00D5CC0B /* StartView.swift */,
-				F64E29AB2839ADDC0072B4FC /* Components */,
 				A5EFFB502827174C003CC39F /* Managers */,
 				A59AD711281CA01900EDCD8E /* Models */,
 				A5EFFB5728272310003CC39F /* PackItem */,
@@ -329,13 +328,6 @@
 				A55473A028665E810009B2C7 /* EventItemAddCell.swift */,
 			);
 			path = ItemsAddEdit;
-			sourceTree = "<group>";
-		};
-		F64E29AB2839ADDC0072B4FC /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
