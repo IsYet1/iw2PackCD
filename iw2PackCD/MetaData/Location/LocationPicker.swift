@@ -19,6 +19,7 @@ struct LocationPicker: View {
         HStack {
             Text("Location").font(.headline).frame(width: 100)
             Picker("", selection: $selectedLocation) {
+                Text("Select Location").tag(nil as Location?)
                 ForEach(locationsFR, id: \.self) {(location: Location ) in
                     Text(location.name ?? "").tag(location as Location?)
                 }

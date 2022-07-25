@@ -9,12 +9,19 @@ import SwiftUI
 
 struct EventItemAddScreen: View {
     let event: Event
+    @State private var showAddItemForm: Bool = false
     
     @StateObject private var packItemListVm = PackItemListVM()
     
     var body: some View {
         VStack {
-            CloseButton()
+            HStack {
+                CloseButton()
+               Spacer()
+                Button("Add Items") {
+                    showAddItemForm = true
+                }
+            }.padding([.trailing], 20)
             Divider()
             Text("Add Items To: \(event.name!)").font(.title)
             Divider()
@@ -31,6 +38,10 @@ struct EventItemAddScreen: View {
                 }
             }
         }
+        .sheet(isPresented: $showAddItemForm,
+               onDismiss: { packItemListVm.getAllPackItems() },
+               content: { PackItemAddScreen() }
+        )
         .onAppear(perform: {
             packItemListVm.getAllPackItems()
         })

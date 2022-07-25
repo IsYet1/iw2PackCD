@@ -21,8 +21,6 @@ struct PackItemEditScreen2: View {
             CategoryPicker(selectedCategory: $editItemVM.vmCategory)
             LocationPicker(selectedLocation: $editItemVM.vmLocation)
             
-            Spacer()
-            
             HStack {
                 Button("Save") {
                     editItemVM.save()
@@ -30,8 +28,11 @@ struct PackItemEditScreen2: View {
                 }
                 .padding()
                 .buttonStyle(.bordered)
+                .disabled(editItemVM.metaDataIsInvalid)
             }
+            .padding([.leading, .trailing], 20.0)
         }
+        Spacer()
     }
 }
 

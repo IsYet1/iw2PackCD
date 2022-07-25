@@ -28,6 +28,12 @@ struct PackItemAddScreen: View {
             HStack {
                 Button("Save") {
                     PackItem.addPackItem(name: packItemName, category: selectedCategory!, location: selectedLocation!)
+                    packItemName = ""
+                }.padding()
+                .buttonStyle(.bordered)
+                .disabled(selectedCategory == nil || selectedLocation == nil)
+                
+                Button("Close") {
                     presentationMode.wrappedValue.dismiss()
                 }.padding()
                 .buttonStyle(.bordered)
