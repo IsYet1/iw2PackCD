@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EventListScreen: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @StateObject private var eventListVM = EventListVM()
     @State private var showForm: Bool = false
     
     @FetchRequest(
@@ -19,12 +20,15 @@ struct EventListScreen: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(items) { item in
+                ForEach(eventListVM.events, id: \.eventId) { item in
                     EventItemCell(event: item)
                 }
                 .onDelete(perform: deleteItems)
             }
-            .navigationTitle("Events")
+            .refreshable(action: {
+                eventListVM.getAllEvents()
+            })
+            .navigationTitle("Events with VM")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
@@ -39,6 +43,10 @@ struct EventListScreen: View {
                 EventFormScreen()
             })
             Text("Select an item")
+            
+            .onAppear(perform: {
+                eventListVM.getAllEvents()
+            })
         }
     }
     
@@ -63,10 +71,10 @@ struct EventListScreen: View {
 //}
 
 struct EventItemCell: View {
-    let event: Event
+    let event: EventVM
     var body: some View {
         NavigationLink {
-            EventPackItemsList(event: event)
+            EventPackItemsList(event: event.event)
         } label: {
             Text(event.name ?? "No Event")
         }
