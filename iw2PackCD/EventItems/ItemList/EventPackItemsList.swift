@@ -71,7 +71,7 @@ struct EventPackItemsList: View {
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Edit Item List For This Event") {
+                Button("Add/Remove Items") {
                     self.showEditEventItemList = true
                 }
             }
