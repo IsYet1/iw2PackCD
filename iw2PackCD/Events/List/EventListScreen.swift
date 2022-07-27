@@ -28,7 +28,7 @@ struct EventListScreen: View {
             .refreshable(action: {
                 eventListVM.getAllEvents()
             })
-            .navigationTitle("Events with VM")
+            .navigationTitle("Events")
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
