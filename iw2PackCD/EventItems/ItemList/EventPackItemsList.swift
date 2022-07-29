@@ -68,7 +68,7 @@ struct EventPackItemsList: View {
             })
             
             
-            HStack (alignment: .center, spacing: 45) {
+            HStack (alignment: .center, spacing: 50) {
                 Toggle(isOn: Binding<Bool> (
                     get: {
                         return eventPackItemListVM.filterItems
@@ -100,11 +100,9 @@ struct EventPackItemsList: View {
                     eventPackItemListVM.getEventPackItems(event: event)
                 }.buttonStyle(.bordered)
             }
-            .padding([.leading, .trailing], 15)
-            .padding([.top, .bottom], 15)
-            .background(Color.gray.opacity(0.4), in: Rectangle())
-//            .background(Color.gray.opacity(0.6))
-//            .border()
+            .padding(15)
+            .background(Color.gray.opacity(0.3), in: Rectangle())
+            .cornerRadius(7)
             
         }
         .toolbar {
