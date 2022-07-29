@@ -53,6 +53,9 @@ struct PackItemListScreen: View {
                         self.showForm = true
                     }
                 }
+                ToolbarItem(placement: .bottomBar, content: {
+                    Text("Toolbar here")
+                })
             }
             .onAppear(perform: {
                 packItemListVm.getAllPackItems()

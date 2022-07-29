@@ -9,12 +9,12 @@ import Foundation
 import CoreData
 // TODO: Why do I need this Delegate here? Not in Movies. See fetchedResultController line commented out below
 class EventListVM: NSObject, ObservableObject, NSFetchedResultsControllerDelegate  {
-    @Published var categories = [CategoryViewModel]()
+    @Published var events: [EventVM] = []
     
-    private var fetchedResultsController: NSFetchedResultsController<Category>!
+    private var fetchedResultsController: NSFetchedResultsController<Event>!
     
     func getAllEvents() {
-        let request: NSFetchRequest<Category> = Category.fetchRequest()
+        let request: NSFetchRequest<Event> = Event.fetchRequest()
         
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
@@ -23,8 +23,8 @@ class EventListVM: NSObject, ObservableObject, NSFetchedResultsControllerDelegat
         
         try? fetchedResultsController.performFetch()
         DispatchQueue.main.async {
-            self.categories = (self.fetchedResultsController.fetchedObjects ?? []).map(CategoryViewModel.init)
-            print("Get all categories \(self.categories)")
+            self.events = (self.fetchedResultsController.fetchedObjects ?? []).map(EventVM.init)
+            print("Get all events \(self.events)")
         }
     }
 }

@@ -67,51 +67,53 @@ struct EventPackItemsList: View {
                 eventPackItemListVM.getEventPackItems(event: event)
             })
             
-            Spacer()
+            
+            HStack {
+                Toggle(isOn: Binding<Bool> (
+                    get: {
+                        return eventPackItemListVM.filterItems
+                    },
+                    set: {
+                        eventPackItemListVM.filterItems = $0
+                        eventPackItemListVM.getEventPackItems(event: event)
+                    }
+                ),
+                       label: {Text("Unpacked").font(.footnote)}
+                )
+                .toggleStyle(CheckboxToggleStyle(style: .circle))
+//                    .frame(width: 150)
+//                    .padding([.trailing], 20)
+                Spacer()
+
+                Toggle(isOn: Binding<Bool> (
+                        get: {
+                            return eventPackItemListVM.byLocation
+                        },
+                        set: {
+                            eventPackItemListVM.byLocation = $0
+                            eventPackItemListVM.getEventPackItems(event: event)
+                        }
+                       ),
+                       label: {Text("Location").font(.footnote)}
+                )
+                .toggleStyle(CheckboxToggleStyle(style: .circle))
+//                    .frame(width: 130)
+                Spacer()
+
+                Button("Reset") {
+                    eventPackItemListVM.resetListStatus()
+                    eventPackItemListVM.getEventPackItems(event: event)
+                }.buttonStyle(.bordered)
+            }
+            .padding(30)
+            
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Edit Item List For This Event") {
-                    self.showEditEventItemList = true
-                }
-            }
-            ToolbarItem(placement: .bottomBar) {
-                HStack {
-                    Toggle(isOn: Binding<Bool> (
-                        get: {
-                            return eventPackItemListVM.filterItems
-                        },
-                        set: {
-                            eventPackItemListVM.filterItems = $0
-                            eventPackItemListVM.getEventPackItems(event: event)
-                        }
-                    ),
-                           label: {Text("Unpacked").font(.footnote)}
-                    )
-                    .toggleStyle(CheckboxToggleStyle(style: .circle))
-//                    .frame(width: 150)
-//                    .padding([.trailing], 20)
-                    Spacer()
-                    
-                    Toggle(isOn: Binding<Bool> (
-                            get: {
-                                return eventPackItemListVM.byLocation
-                            },
-                            set: {
-                                eventPackItemListVM.byLocation = $0
-                                eventPackItemListVM.getEventPackItems(event: event)
-                            }
-                           ),
-                           label: {Text("Location").font(.footnote)}
-                    )
-                    .toggleStyle(CheckboxToggleStyle(style: .circle))
-//                    .frame(width: 130)
-                    Spacer()
-                    
-                    Button("Reset") {
-                        eventPackItemListVM.resetListStatus()
-                        eventPackItemListVM.getEventPackItems(event: event)
-                    }.buttonStyle(.bordered)
+                VStack {
+                    Button("Add/Remove Items") {
+                        self.showEditEventItemList = true
+                    }
                 }
             }
         }
