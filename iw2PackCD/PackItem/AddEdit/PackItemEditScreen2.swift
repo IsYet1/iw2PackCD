@@ -32,6 +32,12 @@ struct PackItemEditScreen2: View {
             }
             .padding([.leading, .trailing], 20.0)
         }
+        .toolbar {
+            
+                ToolbarItem(placement: .bottomBar, content: {
+                    Text("Toolbar here")
+                })
+        }
         Spacer()
     }
 }

@@ -42,7 +42,6 @@ struct EventListScreen: View {
             .sheet(isPresented: $showForm, content: {
                 EventFormScreen()
             })
-            Text("Select an item")
             
             .onAppear(perform: {
                 eventListVM.getAllEvents()
@@ -76,7 +75,7 @@ struct EventItemCell: View {
         NavigationLink {
             EventPackItemsList(event: event.event)
         } label: {
-            Text(event.name ?? "No Event")
+            Text(event.name )
         }
     }
 }
