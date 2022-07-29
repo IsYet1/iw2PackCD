@@ -68,7 +68,7 @@ struct EventPackItemsList: View {
             })
             
             
-            HStack {
+            HStack (alignment: .center, spacing: 45) {
                 Toggle(isOn: Binding<Bool> (
                     get: {
                         return eventPackItemListVM.filterItems
@@ -81,9 +81,6 @@ struct EventPackItemsList: View {
                        label: {Text("Unpacked").font(.footnote)}
                 )
                 .toggleStyle(CheckboxToggleStyle(style: .circle))
-//                    .frame(width: 150)
-//                    .padding([.trailing], 20)
-                Spacer()
 
                 Toggle(isOn: Binding<Bool> (
                         get: {
@@ -97,15 +94,17 @@ struct EventPackItemsList: View {
                        label: {Text("Location").font(.footnote)}
                 )
                 .toggleStyle(CheckboxToggleStyle(style: .circle))
-//                    .frame(width: 130)
-                Spacer()
 
                 Button("Reset") {
                     eventPackItemListVM.resetListStatus()
                     eventPackItemListVM.getEventPackItems(event: event)
                 }.buttonStyle(.bordered)
             }
-            .padding(30)
+            .padding([.leading, .trailing], 15)
+            .padding([.top, .bottom], 15)
+            .background(Color.gray.opacity(0.4), in: Rectangle())
+//            .background(Color.gray.opacity(0.6))
+//            .border()
             
         }
         .toolbar {
