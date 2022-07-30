@@ -10,7 +10,6 @@ import CoreData
 
 struct EventPackItemsListActions: View {
     @ObservedObject var eventPackItemListVM: EventPackItemListVM
-    let event: Event
 
     var body: some View {
             HStack (alignment: .center, spacing: 50) {
@@ -19,31 +18,32 @@ struct EventPackItemsListActions: View {
                         return eventPackItemListVM.filterItems
                     },
                     set: {
-                        eventPackItemListVM.filterItems = $0
-                        eventPackItemListVM.getEventPackItems(event: event)
+                        eventPackItemListVM.toggle(toggleType: .filterToUnpacked, isOn: $0)
                     }
                 ),
                        label: {Text("Unpacked").font(.footnote)}
                 )
                 .toggleStyle(CheckboxToggleStyle(style: .circle))
+                .disabled(eventPackItemListVM.eventItems.isEmpty)
 
                 Toggle(isOn: Binding<Bool> (
                         get: {
                             return eventPackItemListVM.byLocation
                         },
                         set: {
-                            eventPackItemListVM.byLocation = $0
-                            eventPackItemListVM.getEventPackItems(event: event)
+                            eventPackItemListVM.toggle(toggleType: .byLocation, isOn: $0)
                         }
                        ),
                        label: {Text("Location").font(.footnote)}
                 )
                 .toggleStyle(CheckboxToggleStyle(style: .circle))
+                .disabled(eventPackItemListVM.eventItems.isEmpty)
 
                 Button("Reset") {
                     eventPackItemListVM.resetListStatus()
-                    eventPackItemListVM.getEventPackItems(event: event)
-                }.buttonStyle(.bordered)
+                }
+                .disabled(eventPackItemListVM.eventItems.isEmpty)
+                .buttonStyle(.bordered)
             }
             .padding(15)
             .background(Color.gray.opacity(0.3), in: Rectangle())

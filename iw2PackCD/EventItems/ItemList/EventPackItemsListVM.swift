@@ -14,9 +14,12 @@ enum PackPhase {
     case packed
 }
 
+enum EventItemListToggle {
+    case filterToUnpacked
+    case byLocation
+}
+
 class EventPackItemListVM: ObservableObject {
-    //    var vmEvent: Event
-    
     @Published var eventItems: [EventItem] = []
     
     @Published var filterItems: Bool = false
@@ -25,7 +28,6 @@ class EventPackItemListVM: ObservableObject {
     
     func getEventPackItems(event: Event) {
         eventItems = event.getEventItemsForEvent(event: event)
-        
         groupedSortedFiltered = groupItems(items: eventItems)
     }
     
@@ -65,11 +67,33 @@ class EventPackItemListVM: ObservableObject {
         try? eventItem.save()
     }
     
+    func updatePackedStatusThenReload(checked: Bool, eventItem: EventItem, phase: PackPhase) {
+        updatePackedStatus(checked: checked, eventItem: eventItem, phase: phase)
+        getEventPackItems(event: eventItem.event!)
+    }
+    
     func resetListStatus() {
+        guard !eventItems.isEmpty
+        else { return }
+        
         print ("Resetting the list")
         eventItems.forEach {self.updatePackedStatus(checked: false, eventItem: $0, phase: .staged) }
+        getEventPackItems(event: eventItems[0].event!)
         
     }
     
+    func toggle(toggleType: EventItemListToggle, isOn: Bool) {
+        guard !eventItems.isEmpty
+        else { return }
+        
+        switch toggleType {
+        case .filterToUnpacked:
+            filterItems = isOn
+        case .byLocation:
+            byLocation = isOn
+        }
+        getEventPackItems(event: eventItems[0].event!)
+        
+    }
     
 }

@@ -11,7 +11,6 @@ import CoreData
 struct EventPackItemsListCell: View {
     @ObservedObject var eventPackItemListVM: EventPackItemListVM
     let eventItem: EventItem
-    let event: Event
 
     var body: some View {
         /*
@@ -24,8 +23,7 @@ struct EventPackItemsListCell: View {
                         return eventItem.staged
                     },
                     set: {
-                        eventPackItemListVM.updatePackedStatus(checked: $0, eventItem: eventItem, phase: .staged)
-                        eventPackItemListVM.getEventPackItems(event: event)
+                        eventPackItemListVM.updatePackedStatusThenReload(checked: $0, eventItem: eventItem, phase: .staged)
                     }
                 )
             )
@@ -38,8 +36,7 @@ struct EventPackItemsListCell: View {
                         return eventItem.packed
                     },
                     set: {
-                        eventPackItemListVM.updatePackedStatus(checked: $0, eventItem: eventItem, phase: .packed)
-                        eventPackItemListVM.getEventPackItems(event: event)
+                        eventPackItemListVM.updatePackedStatusThenReload(checked: $0, eventItem: eventItem, phase: .packed)
                     }
                 )
             )

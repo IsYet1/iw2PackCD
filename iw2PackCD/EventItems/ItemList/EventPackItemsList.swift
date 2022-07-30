@@ -29,7 +29,7 @@ struct EventPackItemsList: View {
                 ForEach(eventPackItemListVM.groupedSortedFiltered, id:\.key) {sections in
                     Section(header: Text(sections.key)) {
                         ForEach(sections.value, id: \.id) {eventItem in
-                            EventPackItemsListCell(eventPackItemListVM: eventPackItemListVM, eventItem: eventItem, event: event)
+                            EventPackItemsListCell(eventPackItemListVM: eventPackItemListVM, eventItem: eventItem)
                         }
                     }
                 }
@@ -38,7 +38,7 @@ struct EventPackItemsList: View {
                 eventPackItemListVM.getEventPackItems(event: event)
             })
             
-            EventPackItemsListActions(eventPackItemListVM: eventPackItemListVM, event: event)
+            EventPackItemsListActions(eventPackItemListVM: eventPackItemListVM)
             
         }
         .toolbar {
