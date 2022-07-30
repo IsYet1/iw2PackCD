@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+// TODO: Need to work on the synching. Not 100% sure the code change to move the rows to the Cell view is working all the time.
+// See commit# 87569423f97b582f84509f262c511d5b7275beda for that change. Basically copy the Cell HStack and paste just below the Event..Cell line below.
+
 struct EventPackItemsList: View {
     
     let event: Event
@@ -26,39 +29,7 @@ struct EventPackItemsList: View {
                 ForEach(eventPackItemListVM.groupedSortedFiltered, id:\.key) {sections in
                     Section(header: Text(sections.key)) {
                         ForEach(sections.value, id: \.id) {eventItem in
-                            
-                            // This viev is in the deprecated folder. Would like to use it at some point.
-                            // EventPackItemsListCell(eventPackItemListVM: eventPackItemListVM, eventItem: eventItem, event: event)
-                            
-                            HStack {
-                                Toggle(
-                                    "",
-                                    isOn: Binding<Bool> (
-                                        get: {
-                                            return eventItem.staged
-                                        },
-                                        set: {
-                                            eventPackItemListVM.updatePackedStatus(checked: $0, eventItem: eventItem, phase: .staged)
-                                            eventPackItemListVM.getEventPackItems(event: event)
-                                        }
-                                    )
-                                )
-                                .toggleStyle(CheckboxToggleStyle(style: .circle))
-                                Toggle(
-                                    eventItem.item?.name ?? "No name",
-                                    isOn: Binding<Bool> (
-                                        get: {
-                                            return eventItem.packed
-                                        },
-                                        set: {
-                                            eventPackItemListVM.updatePackedStatus(checked: $0, eventItem: eventItem, phase: .packed)
-                                            eventPackItemListVM.getEventPackItems(event: event)
-                                        }
-                                    )
-                                )
-                                .toggleStyle(CheckboxToggleStyle(style: .square))
-                                .foregroundColor(.blue)
-                            }
+                            EventPackItemsListCell(eventPackItemListVM: eventPackItemListVM, eventItem: eventItem)
                         }
                     }
                 }
@@ -67,45 +38,7 @@ struct EventPackItemsList: View {
                 eventPackItemListVM.getEventPackItems(event: event)
             })
             
-            
-            HStack {
-                Toggle(isOn: Binding<Bool> (
-                    get: {
-                        return eventPackItemListVM.filterItems
-                    },
-                    set: {
-                        eventPackItemListVM.filterItems = $0
-                        eventPackItemListVM.getEventPackItems(event: event)
-                    }
-                ),
-                       label: {Text("Unpacked").font(.footnote)}
-                )
-                .toggleStyle(CheckboxToggleStyle(style: .circle))
-//                    .frame(width: 150)
-//                    .padding([.trailing], 20)
-                Spacer()
-
-                Toggle(isOn: Binding<Bool> (
-                        get: {
-                            return eventPackItemListVM.byLocation
-                        },
-                        set: {
-                            eventPackItemListVM.byLocation = $0
-                            eventPackItemListVM.getEventPackItems(event: event)
-                        }
-                       ),
-                       label: {Text("Location").font(.footnote)}
-                )
-                .toggleStyle(CheckboxToggleStyle(style: .circle))
-//                    .frame(width: 130)
-                Spacer()
-
-                Button("Reset") {
-                    eventPackItemListVM.resetListStatus()
-                    eventPackItemListVM.getEventPackItems(event: event)
-                }.buttonStyle(.bordered)
-            }
-            .padding(30)
+            EventPackItemsListActions(eventPackItemListVM: eventPackItemListVM)
             
         }
         .toolbar {
