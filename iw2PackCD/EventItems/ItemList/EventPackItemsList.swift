@@ -26,39 +26,7 @@ struct EventPackItemsList: View {
                 ForEach(eventPackItemListVM.groupedSortedFiltered, id:\.key) {sections in
                     Section(header: Text(sections.key)) {
                         ForEach(sections.value, id: \.id) {eventItem in
-                            
-                            // This viev is in the deprecated folder. Would like to use it at some point.
-                            // EventPackItemsListCell(eventPackItemListVM: eventPackItemListVM, eventItem: eventItem, event: event)
-                            
-                            HStack {
-                                Toggle(
-                                    "",
-                                    isOn: Binding<Bool> (
-                                        get: {
-                                            return eventItem.staged
-                                        },
-                                        set: {
-                                            eventPackItemListVM.updatePackedStatus(checked: $0, eventItem: eventItem, phase: .staged)
-                                            eventPackItemListVM.getEventPackItems(event: event)
-                                        }
-                                    )
-                                )
-                                .toggleStyle(CheckboxToggleStyle(style: .circle))
-                                Toggle(
-                                    eventItem.item?.name ?? "No name",
-                                    isOn: Binding<Bool> (
-                                        get: {
-                                            return eventItem.packed
-                                        },
-                                        set: {
-                                            eventPackItemListVM.updatePackedStatus(checked: $0, eventItem: eventItem, phase: .packed)
-                                            eventPackItemListVM.getEventPackItems(event: event)
-                                        }
-                                    )
-                                )
-                                .toggleStyle(CheckboxToggleStyle(style: .square))
-                                .foregroundColor(.blue)
-                            }
+                            EventPackItemsListCell(eventPackItemListVM: eventPackItemListVM, eventItem: eventItem, event: event)
                         }
                     }
                 }

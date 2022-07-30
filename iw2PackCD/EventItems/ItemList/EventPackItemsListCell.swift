@@ -46,7 +46,7 @@ struct EventPackItemsListCell: View {
                 )
             )
             .toggleStyle(CheckboxToggleStyle(style: .square))
-                        .foregroundColor(.blue)
+            .foregroundColor(.blue)
         }
     }
 }

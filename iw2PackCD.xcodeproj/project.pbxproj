@@ -12,7 +12,6 @@
 		A5174DF128248AB1004DC2A1 /* LocationFormScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5174DF028248AB1004DC2A1 /* LocationFormScreen.swift */; };
 		A5174DF328248AF4004DC2A1 /* LocationFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5174DF228248AF4004DC2A1 /* LocationFormViewModel.swift */; };
 		A5174DF528248BB2004DC2A1 /* Location+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5174DF428248BB2004DC2A1 /* Location+Extension.swift */; };
-		A5324DDE28738ED600F59A68 /* EventPackItemsListCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5324DDD28738ED600F59A68 /* EventPackItemsListCellVM.swift */; };
 		A5324DE028738EE000F59A68 /* EventPackItemsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5324DDF28738EE000F59A68 /* EventPackItemsListCell.swift */; };
 		A53717B82836D87D00185FE3 /* PackItemListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53717B72836D87D00185FE3 /* PackItemListVM.swift */; };
 		A53717BE2836FE1B00185FE3 /* CategoryListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53717BD2836FE1B00185FE3 /* CategoryListVM.swift */; };
@@ -61,7 +60,6 @@
 		A5174DF028248AB1004DC2A1 /* LocationFormScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormScreen.swift; sourceTree = "<group>"; };
 		A5174DF228248AF4004DC2A1 /* LocationFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormViewModel.swift; sourceTree = "<group>"; };
 		A5174DF428248BB2004DC2A1 /* Location+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+Extension.swift"; sourceTree = "<group>"; };
-		A5324DDD28738ED600F59A68 /* EventPackItemsListCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPackItemsListCellVM.swift; sourceTree = "<group>"; };
 		A5324DDF28738EE000F59A68 /* EventPackItemsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPackItemsListCell.swift; sourceTree = "<group>"; };
 		A53717B72836D87D00185FE3 /* PackItemListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemListVM.swift; sourceTree = "<group>"; };
 		A53717BD2836FE1B00185FE3 /* CategoryListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListVM.swift; sourceTree = "<group>"; };
@@ -163,7 +161,6 @@
 		A56BC08928710DBC006895C5 /* EventItems */ = {
 			isa = PBXGroup;
 			children = (
-				A5FCAB85288B696200DE37D9 /* Deprecated */,
 				F64E1E052852C5070062EF09 /* ItemsAddEdit */,
 				F62A68C82856A2720005AB22 /* ItemList */,
 				F62A68C92856A2B50005AB22 /* EventItemVM.swift */,
@@ -287,20 +284,12 @@
 			path = PackItem;
 			sourceTree = "<group>";
 		};
-		A5FCAB85288B696200DE37D9 /* Deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				A5324DDD28738ED600F59A68 /* EventPackItemsListCellVM.swift */,
-				A5324DDF28738EE000F59A68 /* EventPackItemsListCell.swift */,
-			);
-			path = Deprecated;
-			sourceTree = "<group>";
-		};
 		F62A68C82856A2720005AB22 /* ItemList */ = {
 			isa = PBXGroup;
 			children = (
 				A50921872852B33400BCD547 /* EventPackItemsList.swift */,
 				A596675F287257CB00ADCDD4 /* EventPackItemsListVM.swift */,
+				A5324DDF28738EE000F59A68 /* EventPackItemsListCell.swift */,
 			);
 			path = ItemList;
 			sourceTree = "<group>";
@@ -432,7 +421,6 @@
 				A5EFFB5928272368003CC39F /* PackItemListScreen.swift in Sources */,
 				A5F95FCB2884BC8A00FD8705 /* LocationPicker.swift in Sources */,
 				A5174DF328248AF4004DC2A1 /* LocationFormViewModel.swift in Sources */,
-				A5324DDE28738ED600F59A68 /* EventPackItemsListCellVM.swift in Sources */,
 				A59AD718281CA20300EDCD8E /* CategoryFormScreen.swift in Sources */,
 				A5966760287257CB00ADCDD4 /* EventPackItemsListVM.swift in Sources */,
 				A59486F32817578900C34782 /* iw2PackCD.xcdatamodeld in Sources */,
