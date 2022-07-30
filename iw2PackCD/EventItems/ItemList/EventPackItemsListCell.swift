@@ -5,10 +5,6 @@
 //  Created by Don McKenzie on 04-Jul-22.
 //
 
-// To invoke this view in the EventPackItemsList:
-// ForEach(sections.value, id: \.id) {eventItem in
-//     EventPackItemsListCell(eventPackItemListVM: eventPackItemListVM, eventItem: eventItem, event: event)
-// in place of the HStack that's there now
 import SwiftUI
 import CoreData
 
@@ -18,6 +14,8 @@ struct EventPackItemsListCell: View {
     let event: Event
 
     var body: some View {
+        /*
+         */
         HStack {
             Toggle(
                 "",
@@ -48,6 +46,8 @@ struct EventPackItemsListCell: View {
             .toggleStyle(CheckboxToggleStyle(style: .square))
             .foregroundColor(.blue)
         }
+        /*
+         */
     }
 }
 

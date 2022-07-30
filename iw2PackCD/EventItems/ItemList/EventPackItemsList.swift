@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+// TODO: Need to work on the synching. Not 100% sure the code change to move the rows to the Cell view is working all the time.
+// See commit# 87569423f97b582f84509f262c511d5b7275beda for that change. Basically copy the Cell HStack and paste just below the Event..Cell line below.
+
 struct EventPackItemsList: View {
     
     let event: Event
@@ -35,42 +38,7 @@ struct EventPackItemsList: View {
                 eventPackItemListVM.getEventPackItems(event: event)
             })
             
-            
-            HStack (alignment: .center, spacing: 50) {
-                Toggle(isOn: Binding<Bool> (
-                    get: {
-                        return eventPackItemListVM.filterItems
-                    },
-                    set: {
-                        eventPackItemListVM.filterItems = $0
-                        eventPackItemListVM.getEventPackItems(event: event)
-                    }
-                ),
-                       label: {Text("Unpacked").font(.footnote)}
-                )
-                .toggleStyle(CheckboxToggleStyle(style: .circle))
-
-                Toggle(isOn: Binding<Bool> (
-                        get: {
-                            return eventPackItemListVM.byLocation
-                        },
-                        set: {
-                            eventPackItemListVM.byLocation = $0
-                            eventPackItemListVM.getEventPackItems(event: event)
-                        }
-                       ),
-                       label: {Text("Location").font(.footnote)}
-                )
-                .toggleStyle(CheckboxToggleStyle(style: .circle))
-
-                Button("Reset") {
-                    eventPackItemListVM.resetListStatus()
-                    eventPackItemListVM.getEventPackItems(event: event)
-                }.buttonStyle(.bordered)
-            }
-            .padding(15)
-            .background(Color.gray.opacity(0.3), in: Rectangle())
-            .cornerRadius(7)
+            EventPackItemsListActions(eventPackItemListVM: eventPackItemListVM, event: event)
             
         }
         .toolbar {
