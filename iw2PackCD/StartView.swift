@@ -10,9 +10,9 @@ import SwiftUI
 struct StartView: View {
     var body: some View {
         TabView {
-            NavigationStackView().tabItem {
-                Text("N")
-            }
+//            NavigationStackView().tabItem {
+//                Text("N")
+//            }
             EventListScreen().tabItem {
 //                Text("Events")
                 Label("Events", systemImage: "airplane.departure")

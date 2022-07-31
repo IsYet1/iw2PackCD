@@ -6,13 +6,12 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct EventPackItemsList1: View {
-    let eventId: String
+    let eventName: String
     
     var body: some View {
-        Text(eventId)
+        Text(eventName)
     }
 }
 
