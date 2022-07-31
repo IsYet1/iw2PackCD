@@ -40,7 +40,7 @@ struct AnimalGroupsViewProgrammed: View {
     var body: some View {
         NavigationStack (path: $path) {
             List(groups) { group in
-                NavigationLink(group.name, value: group.id)
+                NavigationLink(group.name, value: group.name)
             }
             .navigationDestination(
                 for: AnimalGroup.ID.self
