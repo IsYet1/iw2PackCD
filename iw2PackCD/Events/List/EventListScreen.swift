@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct EventListScreen: View {
     @Environment(\.managedObjectContext) private var viewContext
     @StateObject private var eventListVM = EventListVM()
     @State private var showForm: Bool = false
+    
+    @State private var navPath: [String] = []
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Event.name, ascending: true)],
@@ -18,12 +21,17 @@ struct EventListScreen: View {
     private var items: FetchedResults<Event>
     
     var body: some View {
-        NavigationView {
+        NavigationStack (path: $navPath) {
             List {
-                ForEach(eventListVM.events, id: \.eventId) { item in
-                    EventItemCell(event: item)
+                ForEach(eventListVM.events, id: \.eventId) { event in
+                    NavigationLink(event.name, value: event.name)
+                    //                    EventItemCell(event: event)
                 }
                 .onDelete(perform: deleteItems)
+            }
+            .navigationDestination(for: String.self) {
+                eventId in
+                EventPackItemsList1(eventId: eventId)
             }
             .refreshable(action: {
                 eventListVM.getAllEvents()
