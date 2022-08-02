@@ -27,4 +27,10 @@ class EventListVM: NSObject, ObservableObject, NSFetchedResultsControllerDelegat
             print("Get all events \(self.events)")
         }
     }
+    
+    func findEventByName(eventName: String) -> Event {
+        getAllEvents()
+        let rtnEvent = (self.events.first { $0.name == eventName })?.event
+        return rtnEvent ?? Event(context: Event.viewContext)
+    }
 }
