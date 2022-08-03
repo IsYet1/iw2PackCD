@@ -47,6 +47,17 @@ extension Event: BaseModel {
         : mappedNames
     }
     
+    static func getEventByName(eventName: String) -> [Event] {
+        
+        let request: NSFetchRequest<Event> = Event.fetchRequest()
+        request.predicate = NSPredicate(format: "name = %@", eventName)
+        
+        do {
+            return try viewContext.fetch(request)
+        } catch {
+            return []
+        }
+    }
     
     
 }

@@ -13,17 +13,18 @@ import SwiftUI
 struct EventPackItemsList: View {
     
     let event: Event
+    let eventName: String
     @StateObject private var eventPackItemListVM = EventPackItemListVM()
     @State private var showEditEventItemList: Bool = false
     
     @State private var byLocation: Bool = false
     
     var body: some View {
-        let itemsCount = event.eventItems?.count ?? 0
+//        let itemsCount = event.eventItems?.count ?? 0
         
         VStack {
-            Text("\(event.name! )").font(.title)
-            Text("\(itemsCount) items").font(.footnote)
+            Text("\(eventName )").font(.title)
+//            Text("\(itemsCount) items").font(.footnote)
             
             List {
                 ForEach(eventPackItemListVM.groupedSortedFiltered, id:\.key) {sections in
@@ -35,7 +36,7 @@ struct EventPackItemsList: View {
                 }
             }
             .refreshable(action: {
-                eventPackItemListVM.getEventPackItems(event: event)
+                eventPackItemListVM.refreshList()
             })
             
             EventPackItemsListActions(eventPackItemListVM: eventPackItemListVM)
@@ -52,12 +53,15 @@ struct EventPackItemsList: View {
         }
         .sheet(isPresented: $showEditEventItemList,
                onDismiss: {
-            eventPackItemListVM.getEventPackItems(event: event)
+//            eventPackItemListVM.getEventPackItems(event: event)
+                eventPackItemListVM.refreshList()
         },
-               content: { EventItemAddScreen(event: event) }
+               content: { EventItemAddScreen(event: eventPackItemListVM.eventItems[0].event!) }
+//               content: { EventItemAddScreen(event: event) }
         )
         .onAppear(perform: {
-            eventPackItemListVM.getEventPackItems(event: event)
+            let tmpEvent = Event.getEventByName(eventName: eventName)
+            eventPackItemListVM.getEventPackItems(event: tmpEvent.first!)
         })
     }
 }

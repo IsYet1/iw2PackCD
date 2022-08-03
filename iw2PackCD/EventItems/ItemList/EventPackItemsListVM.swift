@@ -82,6 +82,10 @@ class EventPackItemListVM: ObservableObject {
         
     }
     
+    func refreshList() {
+        getEventPackItems(event: eventItems[0].event!)
+    }
+    
     func toggle(toggleType: EventItemListToggle, isOn: Bool) {
         guard !eventItems.isEmpty
         else { return }
