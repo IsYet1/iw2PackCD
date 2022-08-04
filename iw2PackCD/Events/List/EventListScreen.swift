@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct EventListScreen: View {
     @Environment(\.managedObjectContext) private var viewContext
     @StateObject private var eventListVM = EventListVM()
     @State private var showForm: Bool = false
+    
+    // Note: navPath isn't used. The last used Event is retrieved and used instead.
+    // Leaving in for example purposes.
+    //    @State private var navPath: [String] = ["Run list ", "Run list, weekend "]
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Event.name, ascending: true)],
@@ -18,12 +23,17 @@ struct EventListScreen: View {
     private var items: FetchedResults<Event>
     
     var body: some View {
-        NavigationView {
+        NavigationStack (path: $eventListVM.eventNameForStartup) {
+//        NavigationStack (path: $navPath) {
             List {
-                ForEach(eventListVM.events, id: \.eventId) { item in
-                    EventItemCell(event: item)
+                ForEach(eventListVM.events, id: \.eventId) { event in
+                    NavigationLink(event.name, value: event.name)
                 }
                 .onDelete(perform: deleteItems)
+            }
+            .navigationDestination(for: String.self) {
+                eventName in
+                EventPackItemsList(eventName: eventName)
             }
             .refreshable(action: {
                 eventListVM.getAllEvents()
@@ -44,6 +54,7 @@ struct EventListScreen: View {
             })
             
             .onAppear(perform: {
+                eventListVM.getEventNameForStartup()
                 eventListVM.getAllEvents()
             })
         }
@@ -69,13 +80,3 @@ struct EventListScreen: View {
 //    }
 //}
 
-struct EventItemCell: View {
-    let event: EventVM
-    var body: some View {
-        NavigationLink {
-            EventPackItemsList(event: event.event)
-        } label: {
-            Text(event.name )
-        }
-    }
-}
