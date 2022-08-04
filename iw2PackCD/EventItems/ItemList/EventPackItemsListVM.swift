@@ -25,6 +25,8 @@ class EventPackItemListVM: ObservableObject {
     @Published var filterItems: Bool = false
     @Published var byLocation: Bool = false
     @Published var groupedSortedFiltered: [(key: String, value: [EventItem] ) ] = []
+    @Published var itemCount = 0
+    @Published var packedCount = 0
     
     func getEventPackItems(event: Event) {
         getInitialActionToggleSettings()
