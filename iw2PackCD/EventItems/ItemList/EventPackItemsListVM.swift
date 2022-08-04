@@ -29,6 +29,7 @@ class EventPackItemListVM: ObservableObject {
     func getEventPackItems(event: Event) {
         eventItems = event.getEventItemsForEvent(event: event)
         groupedSortedFiltered = groupItems(items: eventItems)
+        storeEventNameForStartup(eventName: event.name!)
     }
     
     func groupItems(items: [EventItem] ) -> [(key: String, value: [EventItem] ) ]  {
@@ -76,7 +77,7 @@ class EventPackItemListVM: ObservableObject {
         guard !eventItems.isEmpty
         else { return }
         
-        print ("Resetting the list")
+//        print ("Resetting the list")
         eventItems.forEach {self.updatePackedStatus(checked: false, eventItem: $0, phase: .staged) }
         getEventPackItems(event: eventItems[0].event!)
         
@@ -98,6 +99,11 @@ class EventPackItemListVM: ObservableObject {
         }
         getEventPackItems(event: eventItems[0].event!)
         
+    }
+    
+    func storeEventNameForStartup(eventName: String) {
+        UserDefaults.standard.set(eventName, forKey: "eventNameForStartup")
+//        print(UserDefaults.standard.string(forKey: "eventNameForStartup") as? String)
     }
     
 }

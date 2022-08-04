@@ -10,9 +10,15 @@ import CoreData
 // TODO: Why do I need this Delegate here? Not in Movies. See fetchedResultController line commented out below
 class EventListVM: NSObject, ObservableObject, NSFetchedResultsControllerDelegate  {
     @Published var events: [EventVM] = []
+    @Published var eventNameForStartup: [String] = []
     
     private var fetchedResultsController: NSFetchedResultsController<Event>!
     
+    func getEventNameForStartup() {
+        if let eventName = (UserDefaults.standard.string(forKey: "eventNameForStartup")) {
+            eventNameForStartup = [eventName]
+        }
+    }
     func getAllEvents() {
         let request: NSFetchRequest<Event> = Event.fetchRequest()
         
@@ -24,13 +30,7 @@ class EventListVM: NSObject, ObservableObject, NSFetchedResultsControllerDelegat
         try? fetchedResultsController.performFetch()
         DispatchQueue.main.async {
             self.events = (self.fetchedResultsController.fetchedObjects ?? []).map(EventVM.init)
-            print("Get all events \(self.events)")
+//            print("Get all events \(self.events)")
         }
-    }
-    
-    func findEventByName(eventName: String) -> Event {
-        getAllEvents()
-        let rtnEvent = (self.events.first { $0.name == eventName })?.event
-        return rtnEvent ?? Event(context: Event.viewContext)
     }
 }
