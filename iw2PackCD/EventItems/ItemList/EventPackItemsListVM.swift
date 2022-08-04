@@ -27,6 +27,7 @@ class EventPackItemListVM: ObservableObject {
     @Published var groupedSortedFiltered: [(key: String, value: [EventItem] ) ] = []
     
     func getEventPackItems(event: Event) {
+        getInitialActionToggleSettings()
         eventItems = event.getEventItemsForEvent(event: event)
         groupedSortedFiltered = groupItems(items: eventItems)
         storeEventNameForStartup(eventName: event.name!)
@@ -48,7 +49,6 @@ class EventPackItemListVM: ObservableObject {
         }
         return orderList
     }
-    
     
     func updatePackedStatus(checked: Bool, eventItem: EventItem, phase: PackPhase) {
         switch phase {
@@ -94,8 +94,10 @@ class EventPackItemListVM: ObservableObject {
         switch toggleType {
         case .filterToUnpacked:
             filterItems = isOn
+            UserDefaults.standard.set(isOn, forKey: "unpackedChecked")
         case .byLocation:
             byLocation = isOn
+            UserDefaults.standard.set(isOn, forKey: "locationChecked")
         }
         getEventPackItems(event: eventItems[0].event!)
         
@@ -106,4 +108,8 @@ class EventPackItemListVM: ObservableObject {
 //        print(UserDefaults.standard.string(forKey: "eventNameForStartup") as? String)
     }
     
+    func getInitialActionToggleSettings() {
+        filterItems = (UserDefaults.standard.bool(forKey: "unpackedChecked"))
+        byLocation = (UserDefaults.standard.bool(forKey: "locationChecked"))
+    }
 }

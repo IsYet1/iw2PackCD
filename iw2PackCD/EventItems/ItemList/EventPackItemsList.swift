@@ -16,8 +16,6 @@ struct EventPackItemsList: View {
     @StateObject private var eventPackItemListVM = EventPackItemListVM()
     @State private var showEditEventItemList: Bool = false
     
-    @State private var byLocation: Bool = false
-    
     var body: some View {
 //        let itemsCount = event.eventItems?.count ?? 0
         

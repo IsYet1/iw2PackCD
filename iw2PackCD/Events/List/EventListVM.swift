@@ -19,6 +19,7 @@ class EventListVM: NSObject, ObservableObject, NSFetchedResultsControllerDelegat
             eventNameForStartup = [eventName]
         }
     }
+    
     func getAllEvents() {
         let request: NSFetchRequest<Event> = Event.fetchRequest()
         
