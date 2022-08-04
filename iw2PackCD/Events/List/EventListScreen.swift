@@ -13,7 +13,7 @@ struct EventListScreen: View {
     @StateObject private var eventListVM = EventListVM()
     @State private var showForm: Bool = false
     
-    @State private var navPath: [Event] = []
+    @State private var navPath: [String] = ["Run list ", "Run list, weekend "]
     
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Event.name, ascending: true)],
@@ -24,14 +24,14 @@ struct EventListScreen: View {
         NavigationStack (path: $navPath) {
             List {
                 ForEach(eventListVM.events, id: \.eventId) { event in
-                    NavigationLink(event.name, value: event.event)
+                    NavigationLink(event.name, value: event.name)
 //                                        EventItemCell(event: event)
                 }
                 .onDelete(perform: deleteItems)
             }
-            .navigationDestination(for: Event.self) {
-                event in
-                EventPackItemsList(event: event, eventName: event.name!)
+            .navigationDestination(for: String.self) {
+                eventName in
+                EventPackItemsList(eventName: eventName)
             }
             .refreshable(action: {
                 eventListVM.getAllEvents()

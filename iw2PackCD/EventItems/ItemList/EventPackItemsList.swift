@@ -12,7 +12,6 @@ import SwiftUI
 
 struct EventPackItemsList: View {
     
-    let event: Event
     let eventName: String
     @StateObject private var eventPackItemListVM = EventPackItemListVM()
     @State private var showEditEventItemList: Bool = false
