@@ -21,6 +21,7 @@ enum EventItemListToggle {
 
 class EventPackItemListVM: ObservableObject {
     @Published var eventItems: [EventItem] = []
+    @Published var curEvent: Event?
     
     @Published var filterItems: Bool = false
     @Published var byLocation: Bool = false
@@ -29,6 +30,7 @@ class EventPackItemListVM: ObservableObject {
     @Published var packedCount = 0
     
     func getEventPackItems(event: Event) {
+        self.curEvent = event
         getInitialActionToggleSettings()
         eventItems = event.getEventItemsForEvent(event: event)
         groupedSortedFiltered = groupItems(items: eventItems)

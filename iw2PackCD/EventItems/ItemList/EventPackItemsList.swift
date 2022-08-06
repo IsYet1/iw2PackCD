@@ -53,7 +53,7 @@ struct EventPackItemsList: View {
 //            eventPackItemListVM.getEventPackItems(event: event)
                 eventPackItemListVM.refreshList()
         },
-               content: { EventItemAddScreen(event: eventPackItemListVM.eventItems[0].event!) }
+               content: { EventItemAddScreen(event: eventPackItemListVM.curEvent!) }
 //               content: { EventItemAddScreen(event: event) }
         )
         .onAppear(perform: {
