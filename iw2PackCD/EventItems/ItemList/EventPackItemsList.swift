@@ -50,15 +50,12 @@ struct EventPackItemsList: View {
         }
         .sheet(isPresented: $showEditEventItemList,
                onDismiss: {
-//            eventPackItemListVM.getEventPackItems(event: event)
                 eventPackItemListVM.refreshList()
         },
                content: { EventItemAddScreen(event: eventPackItemListVM.curEvent!) }
-//               content: { EventItemAddScreen(event: event) }
         )
         .onAppear(perform: {
-            let tmpEvent = Event.getEventByName(eventName: eventName)
-            eventPackItemListVM.getEventPackItems(event: tmpEvent.first!)
+            eventPackItemListVM.initEventPackItemListVM(eventName: eventName)
         })
     }
 }
