@@ -21,6 +21,7 @@ enum EventItemListToggle {
 
 class EventPackItemListVM: ObservableObject {
     @Published var eventItems: [EventItem] = []
+    @Published var curEvent: Event?
     
     @Published var filterItems: Bool = false
     @Published var byLocation: Bool = false
@@ -28,11 +29,25 @@ class EventPackItemListVM: ObservableObject {
     @Published var itemCount = 0
     @Published var packedCount = 0
     
-    func getEventPackItems(event: Event) {
+    func initEventPackItemListVM (eventName: String) {
+        let tmpEvent = Event.getEventByName(eventName: eventName)
+        guard tmpEvent.count > 0 else {
+            print("Event not found: ", eventName)
+            return
+        }
+        self.curEvent = tmpEvent.first!
+        storeEventNameForStartup(eventName: eventName)
         getInitialActionToggleSettings()
-        eventItems = event.getEventItemsForEvent(event: event)
+        getEventPackItems()
+    }
+    
+    func getEventPackItems() {
+        guard curEvent != nil else {
+            print("Current Event Not Set")
+            return
+        }
+        eventItems = curEvent!.getEventItemsForEvent(event: curEvent!)
         groupedSortedFiltered = groupItems(items: eventItems)
-        storeEventNameForStartup(eventName: event.name!)
     }
     
     func groupItems(items: [EventItem] ) -> [(key: String, value: [EventItem] ) ]  {
@@ -72,7 +87,7 @@ class EventPackItemListVM: ObservableObject {
     
     func updatePackedStatusThenReload(checked: Bool, eventItem: EventItem, phase: PackPhase) {
         updatePackedStatus(checked: checked, eventItem: eventItem, phase: phase)
-        getEventPackItems(event: eventItem.event!)
+        getEventPackItems()
     }
     
     func resetListStatus() {
@@ -81,12 +96,12 @@ class EventPackItemListVM: ObservableObject {
         
 //        print ("Resetting the list")
         eventItems.forEach {self.updatePackedStatus(checked: false, eventItem: $0, phase: .staged) }
-        getEventPackItems(event: eventItems[0].event!)
+        getEventPackItems()
         
     }
     
     func refreshList() {
-        getEventPackItems(event: eventItems[0].event!)
+        getEventPackItems()
     }
     
     func toggle(toggleType: EventItemListToggle, isOn: Bool) {
@@ -101,7 +116,7 @@ class EventPackItemListVM: ObservableObject {
             byLocation = isOn
             UserDefaults.standard.set(isOn, forKey: "locationChecked")
         }
-        getEventPackItems(event: eventItems[0].event!)
+        getEventPackItems()
         
     }
     
