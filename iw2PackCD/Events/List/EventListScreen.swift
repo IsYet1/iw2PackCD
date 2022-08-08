@@ -27,7 +27,8 @@ struct EventListScreen: View {
 //        NavigationStack (path: $navPath) {
             List {
                 ForEach(eventListVM.events, id: \.eventId) { event in
-                    NavigationLink(event.name, value: event.name)
+                    let linkText = "\(event.name) (\(event.countTotal))"
+                    NavigationLink(linkText, value: event.name)
                 }
                 .onDelete(perform: deleteItems)
             }

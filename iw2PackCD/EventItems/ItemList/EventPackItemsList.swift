@@ -21,7 +21,7 @@ struct EventPackItemsList: View {
         
         VStack {
             Text("\(eventName )").font(.title)
-//            Text("\(itemsCount) items").font(.footnote)
+            Text("\(eventPackItemListVM.countTotal) items").font(.footnote)
             
             List {
                 ForEach(eventPackItemListVM.groupedSortedFiltered, id:\.key) {sections in
@@ -52,7 +52,7 @@ struct EventPackItemsList: View {
                onDismiss: {
                 eventPackItemListVM.refreshList()
         },
-               content: { EventItemAddScreen(event: eventPackItemListVM.curEvent!) }
+               content: { EventItemAddScreen(event: eventPackItemListVM.curEvent!.event) }
         )
         .onAppear(perform: {
             eventPackItemListVM.initEventPackItemListVM(eventName: eventName)

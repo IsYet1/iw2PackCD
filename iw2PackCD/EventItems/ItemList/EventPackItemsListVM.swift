@@ -21,13 +21,14 @@ enum EventItemListToggle {
 
 class EventPackItemListVM: ObservableObject {
     @Published var eventItems: [EventItem] = []
-    @Published var curEvent: Event?
+    @Published var curEvent: EventVM?
     
     @Published var filterItems: Bool = false
     @Published var byLocation: Bool = false
     @Published var groupedSortedFiltered: [(key: String, value: [EventItem] ) ] = []
-    @Published var itemCount = 0
-    @Published var packedCount = 0
+    @Published var countTotal = 0
+    @Published var countPacked = 0
+    @Published var countStaged = 0
     
     func initEventPackItemListVM (eventName: String) {
         let tmpEvent = Event.getEventByName(eventName: eventName)
@@ -35,7 +36,7 @@ class EventPackItemListVM: ObservableObject {
             print("Event not found: ", eventName)
             return
         }
-        self.curEvent = tmpEvent.first!
+        self.curEvent = EventVM(event: tmpEvent.first!)
         storeEventNameForStartup(eventName: eventName)
         getInitialActionToggleSettings()
         getEventPackItems()
@@ -46,7 +47,8 @@ class EventPackItemListVM: ObservableObject {
             print("Current Event Not Set")
             return
         }
-        eventItems = curEvent!.getEventItemsForEvent(event: curEvent!)
+        eventItems = curEvent!.event.getEventItemsForEvent(event: curEvent!.event)
+        countTotal = curEvent!.countTotal
         groupedSortedFiltered = groupItems(items: eventItems)
     }
     

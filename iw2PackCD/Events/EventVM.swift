@@ -13,4 +13,5 @@ struct EventVM {
     
     var eventId: NSManagedObjectID { return event.objectID }
     var name: String { return event.name ?? "" }
+    var countTotal: Int { return event.eventItems?.count ?? 0 }
 }
