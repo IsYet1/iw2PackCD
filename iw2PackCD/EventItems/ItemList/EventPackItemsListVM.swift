@@ -49,6 +49,8 @@ class EventPackItemListVM: ObservableObject {
         }
         eventItems = curEvent!.event.getEventItemsForEvent(event: curEvent!.event)
         countTotal = curEvent!.countTotal
+        countPacked = curEvent!.countPacked
+        countStaged = curEvent!.countStaged
         groupedSortedFiltered = groupItems(items: eventItems)
     }
     

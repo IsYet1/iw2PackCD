@@ -21,7 +21,8 @@ struct EventPackItemsList: View {
         
         VStack {
             Text("\(eventName )").font(.title)
-            Text("\(eventPackItemListVM.countTotal) items").font(.footnote)
+//                    let linkText = "\(event.name) (\(event.countTotal) / \(event.countStaged) / \(event.countPacked))"
+            Text("(\(eventPackItemListVM.countTotal) / \(eventPackItemListVM.countStaged) / \(eventPackItemListVM.countPacked))").font(.footnote)
             
             List {
                 ForEach(eventPackItemListVM.groupedSortedFiltered, id:\.key) {sections in

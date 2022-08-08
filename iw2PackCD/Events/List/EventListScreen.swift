@@ -24,10 +24,9 @@ struct EventListScreen: View {
     
     var body: some View {
         NavigationStack (path: $eventListVM.eventNameForStartup) {
-//        NavigationStack (path: $navPath) {
             List {
                 ForEach(eventListVM.events, id: \.eventId) { event in
-                    let linkText = "\(event.name) (\(event.countTotal))"
+                    let linkText = "\(event.name) (\(event.countTotal) / \(event.countStaged) / \(event.countPacked))"
                     NavigationLink(linkText, value: event.name)
                 }
                 .onDelete(perform: deleteItems)
