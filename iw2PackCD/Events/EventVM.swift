@@ -13,22 +13,21 @@ struct EventVM {
     
     var eventId: NSManagedObjectID { return event.objectID }
     var name: String { return event.name ?? "" }
-    var countTotal: Int { return event.eventItems?.count ?? 0 }
-    var countPacked: Int {
-        let thisEventItems = NSSet(set: event.eventItems!)
-        let packedItems = thisEventItems.filtered(using: NSPredicate(
+    
+    var eventItemsNSSet: NSSet { return event.eventItems ?? []}
+    var packedItems: Set<AnyHashable> {
+        return self.eventItemsNSSet.filtered(using: NSPredicate(
             format: "packed == true"
         ))
-        return packedItems.count // ?? 0
-//        return 0
     }
-    var countStaged: Int {
-        let thisEventItems = NSSet(set: event.eventItems!)
-        let stagedItems = thisEventItems.filtered(using: NSPredicate(
+    var stagedItems: Set<AnyHashable> {
+        return self.eventItemsNSSet.filtered(using: NSPredicate(
             format: "staged == true"
         ))
-        return stagedItems.count // ?? 0
-//        return 0
     }
+    
+    var countTotal: Int { return event.eventItems?.count ?? 0 }
+    var countPacked: Int { return self.packedItems.count }
+    var countStaged: Int { return self.stagedItems.count }
 
 }
