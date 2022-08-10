@@ -21,7 +21,8 @@ struct EventPackItemsList: View {
         
         VStack {
             Text("\(eventName )").font(.title)
-//            Text("\(itemsCount) items").font(.footnote)
+//                    let linkText = "\(event.name) (\(event.countTotal) / \(event.countStaged) / \(event.countPacked))"
+            Text("(\(eventPackItemListVM.countTotal) / \(eventPackItemListVM.countStaged) / \(eventPackItemListVM.countPacked))").font(.footnote)
             
             List {
                 ForEach(eventPackItemListVM.groupedSortedFiltered, id:\.key) {sections in
@@ -52,7 +53,7 @@ struct EventPackItemsList: View {
                onDismiss: {
                 eventPackItemListVM.refreshList()
         },
-               content: { EventItemAddScreen(event: eventPackItemListVM.curEvent!) }
+               content: { EventItemAddScreen(event: eventPackItemListVM.curEvent!.event) }
         )
         .onAppear(perform: {
             eventPackItemListVM.initEventPackItemListVM(eventName: eventName)
