@@ -24,10 +24,8 @@ class PackItemEditVM: ObservableObject {
         vmName = vmPackItem.name
         vmCategory = vmPackItem.categoryIsSet ? vmPackItem.category : nil
         vmLocation = vmPackItem.locationIsSet ? vmPackItem.location : nil
-        print(vmLocation)
     }
     
-//    func save() {
     func save() {
         vmPackItem.packItem.name = vmName
         vmPackItem.packItem.category = vmCategory
