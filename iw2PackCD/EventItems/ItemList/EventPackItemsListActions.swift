@@ -10,6 +10,7 @@ import CoreData
 
 struct EventPackItemsListActions: View {
     @ObservedObject var eventPackItemListVM: EventPackItemListVM
+    @State private var confirmReset = false
 
     var body: some View {
             HStack (alignment: .center, spacing: 50) {
@@ -40,14 +41,29 @@ struct EventPackItemsListActions: View {
                 .disabled(eventPackItemListVM.eventItems.isEmpty)
 
                 Button("Reset") {
-                    eventPackItemListVM.resetListStatus()
+                    confirmReset = true
                 }
-                .disabled(eventPackItemListVM.eventItems.isEmpty)
+                .disabled(
+                    eventPackItemListVM.eventItems.isEmpty
+                    || (eventPackItemListVM.countPacked + eventPackItemListVM.countStaged == 0)
+                )
                 .buttonStyle(.bordered)
             }
             .padding(15)
             .background(Color.gray.opacity(0.3), in: Rectangle())
             .cornerRadius(7)
+            .alert(
+                "Confirm Reset",
+                isPresented: $confirmReset,
+                actions: {
+                    Button("Yes", role: .destructive , action: {
+                        confirmReset = false
+                        eventPackItemListVM.resetListStatus()
+                    })
+                    Button("No", role: .cancel, action: {confirmReset = false})
+                }
+                , message: { Text("Reset this list?") }
+            )
     }
 }
 

@@ -32,10 +32,7 @@ struct PackItemListScreen: View {
                         ForEach(sections.value, id: \.packItemId) {item in
                             PackItemListCell(item: item.packItem)
                         }
-//                        .onDelete(perform: deleteItems)
                         .onDelete {self.removeGlobalItem(at: $0, items: sections.value )}
-                        // TODO: Re-enable swipe to delete from the event ?
-                        //                        .onDelete {self.removeItemFromEvent(at: $0, items: sections.value )}
                     }
                 }
             }
@@ -44,10 +41,6 @@ struct PackItemListScreen: View {
             }
             .navigationTitle("Items")
             .toolbar {
-                // TODO: Re-enable this to allow deleting multiple items.
-                //                ToolbarItem(placement: .navigationBarLeading) {
-//                    EditButton()
-//                }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Add") {
                         self.showForm = true
@@ -65,7 +58,7 @@ struct PackItemListScreen: View {
     }
     
     private func removeGlobalItem( at indexSet: IndexSet, items: [PackItemVM] ){
-//        print("*** Removing an item")
+        //        print("*** Removing an item")
         if let itemIndex: Int = indexSet.first {
             let itemVMToDelete = items[itemIndex]
             let itemToDelete = itemVMToDelete.packItem
@@ -109,7 +102,7 @@ struct PackItemRow: View {
         HStack {
             Text(packItem.name ?? "")
             Spacer()
-//            Text(packItem.category?.name ?? "No category")
+            //            Text(packItem.category?.name ?? "No category")
         }
     }
 }
