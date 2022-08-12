@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 // TODO: Need to work on the synching. Not 100% sure the code change to move the rows to the Cell view is working all the time.
 // See commit# 87569423f97b582f84509f262c511d5b7275beda for that change. Basically copy the Cell HStack and paste just below the Event..Cell line below.
@@ -14,21 +15,31 @@ struct EventPackItemsList: View {
     
     let eventName: String
     @StateObject private var eventPackItemListVM = EventPackItemListVM()
+    @State private var itemToEdit: NSManagedObjectID?
     @State private var showEditEventItemList: Bool = false
+    @State private var editItem: Bool = false
     
     var body: some View {
-//        let itemsCount = event.eventItems?.count ?? 0
         
         VStack {
             Text("\(eventName )").font(.title)
-//                    let linkText = "\(event.name) (\(event.countTotal) / \(event.countStaged) / \(event.countPacked))"
-            Text("(\(eventPackItemListVM.countTotal) / \(eventPackItemListVM.countStaged) / \(eventPackItemListVM.countPacked))").font(.footnote)
+            Text("(\(eventPackItemListVM.countTotal) / \(eventPackItemListVM.countTotal - eventPackItemListVM.countStaged) / \(eventPackItemListVM.countTotal - eventPackItemListVM.countPacked))")
+                .font(.footnote)
             
             List {
                 ForEach(eventPackItemListVM.groupedSortedFiltered, id:\.key) {sections in
                     Section(header: Text(sections.key)) {
                         ForEach(sections.value, id: \.id) {eventItem in
-                            EventPackItemsListCell(eventPackItemListVM: eventPackItemListVM, eventItem: eventItem)
+                            HStack {
+                                EventPackItemsListCell(eventPackItemListVM: eventPackItemListVM, eventItem: eventItem)
+                                Spacer()
+                                Button("...", action: {
+                                    let curItemToEdit = eventItem.item?.objectID // else { return }
+                                    itemToEdit = eventItem.item!.objectID
+                                    print("Item To Edit", itemToEdit)
+                                    self.editItem = itemToEdit != nil
+                                })
+                            }
                         }
                     }
                 }
@@ -49,10 +60,17 @@ struct EventPackItemsList: View {
                 }
             }
         }
+        .sheet(isPresented: $editItem,
+               onDismiss: { eventPackItemListVM.refreshList() },
+               content: {
+            if let curItemToEdit = itemToEdit {
+                let itemIn = PackItem.byId( id: curItemToEdit ) as! PackItem
+                PackItemEditScreen2(editItemVM: PackItemEditVM(packItemIn: PackItem.byId(id: curItemToEdit) as! PackItem) )
+                }
+            }
+        )
         .sheet(isPresented: $showEditEventItemList,
-               onDismiss: {
-                eventPackItemListVM.refreshList()
-        },
+               onDismiss: { eventPackItemListVM.refreshList() },
                content: { EventItemAddScreen(event: eventPackItemListVM.curEvent!.event) }
         )
         .onAppear(perform: {
