@@ -49,6 +49,11 @@
 		A5F650592890B0F0000CFFEF /* EventVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F650582890B0F0000CFFEF /* EventVM.swift */; };
 		A5F95FCB2884BC8A00FD8705 /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F95FCA2884BC8A00FD8705 /* LocationPicker.swift */; };
 		A5F95FCD2884C96D00FD8705 /* LocationPackItemsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F95FCC2884C96D00FD8705 /* LocationPackItemsList.swift */; };
+		A5FD17A328A711120025C842 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5FD17A228A711120025C842 /* WidgetKit.framework */; };
+		A5FD17A528A711120025C842 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5FD17A428A711120025C842 /* SwiftUI.framework */; };
+		A5FD17A828A711120025C842 /* Iw2PackWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FD17A728A711120025C842 /* Iw2PackWidget.swift */; };
+		A5FD17AA28A711130025C842 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5FD17A928A711130025C842 /* Assets.xcassets */; };
+		A5FD17AE28A711130025C842 /* Iw2PackWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A5FD17A028A711120025C842 /* Iw2PackWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A5FEBDB7285947BA005DED25 /* EventItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FEBDB6285947BA005DED25 /* EventItem+Extension.swift */; };
 		F62A68C72856A1C90005AB22 /* EventItemEditVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62A68C62856A1C90005AB22 /* EventItemEditVM.swift */; };
 		F62A68CA2856A2B50005AB22 /* EventItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62A68C92856A2B50005AB22 /* EventItemVM.swift */; };
@@ -56,6 +61,30 @@
 		F64E29AF283AD0DC0072B4FC /* PackItemEditVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64E29AE283AD0DC0072B4FC /* PackItemEditVM.swift */; };
 		F6862BE5281DD20500B12816 /* CategoryFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6862BE4281DD20500B12816 /* CategoryFormViewModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A5FD17AC28A711130025C842 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A59486DB2817578800C34782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5FD179F28A711120025C842;
+			remoteInfo = Iw2PackWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A5FD17AF28A711130025C842 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A5FD17AE28A711130025C842 /* Iw2PackWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A50921872852B33400BCD547 /* EventPackItemsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventPackItemsList.swift; sourceTree = "<group>"; };
@@ -103,6 +132,12 @@
 		A5F650582890B0F0000CFFEF /* EventVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventVM.swift; sourceTree = "<group>"; };
 		A5F95FCA2884BC8A00FD8705 /* LocationPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPicker.swift; path = iw2PackCD/MetaData/Location/LocationPicker.swift; sourceTree = SOURCE_ROOT; };
 		A5F95FCC2884C96D00FD8705 /* LocationPackItemsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationPackItemsList.swift; path = iw2PackCD/MetaData/Location/LocationPackItemsList.swift; sourceTree = SOURCE_ROOT; };
+		A5FD17A028A711120025C842 /* Iw2PackWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Iw2PackWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5FD17A228A711120025C842 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A5FD17A428A711120025C842 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A5FD17A728A711120025C842 /* Iw2PackWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Iw2PackWidget.swift; sourceTree = "<group>"; };
+		A5FD17A928A711130025C842 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A5FD17AB28A711130025C842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5FEBDB6285947BA005DED25 /* EventItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventItem+Extension.swift"; sourceTree = "<group>"; };
 		F62A68C62856A1C90005AB22 /* EventItemEditVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventItemEditVM.swift; sourceTree = "<group>"; };
 		F62A68C92856A2B50005AB22 /* EventItemVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventItemVM.swift; sourceTree = "<group>"; };
@@ -116,6 +151,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5FD179D28A711120025C842 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5FD17A528A711120025C842 /* SwiftUI.framework in Frameworks */,
+				A5FD17A328A711120025C842 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				A59486E52817578800C34782 /* iw2PackCD */,
+				A5FD17A628A711120025C842 /* Iw2PackWidget */,
+				A5FD17A128A711120025C842 /* Frameworks */,
 				A59486E42817578800C34782 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -195,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				A59486E32817578800C34782 /* iw2PackCD.app */,
+				A5FD17A028A711120025C842 /* Iw2PackWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -299,6 +346,25 @@
 			path = PackItem;
 			sourceTree = "<group>";
 		};
+		A5FD17A128A711120025C842 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5FD17A228A711120025C842 /* WidgetKit.framework */,
+				A5FD17A428A711120025C842 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5FD17A628A711120025C842 /* Iw2PackWidget */ = {
+			isa = PBXGroup;
+			children = (
+				A5FD17A728A711120025C842 /* Iw2PackWidget.swift */,
+				A5FD17A928A711130025C842 /* Assets.xcassets */,
+				A5FD17AB28A711130025C842 /* Info.plist */,
+			);
+			path = Iw2PackWidget;
+			sourceTree = "<group>";
+		};
 		F62A68C82856A2720005AB22 /* ItemList */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,15 +415,34 @@
 				A59486DF2817578800C34782 /* Sources */,
 				A59486E02817578800C34782 /* Frameworks */,
 				A59486E12817578800C34782 /* Resources */,
+				A5FD17AF28A711130025C842 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A5FD17AD28A711130025C842 /* PBXTargetDependency */,
 			);
 			name = iw2PackCD;
 			productName = iw2PackCD;
 			productReference = A59486E32817578800C34782 /* iw2PackCD.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A5FD179F28A711120025C842 /* Iw2PackWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5FD17B228A711130025C842 /* Build configuration list for PBXNativeTarget "Iw2PackWidgetExtension" */;
+			buildPhases = (
+				A5FD179C28A711120025C842 /* Sources */,
+				A5FD179D28A711120025C842 /* Frameworks */,
+				A5FD179E28A711120025C842 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Iw2PackWidgetExtension;
+			productName = Iw2PackWidgetExtension;
+			productReference = A5FD17A028A711120025C842 /* Iw2PackWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -366,11 +451,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1330;
+				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					A59486E22817578800C34782 = {
 						CreatedOnToolsVersion = 13.3.1;
+					};
+					A5FD179F28A711120025C842 = {
+						CreatedOnToolsVersion = 14.0;
 					};
 				};
 			};
@@ -388,6 +476,7 @@
 			projectRoot = "";
 			targets = (
 				A59486E22817578800C34782 /* iw2PackCD */,
+				A5FD179F28A711120025C842 /* Iw2PackWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -399,6 +488,14 @@
 			files = (
 				A59486EE2817578900C34782 /* Preview Assets.xcassets in Resources */,
 				A5BDACBE287A52BD006F961D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5FD179E28A711120025C842 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5FD17AA28A711130025C842 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,7 +555,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A5FD179C28A711120025C842 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5FD17A828A711120025C842 /* Iw2PackWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A5FD17AD28A711130025C842 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5FD179F28A711120025C842 /* Iw2PackWidgetExtension */;
+			targetProxy = A5FD17AC28A711130025C842 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A59486F42817578900C34782 /* Debug */ = {
@@ -578,6 +691,7 @@
 		A59486F72817578900C34782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iw2PackCD/iw2PackCD.entitlements;
@@ -613,6 +727,7 @@
 		A59486F82817578900C34782 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iw2PackCD/iw2PackCD.entitlements;
@@ -645,6 +760,64 @@
 			};
 			name = Release;
 		};
+		A5FD17B028A711130025C842 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WM9Y6XVZYN;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Iw2PackWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Iw2PackWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.isyet.iw2PackCD.Iw2PackWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A5FD17B128A711130025C842 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WM9Y6XVZYN;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Iw2PackWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Iw2PackWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.isyet.iw2PackCD.Iw2PackWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -662,6 +835,15 @@
 			buildConfigurations = (
 				A59486F72817578900C34782 /* Debug */,
 				A59486F82817578900C34782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5FD17B228A711130025C842 /* Build configuration list for PBXNativeTarget "Iw2PackWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5FD17B028A711130025C842 /* Debug */,
+				A5FD17B128A711130025C842 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
