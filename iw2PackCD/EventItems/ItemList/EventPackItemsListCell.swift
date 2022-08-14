@@ -42,10 +42,12 @@ struct EventPackItemsListCell: View {
                 )
             )
             .toggleStyle(CheckboxToggleStyle(style: .square))
-            .foregroundColor(eventItem.skipped ? .red : .blue)
+            .foregroundColor(eventItem.skipped ? .gray : .blue)
             
             Text(eventItem.item?.name ?? "No name")
-            .onLongPressGesture(minimumDuration: 1, perform: {
+                .fontWeight(eventItem.skipped ? .ultraLight : .regular)
+                .strikethrough(eventItem.skipped)
+                .onLongPressGesture(minimumDuration: 1, perform: {
                 eventPackItemListVM.updatePackedStatusThenReload(checked: true, eventItem: eventItem, phase: .skipped)
             } )
         }
