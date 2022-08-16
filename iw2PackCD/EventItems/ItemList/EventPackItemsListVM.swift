@@ -12,6 +12,7 @@ import Foundation
 enum PackPhase {
     case staged
     case packed
+    case skipped
 }
 
 enum EventItemListToggle {
@@ -77,6 +78,7 @@ class EventPackItemListVM: ObservableObject {
             // If staged is cleared then ensure that packed is cleared also.
             if !checked {
                 eventItem.packed = false
+                eventItem.skipped = false
             }
             eventItem.staged = checked
         case .packed:
@@ -84,7 +86,13 @@ class EventPackItemListVM: ObservableObject {
             // If packed is checked then ensure that staged is checked also. Not the inverse, don't clear staged if packed is cleared.
             if checked {
                 eventItem.staged = true
+            } else if eventItem.skipped {
+                eventItem.skipped = false
             }
+        case .skipped:
+            eventItem.skipped = true
+            eventItem.packed = true
+            eventItem.staged = true
         }
         try? eventItem.save()
     }

@@ -30,7 +30,8 @@ struct EventPackItemsListCell: View {
             .toggleStyle(CheckboxToggleStyle(style: .circle))
             
             Toggle(
-                eventItem.item?.name ?? "No name",
+//                eventItem.item?.name ?? "No name",
+                "",
                 isOn: Binding<Bool> (
                     get: {
                         return eventItem.packed
@@ -41,10 +42,15 @@ struct EventPackItemsListCell: View {
                 )
             )
             .toggleStyle(CheckboxToggleStyle(style: .square))
-            .foregroundColor(.blue)
+            .foregroundColor(eventItem.skipped ? .gray : .blue)
+            
+            Text(eventItem.item?.name ?? "No name")
+                .fontWeight(eventItem.skipped ? .ultraLight : .regular)
+                .strikethrough(eventItem.skipped)
+                .onLongPressGesture(minimumDuration: 1, perform: {
+                eventPackItemListVM.updatePackedStatusThenReload(checked: true, eventItem: eventItem, phase: .skipped)
+            } )
         }
-        /*
-         */
     }
 }
 
