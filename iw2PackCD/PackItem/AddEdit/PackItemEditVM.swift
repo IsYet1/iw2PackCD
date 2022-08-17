@@ -13,6 +13,7 @@ class PackItemEditVM: ObservableObject {
     @Published var vmName: String
     @Published var vmCategory: Category?
     @Published var vmLocation: Location?
+    @Published var eventNames: [String]
     var metaDataIsInvalid: Bool {
         get {
             return vmCategory == nil || vmLocation == nil
@@ -24,6 +25,7 @@ class PackItemEditVM: ObservableObject {
         vmName = vmPackItem.name
         vmCategory = vmPackItem.categoryIsSet ? vmPackItem.category : nil
         vmLocation = vmPackItem.locationIsSet ? vmPackItem.location : nil
+        eventNames = vmPackItem.packItem.getEventNamesForPackItem(packItem: vmPackItem.packItem)
     }
     
     func save() {

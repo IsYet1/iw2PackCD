@@ -32,13 +32,16 @@ struct PackItemEditScreen2: View {
             }
             .padding([.leading, .trailing], 20.0)
         }
-        .toolbar {
-            
-                ToolbarItem(placement: .bottomBar, content: {
-                    Text("Toolbar here")
-                })
+        
+        Divider()
+        
+        VStack {
+            Text("This Item is in in \(editItemVM.eventNames.count) Events").font(.title)
+//            List(content: <#T##() -> View#>)
         }
+        
         Spacer()
+        
     }
 }
 
