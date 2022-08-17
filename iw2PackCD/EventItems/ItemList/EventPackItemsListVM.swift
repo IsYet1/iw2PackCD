@@ -30,6 +30,7 @@ class EventPackItemListVM: ObservableObject {
     @Published var countTotal = 0
     @Published var countPacked = 0
     @Published var countStaged = 0
+    @Published var countSkipped = 0
     
     func initEventPackItemListVM (eventName: String) {
         let tmpEvent = Event.getEventByName(eventName: eventName)
@@ -52,6 +53,7 @@ class EventPackItemListVM: ObservableObject {
         countTotal = curEvent!.countTotal
         countPacked = curEvent!.countPacked
         countStaged = curEvent!.countStaged
+        countSkipped = curEvent!.countSkipped
         groupedSortedFiltered = groupItems(items: eventItems)
     }
     

@@ -18,12 +18,27 @@ struct EventPackItemsList: View {
     @State private var itemToEdit: NSManagedObjectID?
     @State private var showEditEventItemList: Bool = false
     @State private var editItem: Bool = false
+    let nbsp = "\u{00a0}" // Not used but leaving in for reference
+    let countSeparator = "/\u{00a0}"
     
     var body: some View {
         
         VStack {
             Text("\(eventName )").font(.title)
-            Text("(\(eventPackItemListVM.countTotal) / \(eventPackItemListVM.countTotal - eventPackItemListVM.countStaged) / \(eventPackItemListVM.countTotal - eventPackItemListVM.countPacked))")
+            
+            HStack {
+                Text("(")
+                Text("\(eventPackItemListVM.countTotal)")
+                Text("\(countSeparator)")
+                Text("\(eventPackItemListVM.countTotal - eventPackItemListVM.countStaged)")
+                Text("\(countSeparator)")
+                Text("\(eventPackItemListVM.countTotal - eventPackItemListVM.countPacked)")
+                if (eventPackItemListVM.countSkipped > 0) {
+                    Text("\(countSeparator)")
+                    Text("\(eventPackItemListVM.countSkipped)").foregroundColor(Color(.systemRed))
+                }
+                Text(")")
+            }
                 .font(.footnote)
             
             List {
@@ -34,9 +49,7 @@ struct EventPackItemsList: View {
                                 EventPackItemsListCell(eventPackItemListVM: eventPackItemListVM, eventItem: eventItem)
                                 Spacer()
                                 Button("...", action: {
-                                    let curItemToEdit = eventItem.item?.objectID // else { return }
                                     itemToEdit = eventItem.item!.objectID
-                                    print("Item To Edit", itemToEdit)
                                     self.editItem = itemToEdit != nil
                                 })
                             }
@@ -64,7 +77,6 @@ struct EventPackItemsList: View {
                onDismiss: { eventPackItemListVM.refreshList() },
                content: {
             if let curItemToEdit = itemToEdit {
-                let itemIn = PackItem.byId( id: curItemToEdit ) as! PackItem
                 PackItemEditScreen2(editItemVM: PackItemEditVM(packItemIn: PackItem.byId(id: curItemToEdit) as! PackItem) )
                 }
             }

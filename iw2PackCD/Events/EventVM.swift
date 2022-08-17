@@ -25,9 +25,15 @@ struct EventVM {
             format: "staged == true"
         ))
     }
+    var skippedItems: Set<AnyHashable> {
+        return self.eventItemsNSSet.filtered(using: NSPredicate(
+            format: "skipped == true"
+        ))
+    }
     
     var countTotal: Int { return event.eventItems?.count ?? 0 }
     var countPacked: Int { return self.packedItems.count }
     var countStaged: Int { return self.stagedItems.count }
+    var countSkipped: Int { return self.skippedItems.count }
 
 }
