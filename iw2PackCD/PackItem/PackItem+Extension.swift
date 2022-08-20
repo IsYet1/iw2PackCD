@@ -49,6 +49,19 @@ extension PackItem: BaseModel {
         return count
     }
     
+    func getEventsForPackItem(packItem: PackItem) -> [Event] {
+        // TODO: Streamline this.
+        guard let eventItemSet = packItem.events,
+              let eventItemAry = eventItemSet.allObjects as? [EventItem]
+        else { return [] }
+        let mappedNames = EventItem.mapEventItem_Events(eventItems: eventItemAry)
+        return getPackItemsEventCount(packItem: packItem) == 0
+        ? []
+        : mappedNames
+        
+//        return ["Found some items"]
+    }
+    
     func getEventNamesForPackItem(packItem: PackItem) -> [String] {
         // TODO: Streamline this.
         guard let eventItemSet = packItem.events,

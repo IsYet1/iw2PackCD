@@ -42,6 +42,13 @@ extension EventItem: BaseModel {
         return names
     }
     
+    static func mapEventItem_Events (eventItems: [EventItem]) -> [Event] {
+        let events = eventItems.compactMap({eventItem in
+            return eventItem.event
+        })
+        return events
+    }
+    
     static func mapEventItem_EventIds (eventItems: [EventItem]) -> [ObjectIdentifier] {
         let ids = eventItems.compactMap({eventItem in
             return eventItem.event?.id
