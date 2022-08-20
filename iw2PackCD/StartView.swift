@@ -10,11 +10,11 @@ import SwiftUI
 struct StartView: View {
     var body: some View {
         TabView {
-            PackItemListScreen().tabItem {
-                Label("Items", systemImage: "tshirt")
-            }
             EventListScreen().tabItem {
                 Label("Events", systemImage: "airplane.departure")
+            }
+            PackItemListScreen().tabItem {
+                Label("Items", systemImage: "tshirt")
             }
             CategoryList().tabItem {
                 Label("Categories", systemImage: "square.and.arrow.down.on.square")
