@@ -36,8 +36,12 @@ struct PackItemEditScreen2: View {
         Divider()
         
         VStack {
-            Text("This Item is in in \(editItemVM.eventNames.count) Events").font(.title)
-//            List(content: <#T##() -> View#>)
+            Text("This Item is in in \(editItemVM.events.count) Events").font(.title)
+            List {
+                ForEach(editItemVM.events, id: \.id) { event in
+                    Text(event.name!)
+                }
+            }
         }
         
         Spacer()
