@@ -8,13 +8,21 @@
 import Foundation
 import CoreData
 
+class ItemEvent {
+    var id = UUID()
+    var eventName: String = ""
+    var itemIsInEvent: Bool = false
+}
+
 class PackItemEditVM: ObservableObject {
     var vmPackItem: PackItemVM
     @Published var vmName: String
     @Published var vmCategory: Category?
     @Published var vmLocation: Location?
-    @Published var eventNames: [String]
-    @Published var events: [Event]
+    
+    @Published var itemEvents: [Event]
+    @Published var allEvents: [Event]
+    @Published var allItemEvents: [ItemEvent] = []
     
     var metaDataIsInvalid: Bool {
         get {
@@ -27,10 +35,28 @@ class PackItemEditVM: ObservableObject {
         vmName = vmPackItem.name
         vmCategory = vmPackItem.categoryIsSet ? vmPackItem.category : nil
         vmLocation = vmPackItem.locationIsSet ? vmPackItem.location : nil
-        eventNames = vmPackItem.packItem.getEventNamesForPackItem(packItem: vmPackItem.packItem)
-        events = vmPackItem.packItem.getEventsForPackItem(packItem: vmPackItem.packItem)
+        
+        itemEvents = vmPackItem.packItem.getEventsForPackItem(packItem: vmPackItem.packItem)
+        allEvents = Event.all()
+        allItemEvents = allEvents.map({event in
+            let itemIsInEvent = itemEvents.contains(where: {itemEvent in
+                return event.id == itemEvent.id
+            })
+            let rtn: ItemEvent = ItemEvent()
+            rtn.eventName = event.name ?? ""
+            rtn.itemIsInEvent = itemIsInEvent
+            return rtn
+        })
     }
     
+    func getEventsForItem(packItemIn: PackItem) {
+        itemEvents = vmPackItem.packItem.getEventsForPackItem(packItem: vmPackItem.packItem)
+        allEvents = Event.all()
+    }
+    
+    func getItemEvents(packItemIn: PackItem) {
+    }
+        
     func save() {
         vmPackItem.packItem.name = vmName
         vmPackItem.packItem.category = vmCategory
@@ -38,4 +64,5 @@ class PackItemEditVM: ObservableObject {
         
         try? vmPackItem.packItem.save()
     }
+    
 }
