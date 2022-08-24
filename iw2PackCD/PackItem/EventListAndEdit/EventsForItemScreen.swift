@@ -24,6 +24,9 @@ struct EventsForItemScreen: View {
             .refreshable {
                 editItemVM.getEventsForItem(packItemIn: editItemVM.vmPackItem.packItem )
             }
+            .onAppear(perform: {
+                editItemVM.getEventsForItem(packItemIn: editItemVM.vmPackItem.packItem )
+            })
         }
     }
 }
