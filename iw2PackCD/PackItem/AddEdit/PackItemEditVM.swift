@@ -38,6 +38,7 @@ class PackItemEditVM: ObservableObject {
         
         itemEvents = vmPackItem.packItem.getEventsForPackItem(packItem: vmPackItem.packItem)
         allEvents = Event.all()
+        // TODO: I don't think this is used anymore. Remove it.
         allItemEvents = allEvents.map({event in
             let itemIsInEvent = itemEvents.contains(where: {itemEvent in
                 return event.id == itemEvent.id

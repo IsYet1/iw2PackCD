@@ -14,20 +14,15 @@ struct EventsForItemScreen: View {
         VStack {
             Text("This Item is in in \(editItemVM.itemEvents.count) Events").font(.title)
             List {
-                ForEach(editItemVM.allItemEvents, id: \.id) { itemEvent in
-                    Toggle(
-                        itemEvent.eventName,
-                        isOn: Binding<Bool> (
-                            get: {
-                                return itemEvent.itemIsInEvent // true //eventItemEditVM.itemIsInEvent
-                            },
-                            set: {
-                                print("Setting", $0)
-                            }
+                ForEach(editItemVM.allEvents, id: \.id) { itemEvent in
+                        EventItemAddCell(
+                            eventItemEditVM: EventItemEditVM(packItemIn: editItemVM.vmPackItem.packItem, eventIn: itemEvent )
+                            , eventItemCellType: .item
                         )
-                    )
-                    .toggleStyle(CheckboxToggleStyle(style: .circle))
                 }
+            }
+            .refreshable {
+                editItemVM.getEventsForItem(packItemIn: editItemVM.vmPackItem.packItem )
             }
         }
     }
