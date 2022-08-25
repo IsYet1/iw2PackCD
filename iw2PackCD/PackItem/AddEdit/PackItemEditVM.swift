@@ -8,11 +8,6 @@
 import Foundation
 import CoreData
 
-class ItemEvent {
-    var id = UUID()
-    var eventName: String = ""
-    var itemIsInEvent: Bool = false
-}
 
 class PackItemEditVM: ObservableObject {
     var vmPackItem: PackItemVM
@@ -22,7 +17,6 @@ class PackItemEditVM: ObservableObject {
     
     @Published var itemEvents: [Event]
     @Published var allEvents: [Event]
-    @Published var allItemEvents: [ItemEvent] = []
     
     var metaDataIsInvalid: Bool {
         get {
@@ -38,16 +32,6 @@ class PackItemEditVM: ObservableObject {
         
         itemEvents = vmPackItem.packItem.getEventsForPackItem(packItem: vmPackItem.packItem)
         allEvents = Event.all()
-        // TODO: I don't think this is used anymore. Remove it.
-        allItemEvents = allEvents.map({event in
-            let itemIsInEvent = itemEvents.contains(where: {itemEvent in
-                return event.id == itemEvent.id
-            })
-            let rtn: ItemEvent = ItemEvent()
-            rtn.eventName = event.name ?? ""
-            rtn.itemIsInEvent = itemIsInEvent
-            return rtn
-        })
     }
     
     func getEventsForItem(packItemIn: PackItem) {
@@ -55,9 +39,6 @@ class PackItemEditVM: ObservableObject {
         allEvents = Event.all()
     }
     
-    func getItemEvents(packItemIn: PackItem) {
-    }
-        
     func save() {
         vmPackItem.packItem.name = vmName
         vmPackItem.packItem.category = vmCategory
