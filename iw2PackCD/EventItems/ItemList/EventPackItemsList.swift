@@ -53,6 +53,17 @@ struct EventPackItemsList: View {
                                     self.editItem = itemToEdit != nil
                                 })
                             }
+                            .swipeActions(
+                                edge: HorizontalEdge.leading ,
+                                allowsFullSwipe: false,
+                                content: {
+                                    Button(
+                                        action: {
+                                            itemToEdit = eventItem.item!.objectID
+                                            self.editItem = itemToEdit != nil
+                                        },
+                                        label: {Image(systemName: "tshirt")})
+                            })
                         }
                     }
                 }
