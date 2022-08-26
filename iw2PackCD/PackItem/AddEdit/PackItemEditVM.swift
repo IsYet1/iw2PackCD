@@ -8,13 +8,15 @@
 import Foundation
 import CoreData
 
+
 class PackItemEditVM: ObservableObject {
     var vmPackItem: PackItemVM
     @Published var vmName: String
     @Published var vmCategory: Category?
     @Published var vmLocation: Location?
-    @Published var eventNames: [String]
-    @Published var events: [Event]
+    
+    @Published var itemEvents: [Event]
+    @Published var allEvents: [Event]
     
     var metaDataIsInvalid: Bool {
         get {
@@ -27,8 +29,14 @@ class PackItemEditVM: ObservableObject {
         vmName = vmPackItem.name
         vmCategory = vmPackItem.categoryIsSet ? vmPackItem.category : nil
         vmLocation = vmPackItem.locationIsSet ? vmPackItem.location : nil
-        eventNames = vmPackItem.packItem.getEventNamesForPackItem(packItem: vmPackItem.packItem)
-        events = vmPackItem.packItem.getEventsForPackItem(packItem: vmPackItem.packItem)
+        
+        itemEvents = vmPackItem.packItem.getEventsForPackItem(packItem: vmPackItem.packItem)
+        allEvents = Event.all()
+    }
+    
+    func getEventsForItem(packItemIn: PackItem) {
+        itemEvents = vmPackItem.packItem.getEventsForPackItem(packItem: vmPackItem.packItem)
+        allEvents = Event.all()
     }
     
     func save() {
@@ -38,4 +46,5 @@ class PackItemEditVM: ObservableObject {
         
         try? vmPackItem.packItem.save()
     }
+    
 }

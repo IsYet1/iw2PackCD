@@ -32,6 +32,7 @@ struct EventItemAddScreen: View {
                         ForEach(sections.value, id: \.packItemId) {item in
                             EventItemAddCell(
                                 eventItemEditVM: EventItemEditVM(packItemIn: item.packItem, eventIn: event)
+                                , eventItemCellType: .event
                             )
                         }
                     }

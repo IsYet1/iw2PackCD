@@ -8,13 +8,20 @@
 import SwiftUI
 import CoreData
 
+
+enum EventItemCellType {
+    case item
+    case event
+}
+
 struct EventItemAddCell: View {
-    @State var eventItemEditVM: EventItemEditVM
+    @StateObject var eventItemEditVM: EventItemEditVM
+    var eventItemCellType: EventItemCellType
     
     var body: some View {
         HStack {
             Toggle(
-                eventItemEditVM.packItem.name!,
+                eventItemCellType == .event ? eventItemEditVM.packItem.name! : eventItemEditVM.event.name!,
                 isOn: Binding<Bool> (
                     get: {
                         return eventItemEditVM.itemIsInEvent
