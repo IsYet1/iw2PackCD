@@ -39,7 +39,7 @@ struct EventPackItemsList: View {
                 }
                 Text(")")
             }
-                .font(.footnote)
+            .font(.footnote)
             
             List {
                 ForEach(eventPackItemListVM.groupedSortedFiltered, id:\.key) {sections in
@@ -47,12 +47,34 @@ struct EventPackItemsList: View {
                         ForEach(sections.value, id: \.id) {eventItem in
                             HStack {
                                 EventPackItemsListCell(eventPackItemListVM: eventPackItemListVM, eventItem: eventItem)
-                                Spacer()
-                                Button("...", action: {
-                                    itemToEdit = eventItem.item!.objectID
-                                    self.editItem = itemToEdit != nil
-                                })
                             }
+                            .swipeActions(
+                                edge: HorizontalEdge.leading ,
+                                allowsFullSwipe: true,
+                                content: {
+                                    Button(
+                                        action: {
+                                            eventPackItemListVM.updatePackedStatusThenReload(checked: true, eventItem: eventItem, phase: .skipped)
+                                        },
+                                        label: {Image(systemName: "strikethrough")}
+                                    )
+                                    .tint(.gray)
+                                    .disabled(eventItem.skipped)
+                                }
+                            )
+                            .swipeActions(
+                                edge: HorizontalEdge.trailing ,
+                                allowsFullSwipe: true,
+                                content: {
+                                    Button(
+                                        action: {
+                                            itemToEdit = eventItem.item!.objectID
+                                            self.editItem = itemToEdit != nil
+                                        },
+                                        label: {Image(systemName: "tshirt")})
+                                    .tint(.blue)
+                                }
+                            )
                         }
                     }
                 }
@@ -78,8 +100,8 @@ struct EventPackItemsList: View {
                content: {
             if let curItemToEdit = itemToEdit {
                 PackItemEditScreen2(editItemVM: PackItemEditVM(packItemIn: PackItem.byId(id: curItemToEdit) as! PackItem) )
-                }
             }
+        }
         )
         .sheet(isPresented: $showEditEventItemList,
                onDismiss: { eventPackItemListVM.refreshList() },

@@ -47,9 +47,6 @@ struct EventPackItemsListCell: View {
             Text(eventItem.item?.name ?? "No name")
                 .fontWeight(eventItem.skipped ? .ultraLight : .regular)
                 .strikethrough(eventItem.skipped)
-                .onLongPressGesture(minimumDuration: 1, maximumDistance: 10, perform: {
-                eventPackItemListVM.updatePackedStatusThenReload(checked: true, eventItem: eventItem, phase: .skipped)
-            } )
         }
     }
 }
