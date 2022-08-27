@@ -50,7 +50,7 @@ struct EventPackItemsList: View {
                             }
                             .swipeActions(
                                 edge: HorizontalEdge.leading ,
-                                allowsFullSwipe: false,
+                                allowsFullSwipe: true,
                                 content: {
                                     Button(
                                         action: {
@@ -58,12 +58,13 @@ struct EventPackItemsList: View {
                                         },
                                         label: {Image(systemName: "strikethrough")}
                                     )
+                                    .tint(.gray)
                                     .disabled(eventItem.skipped)
                                 }
                             )
                             .swipeActions(
                                 edge: HorizontalEdge.trailing ,
-                                allowsFullSwipe: false,
+                                allowsFullSwipe: true,
                                 content: {
                                     Button(
                                         action: {
@@ -71,6 +72,7 @@ struct EventPackItemsList: View {
                                             self.editItem = itemToEdit != nil
                                         },
                                         label: {Image(systemName: "tshirt")})
+                                    .tint(.blue)
                                 }
                             )
                         }
