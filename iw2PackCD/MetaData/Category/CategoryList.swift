@@ -41,11 +41,13 @@ struct CategoryList: View {
                                 }
                             )
                         }
-                    ) // .navigationSplitViewColumnWidth(150)
+                    )
+                    .navigationSplitViewColumnWidth(min: 200, ideal: 300, max: 300)
                 },
                 detail: {
                     if (selectedCategory != nil) {
                         CategoryPackItemsList(category: selectedCategory!)
+                        .navigationSplitViewColumnWidth(min: 200, ideal: 220, max: 200)
                     } else {
                         Text("Select a category")
                     }
