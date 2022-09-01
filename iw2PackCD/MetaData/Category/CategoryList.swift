@@ -43,6 +43,20 @@ struct CategoryList: View {
                         }
                     )
                     .navigationSplitViewColumnWidth(min: 200, ideal: 300, max: 300)
+                    .navigationTitle("Categories")                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        EditButton()
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button("Add") {
+                            self.showForm = true
+                        }
+                    }
+                }
+                .sheet(isPresented: $showForm, content: {
+                    CategoryFormScreen()
+                })
+ 
                 },
                 detail: {
                     if (selectedCategory != nil) {
