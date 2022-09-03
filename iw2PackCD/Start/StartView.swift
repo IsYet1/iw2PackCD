@@ -22,6 +22,9 @@ struct StartView: View {
             LocationList().tabItem {
                 Label("Locations", systemImage: "square.split.bottomrightquarter")
             }
+            HomeScreen().tabItem {
+                Label("Settings", systemImage: "gear")
+            }
         }
     }
 }
