@@ -8,8 +8,44 @@
 import SwiftUI
 
 struct UtilitiesScreen: View {
+    @StateObject private var utilities = UtilitiesService()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack() {
+            Text("Utilities").font(.largeTitle)
+            Divider()
+            
+            VStack(alignment: .center){
+                Button("Add Sample Data", action: {
+                    utilities.addSampleData()
+                })
+                .buttonStyle(.bordered)
+                
+                Button("Startup on Events", action: {
+                    utilities.startOnEvents()
+                })
+                .buttonStyle(.bordered)
+                
+                Button("Startup on Utilities", action: {
+                    utilities.startOnUtilities()
+                })
+                .buttonStyle(.bordered)
+                
+                Button("Backup Data", action: {
+                    print("Backup Data")
+                })
+                .buttonStyle(.bordered).disabled(true)
+                
+                Button("Restore Data", action: {
+                    print("Restore Data")
+                })
+                .buttonStyle(.bordered).disabled(true)
+                
+            }
+            .padding(20)
+            
+            Spacer()
+        }
     }
 }
 
