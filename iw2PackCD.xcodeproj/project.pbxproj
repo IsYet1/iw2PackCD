@@ -19,7 +19,7 @@
 		A540F1572868F82100994128 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A540F1562868F82100994128 /* CloseButton.swift */; };
 		A55473A128665E810009B2C7 /* EventItemAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55473A028665E810009B2C7 /* EventItemAddCell.swift */; };
 		A55473A4286661AC0009B2C7 /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55473A3286661AC0009B2C7 /* CheckboxToggleStyle.swift */; };
-		A56B9CF628C400C6000FAE83 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56B9CF528C400C6000FAE83 /* HomeScreen.swift */; };
+		A56B9CF628C400C6000FAE83 /* UtilitiesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56B9CF528C400C6000FAE83 /* UtilitiesScreen.swift */; };
 		A58AFDB02825D4140050B7A0 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AFDAF2825D4140050B7A0 /* CategoryViewModel.swift */; };
 		A58AFDB22825D4510050B7A0 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AFDB12825D4510050B7A0 /* LocationViewModel.swift */; };
 		A59486E72817578800C34782 /* iw2PackCDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59486E62817578800C34782 /* iw2PackCDApp.swift */; };
@@ -73,7 +73,7 @@
 		A540F1562868F82100994128 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		A55473A028665E810009B2C7 /* EventItemAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventItemAddCell.swift; sourceTree = "<group>"; };
 		A55473A3286661AC0009B2C7 /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
-		A56B9CF528C400C6000FAE83 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		A56B9CF528C400C6000FAE83 /* UtilitiesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitiesScreen.swift; sourceTree = "<group>"; };
 		A58039C228764BE0005A49B5 /* iw2PackCD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iw2PackCD.entitlements; sourceTree = "<group>"; };
 		A58039C328765526005A49B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A58AFDAF2825D4140050B7A0 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
@@ -170,13 +170,12 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		A56B9CF428C4008D000FAE83 /* Start */ = {
+		A56B9CF428C4008D000FAE83 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				A5D8EBB5281A088A00D5CC0B /* StartView.swift */,
-				A56B9CF528C400C6000FAE83 /* HomeScreen.swift */,
+				A56B9CF528C400C6000FAE83 /* UtilitiesScreen.swift */,
 			);
-			path = Start;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		A56BC08928710DBC006895C5 /* EventItems */ = {
@@ -220,9 +219,10 @@
 				A5AABF6928972A94003521EC /* Samples */,
 				A58039C328765526005A49B5 /* Info.plist */,
 				A58039C228764BE0005A49B5 /* iw2PackCD.entitlements */,
+				A5D8EBB5281A088A00D5CC0B /* StartView.swift */,
 				A5BDACBD287A52BD006F961D /* Assets.xcassets */,
 				A59486E62817578800C34782 /* iw2PackCDApp.swift */,
-				A56B9CF428C4008D000FAE83 /* Start */,
+				A56B9CF428C4008D000FAE83 /* Utilities */,
 				A5EFFB502827174C003CC39F /* Managers */,
 				A59AD711281CA01900EDCD8E /* Models */,
 				A5EFFB5728272310003CC39F /* PackItem */,
@@ -460,7 +460,7 @@
 				A58AFDB22825D4510050B7A0 /* LocationViewModel.swift in Sources */,
 				A58AFDB02825D4140050B7A0 /* CategoryViewModel.swift in Sources */,
 				A5AABF6B28972AD3003521EC /* NavigationStack.swift in Sources */,
-				A56B9CF628C400C6000FAE83 /* HomeScreen.swift in Sources */,
+				A56B9CF628C400C6000FAE83 /* UtilitiesScreen.swift in Sources */,
 				A53717B82836D87D00185FE3 /* PackItemListVM.swift in Sources */,
 				A53717BE2836FE1B00185FE3 /* CategoryListVM.swift in Sources */,
 				A5EFFB5928272368003CC39F /* PackItemListScreen.swift in Sources */,
