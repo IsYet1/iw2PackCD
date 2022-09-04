@@ -31,12 +31,12 @@ class PackItemEditVM: ObservableObject {
         vmLocation = vmPackItem.locationIsSet ? vmPackItem.location : nil
         
         itemEvents = vmPackItem.packItem.getEventsForPackItem(packItem: vmPackItem.packItem)
-        allEvents = Event.all()
+        allEvents = Event.all().sorted(by: { $0.name ?? "" < $1.name ?? "" })
     }
     
     func getEventsForItem(packItemIn: PackItem) {
         itemEvents = vmPackItem.packItem.getEventsForPackItem(packItem: vmPackItem.packItem)
-        allEvents = Event.all()
+        allEvents = Event.all().sorted(by: { $0.name ?? "" < $1.name ?? "" })
     }
     
     func save() {

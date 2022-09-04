@@ -212,5 +212,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "26CDAC6C-C048-49F5-88B8-AA97872A7E77"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iw2PackCD/PackItem/AddEdit/PackItemEditVM.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "init(packItemIn:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "26CDAC6C-C048-49F5-88B8-AA97872A7E77 - a51f46ca7056c330"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iw2PackCD.PackItemEditVM.init(packItemIn: iw2PackCD.PackItem) -&gt; iw2PackCD.PackItemEditVM"
+                  moduleName = "iw2PackCD"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/donmckenzie/dev/apple/iw2/iw2PackCD/iw2PackCD/PackItem/AddEdit/PackItemEditVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "1336">
+               </Location>
+               <Location
+                  uuid = "26CDAC6C-C048-49F5-88B8-AA97872A7E77 - 1d4325a1f260ba10"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (iw2PackCD.Event, iw2PackCD.Event) -&gt; Swift.Bool in iw2PackCD.PackItemEditVM.init(packItemIn: iw2PackCD.PackItem) -&gt; iw2PackCD.PackItemEditVM"
+                  moduleName = "iw2PackCD"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/donmckenzie/dev/apple/iw2/iw2PackCD/iw2PackCD/PackItem/AddEdit/PackItemEditVM.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
