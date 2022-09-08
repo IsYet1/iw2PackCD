@@ -36,6 +36,7 @@ struct PackItemListScreen: View {
                     }
                 }
             }
+            .listStyle(SidebarListStyle())
             .refreshable {
                 packItemListVm.getAllPackItems()
             }

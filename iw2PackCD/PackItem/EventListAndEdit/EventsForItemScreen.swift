@@ -12,7 +12,7 @@ struct EventsForItemScreen: View {
     
     var body: some View {
         VStack {
-            Text("This Item is in in \(editItemVM.itemEvents.count) Events").font(.title)
+            Text("Add or Remove this Item to Events").font(.headline)
             List {
                 ForEach(editItemVM.allEvents, id: \.id) { itemEvent in
                         EventItemAddCell(
