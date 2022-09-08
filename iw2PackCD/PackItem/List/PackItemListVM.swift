@@ -26,6 +26,7 @@ class PackItemListVM: NSObject, ObservableObject   {
         DispatchQueue.main.async {
             self.packItems = (self.fetchedResultsController.fetchedObjects ?? []).map(PackItemVM.init)
             self.groupedSortedFiltered = groupItems(items: self.packItems)
+//            print(self.groupedSortedFiltered)
         }
     }
 }

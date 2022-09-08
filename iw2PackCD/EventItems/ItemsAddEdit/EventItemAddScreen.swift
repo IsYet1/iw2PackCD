@@ -38,6 +38,7 @@ struct EventItemAddScreen: View {
                     }
                 }
             }
+            .listStyle(SidebarListStyle())
         }
         .sheet(isPresented: $showAddItemForm,
                onDismiss: { packItemListVm.getAllPackItems() },
