@@ -20,6 +20,7 @@ struct UtilitiesScreen: View {
                     utilities.addSampleData()
                 })
                 .buttonStyle(.bordered)
+                .disabled(true)
                 
                 Button("Startup on Events", action: {
                     utilities.startOnEvents()
