@@ -27,17 +27,18 @@ struct EventPackItemsList: View {
             Text("\(eventName )").font(.title)
             
             HStack {
-                Text("(")
-                Text("\(eventPackItemListVM.countTotal)")
+                Text("\(eventPackItemListVM.countTotal - eventPackItemListVM.countPacked)")
                 Text("\(countSeparator)")
                 Text("\(eventPackItemListVM.countTotal - eventPackItemListVM.countStaged)")
-                Text("\(countSeparator)")
-                Text("\(eventPackItemListVM.countTotal - eventPackItemListVM.countPacked)")
                 if (eventPackItemListVM.countSkipped > 0) {
                     Text("\(countSeparator)")
                     Text("\(eventPackItemListVM.countSkipped)").foregroundColor(Color(.systemRed))
                 }
-                Text(")")
+                HStack {
+                    Text("[")
+                    Text("\(eventPackItemListVM.countTotal)")
+                    Text("]")
+                }
             }
             .font(.footnote)
             
