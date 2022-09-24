@@ -62,7 +62,7 @@ class EventPackItemListVM: ObservableObject {
             let itemsSorted = items.sorted(by: { $0.item?.name ?? "___ no name" < $1.item?.name ?? "___ no name" })
             let itemsFiltered = !self.filterItems
             ? itemsSorted
-            : itemsSorted.filter() {!($0.packed) }
+            : itemsSorted.filter() {!($0.packed) || $0.skipped }
             let listGroup: [String: [EventItem]] = Dictionary(grouping: itemsFiltered, by: { eventItem in
                 //                return eventItem.item?.category?.name ?? "___ No Category"
                 return byLocation
