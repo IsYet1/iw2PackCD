@@ -15,55 +15,41 @@ struct PackItemListScreen: View {
     @StateObject private var packItemListVm = PackItemListVM()
     
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Category.name, ascending: true)]
-    )
-    private var categories: FetchedResults<Category>
-    
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Location.name, ascending: true)]
-    )
-    private var locations: FetchedResults<Location>
-    
-    @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \PackItem.name, ascending: false)],
         animation: .default)
     private var items: FetchedResults<PackItem>
     
     var body: some View {
-        if(categories.count == 0 || locations.count == 0) {
-            Text("Please add at least one Category and one Location to continue.")
-        } else {
-            NavigationView {
-                List {
-                    ForEach(packItemListVm.groupedSortedFiltered, id:\.key) {sections in
-                        Section(header: Text(sections.key)) {
-                            ForEach(sections.value, id: \.packItemId) {item in
-                                PackItemListCell(item: item.packItem)
-                            }
-                            .onDelete {self.removeGlobalItem(at: $0, items: sections.value )}
+        NavigationView {
+            List {
+                ForEach(packItemListVm.groupedSortedFiltered, id:\.key) {sections in
+                    Section(header: Text(sections.key)) {
+                        ForEach(sections.value, id: \.packItemId) {item in
+                            PackItemListCell(item: item.packItem)
                         }
+                        .onDelete {self.removeGlobalItem(at: $0, items: sections.value )}
                     }
                 }
-                .listStyle(SidebarListStyle())
-                .refreshable {
-                    packItemListVm.getAllPackItems()
-                }
-                .navigationTitle("Items")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Add") {
-                            self.showForm = true
-                        }
-                    }
-                }
-                .onAppear(perform: {
-                    packItemListVm.getAllPackItems()
-                })
-                .sheet(isPresented: $showForm,
-                       onDismiss: { packItemListVm.getAllPackItems() },
-                       content: { PackItemAddScreen() }
-                )
             }
+            .listStyle(SidebarListStyle())
+            .refreshable {
+                packItemListVm.getAllPackItems()
+            }
+            .navigationTitle("Items")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Add") {
+                        self.showForm = true
+                    }
+                }
+            }
+            .onAppear(perform: {
+                packItemListVm.getAllPackItems()
+            })
+            .sheet(isPresented: $showForm,
+                   onDismiss: { packItemListVm.getAllPackItems() },
+                   content: { PackItemAddScreen() }
+            )
         }
     }
     
