@@ -46,6 +46,7 @@
 		A5D8EBB4281A07E200D5CC0B /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8EBB3281A07E200D5CC0B /* CategoryList.swift */; };
 		A5D8EBB6281A088A00D5CC0B /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8EBB5281A088A00D5CC0B /* StartView.swift */; };
 		A5D8EBB8281A0E1900D5CC0B /* LocationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D8EBB7281A0E1900D5CC0B /* LocationList.swift */; };
+		A5E2D61D28DE7EE900E08C1F /* PackItemWarnNeedMetaDataScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2D61C28DE7EE900E08C1F /* PackItemWarnNeedMetaDataScreen.swift */; };
 		A5EFFB5928272368003CC39F /* PackItemListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFFB5828272368003CC39F /* PackItemListScreen.swift */; };
 		A5EFFB5B2827266E003CC39F /* PackItemVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFFB5A2827266E003CC39F /* PackItemVM.swift */; };
 		A5EFFB5F28272763003CC39F /* PackItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EFFB5E28272763003CC39F /* PackItem+Extension.swift */; };
@@ -104,6 +105,7 @@
 		A5D8EBB3281A07E200D5CC0B /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		A5D8EBB5281A088A00D5CC0B /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
 		A5D8EBB7281A0E1900D5CC0B /* LocationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationList.swift; sourceTree = "<group>"; };
+		A5E2D61C28DE7EE900E08C1F /* PackItemWarnNeedMetaDataScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemWarnNeedMetaDataScreen.swift; sourceTree = "<group>"; };
 		A5EFFB5828272368003CC39F /* PackItemListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemListScreen.swift; sourceTree = "<group>"; };
 		A5EFFB5A2827266E003CC39F /* PackItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackItemVM.swift; sourceTree = "<group>"; };
 		A5EFFB5E28272763003CC39F /* PackItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PackItem+Extension.swift"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			children = (
 				A5EFFB5828272368003CC39F /* PackItemListScreen.swift */,
 				A53717B72836D87D00185FE3 /* PackItemListVM.swift */,
+				A5E2D61C28DE7EE900E08C1F /* PackItemWarnNeedMetaDataScreen.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				A55473A4286661AC0009B2C7 /* CheckboxToggleStyle.swift in Sources */,
 				A5EFFB5B2827266E003CC39F /* PackItemVM.swift in Sources */,
 				F62A68C72856A1C90005AB22 /* EventItemEditVM.swift in Sources */,
+				A5E2D61D28DE7EE900E08C1F /* PackItemWarnNeedMetaDataScreen.swift in Sources */,
 				A5D8EBB6281A088A00D5CC0B /* StartView.swift in Sources */,
 				A52E7E9B2895DEB300122B49 /* EventPackItemsListActions.swift in Sources */,
 				A5B583DC28319F250093E808 /* CategoryPackItemsList.swift in Sources */,
