@@ -13,8 +13,6 @@ struct EventPackItemsListCell: View {
     let eventItem: EventItem
 
     var body: some View {
-        /*
-         */
         HStack {
             Toggle(
                 "",
@@ -44,15 +42,25 @@ struct EventPackItemsListCell: View {
             .toggleStyle(CheckboxToggleStyle(style: .square))
             .foregroundColor(eventItem.skipped ? .gray : .blue)
             
-            Text(eventItem.item?.name ?? "No name")
-                .fontWeight(eventItem.skipped ? .ultraLight : .regular)
+            VStack(alignment: .leading) {
+                Text(eventItem.item?.name ?? "No name")
+                    .fontWeight(eventItem.skipped ? .ultraLight : .regular)
                 .strikethrough(eventItem.skipped)
+                
+                Text(eventPackItemListVM.byLocation ? (eventItem.item?.categoryName ?? "") : (eventItem.item?.location?.name ?? "") )
+                    .font(.footnote)
+            }
         }
     }
 }
 
 //struct EventPackItemsListCell_Previews: PreviewProvider {
+//        let packItem = PackItem(context: PersistenceController.shared.container.viewContext)
+//        packItem.name = "Test Item"
 //    static var previews: some View {
-//        EventPackItemsListCell()
+//        let eventPackItemListVM: EventPackItemListVM = EventPackItemListVM()
+//        let eventItem = EventItem(context: PersistenceController.shared.container.viewContext)
+//
+//        EventPackItemsListCell(eventPackItemListVM: eventPackItemListVM , eventItem: eventItem)
 //    }
 //}
