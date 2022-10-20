@@ -13,7 +13,7 @@ struct EventPackItemsListActions: View {
     @State private var confirmReset = false
 
     var body: some View {
-            HStack (alignment: .center, spacing: 50) {
+            HStack (alignment: .center, spacing: 15) {
                 Toggle(isOn: Binding<Bool> (
                     get: {
                         return eventPackItemListVM.filterItems
@@ -22,7 +22,21 @@ struct EventPackItemsListActions: View {
                         eventPackItemListVM.toggle(toggleType: .filterToUnpacked, isOn: $0)
                     }
                 ),
-                       label: {Text("Unpacked").font(.footnote)}
+                       label: {Text("Stage").font(.footnote)}
+                )
+                .toggleStyle(CheckboxToggleStyle(style: .circle))
+                .disabled(eventPackItemListVM.eventItems.isEmpty)
+
+            
+                Toggle(isOn: Binding<Bool> (
+                    get: {
+                        return eventPackItemListVM.filterItems
+                    },
+                    set: {
+                        eventPackItemListVM.toggle(toggleType: .filterToUnpacked, isOn: $0)
+                    }
+                ),
+                       label: {Text("Pack").font(.footnote)}
                 )
                 .toggleStyle(CheckboxToggleStyle(style: .circle))
                 .disabled(eventPackItemListVM.eventItems.isEmpty)
@@ -37,7 +51,7 @@ struct EventPackItemsListActions: View {
                        ),
                        label: {Text("Location").font(.footnote)}
                 )
-                .toggleStyle(CheckboxToggleStyle(style: .circle))
+                .toggleStyle(CheckboxToggleStyle(style: .square))
                 .disabled(eventPackItemListVM.eventItems.isEmpty)
 
                 Button("Reset") {
