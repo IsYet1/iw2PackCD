@@ -28,8 +28,14 @@ struct EventPackItemsList: View {
             
             HStack {
                 Text("\(eventPackItemListVM.countTotal - eventPackItemListVM.countPacked)")
+                    .underline(eventPackItemListVM.filterItems)
+                    .fontWeight(eventPackItemListVM.filterItems ? .bold : .regular)
+                    .foregroundColor(eventPackItemListVM.filterItems ? Color.blue : Color.black)
                 Text("\(countSeparator)")
                 Text("\(eventPackItemListVM.countTotal - eventPackItemListVM.countStaged)")
+                    .underline(eventPackItemListVM.filterStaged)
+                    .fontWeight(eventPackItemListVM.filterStaged ? .bold : .regular)
+                    .foregroundColor(eventPackItemListVM.filterStaged ? Color.blue : Color.black)
                 if (eventPackItemListVM.countSkipped > 0) {
                     Text("\(countSeparator)")
                     Text("\(eventPackItemListVM.countSkipped)").foregroundColor(Color(.systemRed))
