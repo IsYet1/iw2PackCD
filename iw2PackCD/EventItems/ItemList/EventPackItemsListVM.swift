@@ -62,9 +62,10 @@ class EventPackItemListVM: ObservableObject {
     func groupItems(items: [EventItem] ) -> [(key: String, value: [EventItem] ) ]  {
         var orderList: [(key: String, value: [EventItem] ) ] {
             let itemsSorted = items.sorted(by: { $0.item?.name ?? "___ no name" < $1.item?.name ?? "___ no name" })
-            let itemsFiltered = !self.filterItems
-            ? itemsSorted
-            : itemsSorted.filter() {!($0.packed) || $0.skipped }
+            let itemsFiltered =
+                self.filterItems ? itemsSorted.filter() {!($0.packed) || $0.skipped }
+                : self.filterStaged ? itemsSorted.filter() {!($0.staged) || $0.skipped }
+                : itemsSorted
             let listGroup: [String: [EventItem]] = Dictionary(grouping: itemsFiltered, by: { eventItem in
                 //                return eventItem.item?.category?.name ?? "___ No Category"
                 return byLocation
@@ -127,14 +128,17 @@ class EventPackItemListVM: ObservableObject {
         switch toggleType {
         case .filterToUnpacked:
             filterItems = isOn
-            UserDefaults.standard.set(isOn, forKey: "unpackedChecked")
+            if isOn {filterStaged = false}
         case .filterToUnstaged:
             filterStaged = isOn
-            UserDefaults.standard.set(isOn, forKey: "unStagedChecked")
+            if isOn {filterItems = false}
         case .byLocation:
             byLocation = isOn
             UserDefaults.standard.set(isOn, forKey: "locationChecked")
         }
+        UserDefaults.standard.set(filterItems, forKey: "unStagedChecked")
+        UserDefaults.standard.set(filterStaged, forKey: "unpackedChecked")
+        
         getEventPackItems()
         
     }
