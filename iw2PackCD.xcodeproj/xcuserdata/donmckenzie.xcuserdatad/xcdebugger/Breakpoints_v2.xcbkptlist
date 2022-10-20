@@ -158,8 +158,8 @@
             filePath = "iw2PackCD/EventItems/ItemList/EventPackItemsListVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "initEventPackItemListVM(eventName:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -174,8 +174,8 @@
             filePath = "iw2PackCD/EventItems/ItemList/EventPackItemsListVM.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "updatePackedStatus(checked:eventItem:phase:)"
             landmarkType = "7">
          </BreakpointContent>

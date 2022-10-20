@@ -16,10 +16,10 @@ struct EventPackItemsListActions: View {
             HStack (alignment: .center, spacing: 15) {
                 Toggle(isOn: Binding<Bool> (
                     get: {
-                        return eventPackItemListVM.filterItems
+                        return eventPackItemListVM.filterStaged
                     },
                     set: {
-                        eventPackItemListVM.toggle(toggleType: .filterToUnpacked, isOn: $0)
+                        eventPackItemListVM.toggle(toggleType: .filterToUnstaged, isOn: $0)
                     }
                 ),
                        label: {Text("Stage").font(.footnote)}

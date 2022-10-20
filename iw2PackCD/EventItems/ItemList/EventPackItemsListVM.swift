@@ -17,6 +17,7 @@ enum PackPhase {
 
 enum EventItemListToggle {
     case filterToUnpacked
+    case filterToUnstaged
     case byLocation
 }
 
@@ -25,6 +26,7 @@ class EventPackItemListVM: ObservableObject {
     @Published var curEvent: EventVM?
     
     @Published var filterItems: Bool = false
+    @Published var filterStaged: Bool = false
     @Published var byLocation: Bool = false
     @Published var groupedSortedFiltered: [(key: String, value: [EventItem] ) ] = []
     @Published var countTotal = 0
@@ -126,6 +128,9 @@ class EventPackItemListVM: ObservableObject {
         case .filterToUnpacked:
             filterItems = isOn
             UserDefaults.standard.set(isOn, forKey: "unpackedChecked")
+        case .filterToUnstaged:
+            filterStaged = isOn
+            UserDefaults.standard.set(isOn, forKey: "unStagedChecked")
         case .byLocation:
             byLocation = isOn
             UserDefaults.standard.set(isOn, forKey: "locationChecked")
@@ -141,6 +146,7 @@ class EventPackItemListVM: ObservableObject {
     
     func getInitialActionToggleSettings() {
         filterItems = (UserDefaults.standard.bool(forKey: "unpackedChecked"))
+        filterStaged = (UserDefaults.standard.bool(forKey: "unStagedChecked"))
         byLocation = (UserDefaults.standard.bool(forKey: "locationChecked"))
     }
 }
