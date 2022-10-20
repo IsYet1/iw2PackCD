@@ -136,8 +136,9 @@ class EventPackItemListVM: ObservableObject {
             byLocation = isOn
             UserDefaults.standard.set(isOn, forKey: "locationChecked")
         }
-        UserDefaults.standard.set(filterItems, forKey: "unStagedChecked")
-        UserDefaults.standard.set(filterStaged, forKey: "unpackedChecked")
+        
+        UserDefaults.standard.set(filterItems, forKey: "unpackedChecked")
+        UserDefaults.standard.set(filterStaged, forKey: "unStagedChecked")
         
         getEventPackItems()
         
