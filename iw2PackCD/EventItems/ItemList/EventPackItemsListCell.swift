@@ -49,6 +49,8 @@ struct EventPackItemsListCell: View {
                 
                 Text(eventPackItemListVM.byLocation ? (eventItem.item?.categoryName ?? "") : (eventItem.item?.location?.name ?? "") )
                     .font(.footnote)
+                    .fontWeight(.light)
+                    .foregroundColor(Color.gray)
             }
         }
     }

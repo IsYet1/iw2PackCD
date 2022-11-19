@@ -13,6 +13,7 @@ import CoreData
 
 struct EventPackItemsList: View {
     
+    @Environment(\.colorScheme) var colorScheme
     let eventName: String
     @StateObject private var eventPackItemListVM = EventPackItemListVM()
     @State private var itemToEdit: NSManagedObjectID?
@@ -22,6 +23,8 @@ struct EventPackItemsList: View {
     let countSeparator = "/\u{00a0}"
     
     var body: some View {
+        // TODO: Move this to an extension or const.
+        let defaultColor = (colorScheme == .dark) ? Color.white : Color.black
         
         VStack {
             Text("\(eventName )").font(.title)
@@ -30,12 +33,12 @@ struct EventPackItemsList: View {
                 Text("\(eventPackItemListVM.countTotal - eventPackItemListVM.countPacked)")
                     .underline(eventPackItemListVM.filterItems)
                     .fontWeight(eventPackItemListVM.filterItems ? .bold : .regular)
-                    .foregroundColor(eventPackItemListVM.filterItems ? Color.blue : Color.black)
+                    .foregroundColor(eventPackItemListVM.filterItems ? Color.blue : defaultColor)
                 Text("\(countSeparator)")
                 Text("\(eventPackItemListVM.countTotal - eventPackItemListVM.countStaged)")
                     .underline(eventPackItemListVM.filterStaged)
                     .fontWeight(eventPackItemListVM.filterStaged ? .bold : .regular)
-                    .foregroundColor(eventPackItemListVM.filterStaged ? Color.blue : Color.black)
+                    .foregroundColor(eventPackItemListVM.filterStaged ? Color.blue : defaultColor)
                 if (eventPackItemListVM.countSkipped > 0) {
                     Text("\(countSeparator)")
                     Text("\(eventPackItemListVM.countSkipped)").foregroundColor(Color(.systemRed))
