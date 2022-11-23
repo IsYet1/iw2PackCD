@@ -22,12 +22,11 @@ struct EventPackItemsListActions: View {
                         eventPackItemListVM.toggle(toggleType: .filterToUnstaged, isOn: $0)
                     }
                 ),
-                       label: {Text("Stage").font(.footnote)}
+                       label: {Text("Staged").font(.footnote)}
                 )
                 .toggleStyle(CheckboxToggleStyle(style: .circle))
                 .disabled(eventPackItemListVM.eventItems.isEmpty)
 
-            
                 Toggle(isOn: Binding<Bool> (
                     get: {
                         return eventPackItemListVM.filterItems
@@ -36,11 +35,29 @@ struct EventPackItemsListActions: View {
                         eventPackItemListVM.toggle(toggleType: .filterToUnpacked, isOn: $0)
                     }
                 ),
-                       label: {Text("Pack").font(.footnote)}
+                       label: {Text("Packed").font(.footnote)}
                 )
                 .toggleStyle(CheckboxToggleStyle(style: .circle))
                 .disabled(eventPackItemListVM.eventItems.isEmpty)
 
+                Toggle(isOn: Binding<Bool> (
+                    get: {
+                        return eventPackItemListVM.hideSkipped
+                    },
+                    set: {
+                        eventPackItemListVM.toggle(toggleType: .filterSkipped, isOn: $0)
+                    }
+                ),
+                       label: {Text("Skipped").font(.footnote)}
+                )
+                .toggleStyle(CheckboxToggleStyle(style: .diamond))
+                .disabled(
+                    eventPackItemListVM.eventItems.isEmpty
+                    || (!eventPackItemListVM.filterItems && !eventPackItemListVM.filterStaged)
+                )
+
+                Spacer()
+                
                 Toggle(isOn: Binding<Bool> (
                         get: {
                             return eventPackItemListVM.byLocation
@@ -49,10 +66,11 @@ struct EventPackItemsListActions: View {
                             eventPackItemListVM.toggle(toggleType: .byLocation, isOn: $0)
                         }
                        ),
-                       label: {Text("Location").font(.footnote)}
+                       label: {Text("Location").font(.caption)}
                 )
                 .toggleStyle(CheckboxToggleStyle(style: .square))
                 .disabled(eventPackItemListVM.eventItems.isEmpty)
+                Spacer()
 
                 Button("Reset") {
                     confirmReset = true
@@ -63,7 +81,7 @@ struct EventPackItemsListActions: View {
                 )
                 .buttonStyle(.bordered)
             }
-            .padding(15)
+            .padding(10.0)
             .background(Color.gray.opacity(0.3), in: Rectangle())
             .cornerRadius(7)
             .alert(
