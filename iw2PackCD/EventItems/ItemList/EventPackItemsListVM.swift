@@ -18,6 +18,7 @@ enum PackPhase {
 enum EventItemListToggle {
     case filterToUnpacked
     case filterToUnstaged
+    case filterSkipped
     case byLocation
 }
 
@@ -27,6 +28,7 @@ class EventPackItemListVM: ObservableObject {
     
     @Published var filterItems: Bool = false
     @Published var filterStaged: Bool = false
+    @Published var hideSkipped: Bool = false
     @Published var byLocation: Bool = false
     @Published var groupedSortedFiltered: [(key: String, value: [EventItem] ) ] = []
     @Published var countTotal = 0
@@ -63,8 +65,8 @@ class EventPackItemListVM: ObservableObject {
         var orderList: [(key: String, value: [EventItem] ) ] {
             let itemsSorted = items.sorted(by: { $0.item?.name ?? "___ no name" < $1.item?.name ?? "___ no name" })
             let itemsFiltered =
-                self.filterItems ? itemsSorted.filter() {!($0.packed) || $0.skipped }
-                : self.filterStaged ? itemsSorted.filter() {!($0.staged) || $0.skipped }
+                self.filterItems ? itemsSorted.filter() {!($0.packed) || (!hideSkipped && $0.skipped) }
+                : self.filterStaged ? itemsSorted.filter() {!($0.staged) || (!hideSkipped && $0.skipped) }
                 : itemsSorted
             let listGroup: [String: [EventItem]] = Dictionary(grouping: itemsFiltered, by: { eventItem in
                 //                return eventItem.item?.category?.name ?? "___ No Category"
@@ -132,12 +134,17 @@ class EventPackItemListVM: ObservableObject {
         case .filterToUnstaged:
             filterStaged = isOn
             if isOn {filterItems = false}
+        case .filterSkipped:
+            hideSkipped = isOn
         case .byLocation:
             byLocation = isOn
             UserDefaults.standard.set(isOn, forKey: "locationChecked")
         }
         
+        if (!filterItems && !filterStaged) {hideSkipped = false}
+        
         UserDefaults.standard.set(filterItems, forKey: "unpackedChecked")
+        UserDefaults.standard.set(hideSkipped, forKey: "skippedChecked")
         UserDefaults.standard.set(filterStaged, forKey: "unStagedChecked")
         
         getEventPackItems()
@@ -152,6 +159,7 @@ class EventPackItemListVM: ObservableObject {
     func getInitialActionToggleSettings() {
         filterItems = (UserDefaults.standard.bool(forKey: "unpackedChecked"))
         filterStaged = (UserDefaults.standard.bool(forKey: "unStagedChecked"))
+        hideSkipped = (UserDefaults.standard.bool(forKey: "skippedChecked"))
         byLocation = (UserDefaults.standard.bool(forKey: "locationChecked"))
     }
 }
