@@ -15,26 +15,39 @@ struct CheckboxToggleStyle: ToggleStyle {
     Button(action: {
       configuration.isOn.toggle() // toggle the state binding
     }, label: {
-      VStack {
-        Image(systemName: configuration.isOn ? "checkmark.\(style.sfSymbolName).fill" : style.sfSymbolName)
-          .imageScale(.large)
-          configuration.label
-              .font(.footnote)
-              .fontWeight(.light)
-      }
+        if (style == .circleh) {
+            HStack {
+            Image(systemName: configuration.isOn ? "checkmark.\(style.sfSymbolName).fill" : style.sfSymbolName)
+              .imageScale(.large)
+              configuration.label
+                  .font(.footnote)
+                  .fontWeight(.light)
+          }
+        } else {
+            VStack {
+            Image(systemName: configuration.isOn ? "checkmark.\(style.sfSymbolName).fill" : style.sfSymbolName)
+              .imageScale(.large)
+              configuration.label
+                  .font(.footnote)
+                  .fontWeight(.light)
+          }
+            
+        }
     })
     .buttonStyle(PlainButtonStyle()) // remove any implicit styling from the button
     .disabled(!isEnabled)
   }
 
   enum Style {
-    case square, circle, diamond
+    case square, circle, diamond, circleh
 
     var sfSymbolName: String {
       switch self {
       case .square:
         return "square"
       case .circle:
+        return "circle"
+      case .circleh:
         return "circle"
       case .diamond:
         return "diamond"
