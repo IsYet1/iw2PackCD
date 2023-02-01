@@ -12,11 +12,26 @@ struct PersistenceController {
     static let shared = PersistenceController()
 
     let container: NSPersistentCloudKitContainer
+    
+    static var preview  = {
+        let controller = PersistenceController(inMemory: true)
+        
+        var categoryPreview = Category(context: controller.container.viewContext)
+        
+        categoryPreview.name = "Preview Category 1"
+        try? categoryPreview.save()
+        
+        categoryPreview = Category(context: controller.container.viewContext)
+        categoryPreview.name = "Preview Category 2"
+        
+        try? categoryPreview.save()
+        return controller
+    }()
 
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "iw2PackCD")
         if inMemory {
-//            container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+            container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
         }
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -38,4 +53,5 @@ struct PersistenceController {
         container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
+    
 }

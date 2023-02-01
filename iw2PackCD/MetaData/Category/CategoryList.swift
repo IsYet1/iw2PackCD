@@ -58,8 +58,10 @@ struct CategoryList: View {
 }
 
 struct CategoryList_Previews: PreviewProvider {
+    let persistenceController = PersistenceController.shared
     static var previews: some View {
         CategoryList()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
 
