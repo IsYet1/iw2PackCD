@@ -61,6 +61,7 @@ struct LocationList: View {
 struct LocationList_Previews: PreviewProvider {
     static var previews: some View {
         LocationList()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
 

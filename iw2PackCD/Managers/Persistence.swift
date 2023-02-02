@@ -15,16 +15,7 @@ struct PersistenceController {
     
     static var preview  = {
         let controller = PersistenceController(inMemory: true)
-        
-        var categoryPreview = Category(context: controller.container.viewContext)
-        
-        categoryPreview.name = "Preview Category 1"
-        try? categoryPreview.save()
-        
-        categoryPreview = Category(context: controller.container.viewContext)
-        categoryPreview.name = "Preview Category 2"
-        
-        try? categoryPreview.save()
+        CreatePreviewData(context: controller.container.viewContext).createAllPreviewData()
         return controller
     }()
 
