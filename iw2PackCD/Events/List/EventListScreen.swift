@@ -36,7 +36,7 @@ struct EventListScreen: View {
                 EventPackItemsList(eventName: eventName)
             }
             .refreshable(action: {
-                eventListVM.getAllEvents()
+                eventListVM.getAllEvents(viewContext: viewContext)
             })
             .navigationTitle("Events")
             .toolbar {
@@ -55,7 +55,7 @@ struct EventListScreen: View {
             
             .onAppear(perform: {
                 eventListVM.getEventNameForStartup()
-                eventListVM.getAllEvents()
+                eventListVM.getAllEvents(viewContext: viewContext)
             })
         }
     }
@@ -74,9 +74,10 @@ struct EventListScreen: View {
     }
 }
 
-//struct EventListScreen_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EventListScreen()
-//    }
-//}
+struct EventListScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        EventListScreen()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    }
+}
 

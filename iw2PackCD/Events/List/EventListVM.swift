@@ -20,12 +20,12 @@ class EventListVM: NSObject, ObservableObject, NSFetchedResultsControllerDelegat
         }
     }
     
-    func getAllEvents() {
+    func getAllEvents(viewContext: NSManagedObjectContext) {
         let request: NSFetchRequest<Event> = Event.fetchRequest()
         
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: PersistenceController.shared.container.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
         
         try? fetchedResultsController.performFetch()
