@@ -103,8 +103,8 @@ struct PackItemRow: View {
     }
 }
 
-//struct PackItemListScreen_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PackItemListScreen()
-//    }
-//}
+struct PackItemListScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        PackItemListScreen()
+    }
+}
