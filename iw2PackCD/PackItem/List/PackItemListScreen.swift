@@ -33,7 +33,7 @@ struct PackItemListScreen: View {
             }
             .listStyle(SidebarListStyle())
             .refreshable {
-                packItemListVm.getAllPackItems()
+                packItemListVm.getAllPackItems(viewContext: viewContext)
             }
             .navigationTitle("Items")
             .toolbar {
@@ -44,10 +44,10 @@ struct PackItemListScreen: View {
                 }
             }
             .onAppear(perform: {
-                packItemListVm.getAllPackItems()
+                packItemListVm.getAllPackItems(viewContext: viewContext)
             })
             .sheet(isPresented: $showForm,
-                   onDismiss: { packItemListVm.getAllPackItems() },
+                   onDismiss: { packItemListVm.getAllPackItems(viewContext: viewContext) },
                    content: { PackItemAddScreen() }
             )
         }
@@ -60,7 +60,7 @@ struct PackItemListScreen: View {
             let itemToDelete = itemVMToDelete.packItem
             print(itemToDelete)
             try? itemToDelete.delete()
-            packItemListVm.getAllPackItems()
+            packItemListVm.getAllPackItems(viewContext: viewContext)
         }
     }
     
@@ -106,5 +106,6 @@ struct PackItemRow: View {
 struct PackItemListScreen_Previews: PreviewProvider {
     static var previews: some View {
         PackItemListScreen()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

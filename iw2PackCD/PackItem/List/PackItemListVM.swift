@@ -13,13 +13,13 @@ class PackItemListVM: NSObject, ObservableObject   {
     
     private var fetchedResultsController: NSFetchedResultsController<PackItem>!
     
-    func getAllPackItems() {
+    func getAllPackItems(viewContext: NSManagedObjectContext) {
         //        print("getAllPackItems")
         let request: NSFetchRequest<PackItem> = PackItem.fetchRequest()
         
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: false)]
         
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: PersistenceController.shared.container.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: viewContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
         
         try? fetchedResultsController.performFetch()

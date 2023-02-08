@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EventItemAddScreen: View {
+    @Environment(\.managedObjectContext) private var viewContext
     let event: Event
     @State private var showAddItemForm: Bool = false
     
@@ -41,20 +42,21 @@ struct EventItemAddScreen: View {
             .listStyle(SidebarListStyle())
         }
         .sheet(isPresented: $showAddItemForm,
-               onDismiss: { packItemListVm.getAllPackItems() },
+               onDismiss: { packItemListVm.getAllPackItems(viewContext: viewContext) },
                content: { PackItemAddScreen() }
         )
         .onAppear(perform: {
-            packItemListVm.getAllPackItems()
+            packItemListVm.getAllPackItems(viewContext: viewContext)
         })
         Spacer()
     }
 }
 
-//struct PackItemFormScreen_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PackItemAddScreen()
-//    }
-//}
+struct PackItemFormScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        PackItemAddScreen()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    }
+}
 
 
