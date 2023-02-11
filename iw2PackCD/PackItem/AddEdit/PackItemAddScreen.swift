@@ -61,9 +61,10 @@ struct PackItemAddScreen: View {
     }
 }
 
-//struct PackItemFormScreen_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PackItemAddScreen()
-//    }
-//}
+struct PackItemAddScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        PackItemAddScreen()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    }
+}
 
