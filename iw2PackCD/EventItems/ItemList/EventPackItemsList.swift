@@ -23,33 +23,9 @@ struct EventPackItemsList: View {
     let countSeparator = "/\u{00a0}"
     
     var body: some View {
-        // TODO: Move this to an extension or const.
-        let defaultColor = (colorScheme == .dark) ? Color.white : Color.black
         
         VStack {
-            Text("\(eventName )").font(.title)
-            
-            HStack {
-                Text("\(eventPackItemListVM.countTotal - eventPackItemListVM.countPacked)")
-                    .underline(eventPackItemListVM.filterItems)
-                    .fontWeight(eventPackItemListVM.filterItems ? .bold : .regular)
-                    .foregroundColor(eventPackItemListVM.filterItems ? Color.blue : defaultColor)
-                Text("\(countSeparator)")
-                Text("\(eventPackItemListVM.countTotal - eventPackItemListVM.countStaged)")
-                    .underline(eventPackItemListVM.filterStaged)
-                    .fontWeight(eventPackItemListVM.filterStaged ? .bold : .regular)
-                    .foregroundColor(eventPackItemListVM.filterStaged ? Color.blue : defaultColor)
-                if (eventPackItemListVM.countSkipped > 0) {
-                    Text("\(countSeparator)")
-                    Text("\(eventPackItemListVM.countSkipped)").foregroundColor(Color(.systemRed))
-                }
-                HStack {
-                    Text("[")
-                    Text("\(eventPackItemListVM.countTotal)")
-                    Text("]")
-                }
-            }
-            .font(.footnote)
+            EvventItemListHeader
             
             List {
                 ForEach(eventPackItemListVM.groupedSortedFiltered, id:\.key) {sections in
@@ -121,6 +97,37 @@ struct EventPackItemsList: View {
         .onAppear(perform: {
             eventPackItemListVM.initEventPackItemListVM(eventName: eventName)
         })
+    }
+    
+    var EvventItemListHeader: some View {
+        let defaultColor = (colorScheme == .dark) ? Color.white : Color.black
+        return Group {
+            
+            Text("Header here")
+            Text("\(eventName )").font(.title)
+            
+            HStack {
+                Text("\(eventPackItemListVM.countTotal - eventPackItemListVM.countPacked)")
+                    .underline(eventPackItemListVM.filterItems)
+                    .fontWeight(eventPackItemListVM.filterItems ? .bold : .regular)
+                    .foregroundColor(eventPackItemListVM.filterItems ? Color.blue : defaultColor)
+                Text("\(countSeparator)")
+                Text("\(eventPackItemListVM.countTotal - eventPackItemListVM.countStaged)")
+                    .underline(eventPackItemListVM.filterStaged)
+                    .fontWeight(eventPackItemListVM.filterStaged ? .bold : .regular)
+                    .foregroundColor(eventPackItemListVM.filterStaged ? Color.blue : defaultColor)
+                if (eventPackItemListVM.countSkipped > 0) {
+                    Text("\(countSeparator)")
+                    Text("\(eventPackItemListVM.countSkipped)").foregroundColor(Color(.systemRed))
+                }
+                HStack {
+                    Text("[")
+                    Text("\(eventPackItemListVM.countTotal)")
+                    Text("]")
+                }
+            }
+            .font(.footnote)
+        }
     }
 }
 
