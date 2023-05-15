@@ -78,8 +78,7 @@ struct EventPackItemsList: View {
                                 content: {
                                     Button(
                                         action: {
-                                            itemToEdit = eventItem.item!.objectID
-                                            self.editItem = itemToEdit != nil
+                                            eventPackItemListVM.removeSelectedEventItem(eventItem: eventItem)
                                         },
                                         label: {Image(systemName: "delete.right")})
                                     .tint(.blue)

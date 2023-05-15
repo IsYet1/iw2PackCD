@@ -109,6 +109,13 @@ class EventPackItemListVM: ObservableObject {
         getEventPackItems()
     }
     
+    func removeSelectedEventItem(eventItem: EventItem) {
+        let packItem = eventItem.item
+        let event = eventItem.event
+        EventItem.deletePackItemFromEvent(event: event!, packItem: packItem! )
+        getEventPackItems()
+    }
+    
     func resetListStatus() {
         guard !eventItems.isEmpty
         else { return }
