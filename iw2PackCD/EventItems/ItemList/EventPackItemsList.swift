@@ -74,7 +74,20 @@ struct EventPackItemsList: View {
                             )
                             .swipeActions(
                                 edge: HorizontalEdge.trailing ,
-                                allowsFullSwipe: true,
+                                allowsFullSwipe: false,
+                                content: {
+                                    Button(
+                                        action: {
+                                            itemToEdit = eventItem.item!.objectID
+                                            self.editItem = itemToEdit != nil
+                                        },
+                                        label: {Image(systemName: "delete.right")})
+                                    .tint(.blue)
+                                }
+                            )
+                            .swipeActions(
+                                edge: HorizontalEdge.trailing ,
+                                allowsFullSwipe: false,
                                 content: {
                                     Button(
                                         action: {
