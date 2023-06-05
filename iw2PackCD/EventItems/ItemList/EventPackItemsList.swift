@@ -16,7 +16,8 @@ struct EventPackItemsList: View {
     @Environment(\.colorScheme) var colorScheme
     let eventName: String
     @StateObject private var eventPackItemListVM = EventPackItemListVM()
-    @State private var itemToEdit: NSManagedObjectID?
+    @State private var idOfItemToEdit: NSManagedObjectID?
+    @State private var packItemToEdit: PackItem? = nil
     @State private var showEditEventItemList: Bool = false
     @State private var editItem: Bool = false
     let nbsp = "\u{00a0}" // Not used but leaving in for reference
@@ -90,8 +91,9 @@ struct EventPackItemsList: View {
                                 content: {
                                     Button(
                                         action: {
-                                            itemToEdit = eventItem.item!.objectID
-                                            self.editItem = itemToEdit != nil
+                                            self.packItemToEdit = eventItem.item
+                                            idOfItemToEdit = eventItem.item!.objectID
+                                            self.editItem = idOfItemToEdit != nil
                                         },
                                         label: {Image(systemName: "tshirt")})
                                     .tint(.blue)
@@ -121,8 +123,9 @@ struct EventPackItemsList: View {
         .sheet(isPresented: $editItem,
                onDismiss: { eventPackItemListVM.refreshList() },
                content: {
-            if let curItemToEdit = itemToEdit {
+            if let curItemToEdit = idOfItemToEdit {
                 PackItemEditScreen2(editItemVM: PackItemEditVM(packItemIn: PackItem.byId(id: curItemToEdit) as! PackItem) )
+//                PackItemEditScreen2(editItemVM: PackItemEditVM(packItemIn: $editItem!) )
             }
         }
         )
