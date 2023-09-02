@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UtilitiesScreen: View {
     @StateObject private var utilities = UtilitiesService()
+    @State private var outputData = "Initial output data"
     
     var body: some View {
         VStack() {
@@ -16,11 +17,19 @@ struct UtilitiesScreen: View {
             Divider()
             
             VStack(alignment: .center){
+                Text(outputData)
+                
                 Button("Add Sample Data", action: {
                     utilities.addSampleData()
                 })
                 .buttonStyle(.bordered)
-                .disabled(true)
+                .disabled(false)
+                
+                Button("Remove Sample Data", action: {
+                    utilities.removeSampleData()
+                })
+                .buttonStyle(.bordered)
+                .disabled(false)
                 
                 Button("Startup on Events", action: {
                     utilities.startOnEvents()
@@ -33,14 +42,14 @@ struct UtilitiesScreen: View {
                 .buttonStyle(.bordered)
                 
                 Button("Backup Data", action: {
-                    print("Backup Data")
+                    outputData = utilities.backupData()
                 })
-                .buttonStyle(.bordered).disabled(true)
+                .buttonStyle(.bordered).disabled(false)
                 
                 Button("Restore Data", action: {
                     print("Restore Data")
                 })
-                .buttonStyle(.bordered).disabled(true)
+                .buttonStyle(.bordered).disabled(false)
                 
             }
             .padding(20)
