@@ -31,7 +31,7 @@ struct EventItemAddCell: View {
                     }
                 )
             )
-            .toggleStyle(CheckboxToggleStyle(style: .circleh))
+            .toggleStyle(CheckboxToggleStyle(style: .circleh, markType: .checkmark))
             //            .foregroundColor(.blue)
         }
     }

@@ -24,7 +24,7 @@ struct EventPackItemsListActions: View {
                 ),
                        label: {Text("Staged").font(.footnote)}
                 )
-                .toggleStyle(CheckboxToggleStyle(style: .circle))
+                .toggleStyle(CheckboxToggleStyle(style: .circle, markType: .xmark))
                 .disabled(eventPackItemListVM.eventItems.isEmpty)
 
                 Toggle(isOn: Binding<Bool> (
@@ -37,7 +37,7 @@ struct EventPackItemsListActions: View {
                 ),
                        label: {Text("Packed").font(.footnote)}
                 )
-                .toggleStyle(CheckboxToggleStyle(style: .circle))
+                .toggleStyle(CheckboxToggleStyle(style: .circle, markType: .xmark))
                 .disabled(eventPackItemListVM.eventItems.isEmpty)
 
                 Toggle(isOn: Binding<Bool> (
@@ -50,7 +50,7 @@ struct EventPackItemsListActions: View {
                 ),
                        label: {Text("Skipped").font(.footnote)}
                 )
-                .toggleStyle(CheckboxToggleStyle(style: .diamond))
+                .toggleStyle(CheckboxToggleStyle(style: .diamond, markType: .xmark))
                 .disabled(
                     eventPackItemListVM.eventItems.isEmpty
                     || (!eventPackItemListVM.filterItems && !eventPackItemListVM.filterStaged)
@@ -68,7 +68,7 @@ struct EventPackItemsListActions: View {
                        ),
                        label: {Text("Location").font(.caption)}
                 )
-                .toggleStyle(CheckboxToggleStyle(style: .square))
+                .toggleStyle(CheckboxToggleStyle(style: .square, markType: .xmark))
                 .disabled(eventPackItemListVM.eventItems.isEmpty)
                 Spacer()
 

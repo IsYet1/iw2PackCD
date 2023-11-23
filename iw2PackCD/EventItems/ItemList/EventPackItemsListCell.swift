@@ -25,7 +25,7 @@ struct EventPackItemsListCell: View {
                     }
                 )
             )
-            .toggleStyle(CheckboxToggleStyle(style: .circle))
+            .toggleStyle(CheckboxToggleStyle(style: .circle, markType: .checkmark))
             
             Toggle(
 //                eventItem.item?.name ?? "No name",
@@ -39,7 +39,7 @@ struct EventPackItemsListCell: View {
                     }
                 )
             )
-            .toggleStyle(CheckboxToggleStyle(style: .square))
+            .toggleStyle(CheckboxToggleStyle(style: .square, markType: .checkmark))
             .foregroundColor(eventItem.skipped ? .gray : .blue)
             
             VStack(alignment: .leading) {
