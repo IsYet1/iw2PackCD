@@ -66,9 +66,10 @@ struct EventPackItemsListActions: View {
                             eventPackItemListVM.toggle(toggleType: .byLocation, isOn: $0)
                         }
                        ),
-                       label: {Text("Location").font(.caption)}
+                       label: {Text("Location").font(.caption2)}
                 )
-                .toggleStyle(CheckboxToggleStyle(style: .square, markType: .xmark))
+                .toggleStyle(CheckboxToggleStyle(style: .square, markType: .checkmark))
+                .foregroundColor(.blue)
                 .disabled(eventPackItemListVM.eventItems.isEmpty)
                 Spacer()
 
