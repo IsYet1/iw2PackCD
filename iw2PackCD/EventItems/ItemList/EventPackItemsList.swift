@@ -103,7 +103,7 @@ struct EventPackItemsList: View {
                     }
                 }
             }
-            .listStyle(SidebarListStyle())
+            .listStyle(PlainListStyle())
             .refreshable(action: {
                 eventPackItemListVM.refreshList()
             })
