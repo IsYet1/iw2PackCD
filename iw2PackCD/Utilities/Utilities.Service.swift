@@ -94,7 +94,7 @@ class UtilitiesService: ObservableObject {
         let names = categories.compactMap({category in
             return category.name
         })
-        let data = try? NSKeyedArchiver.archivedData(withRootObject: names, requiringSecureCoding: false)
+        _ = try? NSKeyedArchiver.archivedData(withRootObject: names, requiringSecureCoding: false)
         return("Category count: \(names.count )")
 //        UserDefaults.standard.set
     }
