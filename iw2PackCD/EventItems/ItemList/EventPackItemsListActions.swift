@@ -16,7 +16,7 @@ struct EventPackItemsListActions: View {
             HStack (alignment: .center, spacing: 15) {
                 Toggle(isOn: Binding<Bool> (
                     get: {
-                        return eventPackItemListVM.filterStaged
+                        return eventPackItemListVM.hideStaged
                     },
                     set: {
                         eventPackItemListVM.toggle(toggleType: .filterToUnstaged, isOn: $0)
@@ -29,7 +29,7 @@ struct EventPackItemsListActions: View {
 
                 Toggle(isOn: Binding<Bool> (
                     get: {
-                        return eventPackItemListVM.filterItems
+                        return eventPackItemListVM.hidePacked
                     },
                     set: {
                         eventPackItemListVM.toggle(toggleType: .filterToUnpacked, isOn: $0)
@@ -53,7 +53,7 @@ struct EventPackItemsListActions: View {
                 .toggleStyle(CheckboxToggleStyle(style: .diamond, markType: .xmark))
                 .disabled(
                     eventPackItemListVM.eventItems.isEmpty
-                    || (!eventPackItemListVM.filterItems && !eventPackItemListVM.filterStaged)
+//                    || (!eventPackItemListVM.filterItems && !eventPackItemListVM.filterStaged)
                 )
 
                 Spacer()
