@@ -20,7 +20,7 @@ struct CheckboxToggleStyle: ToggleStyle {
                 HStack {
                     Image(systemName: configuration.isOn ? "\(markType).\(style.sfSymbolName).fill" : style.sfSymbolName)
                         .imageScale(.large)
-                        .hoverEffect(.lift)
+                        .hoverEffect(.highlight)
                     configuration.label
                         .font(.footnote)
                         .fontWeight(.light)
@@ -29,7 +29,7 @@ struct CheckboxToggleStyle: ToggleStyle {
                 VStack {
                     Image(systemName: configuration.isOn ? "\(markType).\(style.sfSymbolName).fill" : style.sfSymbolName)
                         .imageScale(.large)
-                        .hoverEffect(.lift)
+                        .hoverEffect(.highlight)
                     configuration.label
                         .font(.footnote)
                         .fontWeight(.light)

@@ -34,38 +34,6 @@
             endingLineNumber = "45"
             landmarkName = "UtilitiesService"
             landmarkType = "3">
-            <Locations>
-               <Location
-                  uuid = "6AC8108F-2921-422D-B18B-1643B133942D - 57adfb5ea1b3afbc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iw2PackCD.UtilitiesService.setStartTab(tabNum: Swift.Int) -&gt; ()"
-                  moduleName = "iw2PackCD"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/donmckenzie/dev/apple/iw2/iw2PackCD/iw2PackCD/Utilities/Utilities.Service.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "46"
-                  endingLineNumber = "46"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "6AC8108F-2921-422D-B18B-1643B133942D - 17ab25727f816bd0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "iw2PackCD.UtilitiesService.startOnUtilities() -&gt; ()"
-                  moduleName = "iw2PackCD"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/donmckenzie/dev/apple/iw2/iw2PackCD/iw2PackCD/Utilities/Utilities.Service.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

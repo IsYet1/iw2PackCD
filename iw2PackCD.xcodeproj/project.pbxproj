@@ -94,6 +94,7 @@
 		A59AD717281CA20300EDCD8E /* CategoryFormScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFormScreen.swift; sourceTree = "<group>"; };
 		A5AABF6A28972AD3003521EC /* NavigationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStack.swift; sourceTree = "<group>"; };
 		A5AABF6E289736C1003521EC /* EventPackItemList1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventPackItemList1.swift; sourceTree = "<group>"; };
+		A5B409932BF6C1F8004A0F38 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		A5B583DB28319F250093E808 /* CategoryPackItemsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPackItemsList.swift; sourceTree = "<group>"; };
 		A5B5D44528B2DA14007603D3 /* EventsForItemScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsForItemScreen.swift; sourceTree = "<group>"; };
 		A5B5D44728B2DA21007603D3 /* EventsForItemVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsForItemVM.swift; sourceTree = "<group>"; };
@@ -208,6 +209,7 @@
 		A59486DA2817578800C34782 = {
 			isa = PBXGroup;
 			children = (
+				A5B409932BF6C1F8004A0F38 /* PrivacyInfo.xcprivacy */,
 				A59486E52817578800C34782 /* iw2PackCD */,
 				A59486E42817578800C34782 /* Products */,
 			);
@@ -623,7 +625,7 @@
 				CODE_SIGN_ENTITLEMENTS = iw2PackCD/iw2PackCD.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_ASSET_PATHS = "\"iw2PackCD/Preview Content\"";
 				DEVELOPMENT_TEAM = WM9Y6XVZYN;
 				ENABLE_PREVIEWS = YES;
@@ -659,7 +661,7 @@
 				CODE_SIGN_ENTITLEMENTS = iw2PackCD/iw2PackCD.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_ASSET_PATHS = "\"iw2PackCD/Preview Content\"";
 				DEVELOPMENT_TEAM = WM9Y6XVZYN;
 				ENABLE_PREVIEWS = YES;
