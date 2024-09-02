@@ -24,6 +24,7 @@
 		A56B9CF828C405B1000FAE83 /* Utilities.Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56B9CF728C405B1000FAE83 /* Utilities.Service.swift */; };
 		A58AFDB02825D4140050B7A0 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AFDAF2825D4140050B7A0 /* CategoryViewModel.swift */; };
 		A58AFDB22825D4510050B7A0 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58AFDB12825D4510050B7A0 /* LocationViewModel.swift */; };
+		A58E86922C853111004A3C58 /* SectionHeaderStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58E86912C853111004A3C58 /* SectionHeaderStyle.swift */; };
 		A59486E72817578800C34782 /* iw2PackCDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59486E62817578800C34782 /* iw2PackCDApp.swift */; };
 		A59486EE2817578900C34782 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A59486ED2817578900C34782 /* Preview Assets.xcassets */; };
 		A59486F02817578900C34782 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59486EF2817578900C34782 /* Persistence.swift */; };
@@ -83,6 +84,7 @@
 		A58039C328765526005A49B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A58AFDAF2825D4140050B7A0 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		A58AFDB12825D4510050B7A0 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		A58E86912C853111004A3C58 /* SectionHeaderStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderStyle.swift; sourceTree = "<group>"; };
 		A59486E32817578800C34782 /* iw2PackCD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iw2PackCD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A59486E62817578800C34782 /* iw2PackCDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iw2PackCDApp.swift; sourceTree = "<group>"; };
 		A59486ED2817578900C34782 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		A55473A2286661580009B2C7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A58E86912C853111004A3C58 /* SectionHeaderStyle.swift */,
 				A55473A3286661AC0009B2C7 /* CheckboxToggleStyle.swift */,
 				A540F1562868F82100994128 /* CloseButton.swift */,
 			);
@@ -470,6 +473,7 @@
 				A5B583DC28319F250093E808 /* CategoryPackItemsList.swift in Sources */,
 				A5BDCF28283ECF0C004F5C61 /* PackItemEditScreen2.swift in Sources */,
 				A5EFFB5F28272763003CC39F /* PackItem+Extension.swift in Sources */,
+				A58E86922C853111004A3C58 /* SectionHeaderStyle.swift in Sources */,
 				A5EFFB61282727B0003CC39F /* PackItemAddScreen.swift in Sources */,
 				A58AFDB22825D4510050B7A0 /* LocationViewModel.swift in Sources */,
 				A58AFDB02825D4140050B7A0 /* CategoryViewModel.swift in Sources */,
@@ -625,7 +629,7 @@
 				CODE_SIGN_ENTITLEMENTS = iw2PackCD/iw2PackCD.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"iw2PackCD/Preview Content\"";
 				DEVELOPMENT_TEAM = WM9Y6XVZYN;
 				ENABLE_PREVIEWS = YES;
@@ -661,7 +665,7 @@
 				CODE_SIGN_ENTITLEMENTS = iw2PackCD/iw2PackCD.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 14;
+				CURRENT_PROJECT_VERSION = 15;
 				DEVELOPMENT_ASSET_PATHS = "\"iw2PackCD/Preview Content\"";
 				DEVELOPMENT_TEAM = WM9Y6XVZYN;
 				ENABLE_PREVIEWS = YES;

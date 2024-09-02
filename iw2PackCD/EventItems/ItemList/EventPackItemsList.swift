@@ -54,7 +54,8 @@ struct EventPackItemsList: View {
             
             List {
                 ForEach(eventPackItemListVM.groupedSortedFiltered, id:\.key) {sections in
-                    Section(header: Text(sections.key)) {
+                    Section(header: Text(sections.key).sectionHeaderStyle()) {
+//                    Section(header: Text(sections.key)) {
                         ForEach(sections.value, id: \.id) {eventItem in
                             HStack {
                                 EventPackItemsListCell(eventPackItemListVM: eventPackItemListVM, eventItem: eventItem)

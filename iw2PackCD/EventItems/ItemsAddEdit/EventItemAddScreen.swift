@@ -29,7 +29,8 @@ struct EventItemAddScreen: View {
             
             List {
                 ForEach(packItemListVm.groupedSortedFiltered, id:\.key) {sections in
-                    Section(header: Text(sections.key)) {
+                    Section(header: Text(sections.key).sectionHeaderStyle()) {
+//                    Section(header: Text(sections.key).font(.headline).fontWeight(.semibold)) {
                         ForEach(sections.value, id: \.packItemId) {item in
                             EventItemAddCell(
                                 eventItemEditVM: EventItemEditVM(packItemIn: item.packItem, eventIn: event)

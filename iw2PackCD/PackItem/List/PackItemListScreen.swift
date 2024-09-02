@@ -23,7 +23,8 @@ struct PackItemListScreen: View {
         NavigationView {
             List {
                 ForEach(packItemListVm.groupedSortedFiltered, id:\.key) {sections in
-                    Section(header: Text(sections.key)) {
+//                    Section(header: Text(sections.key).font(.title2).fontWeight(.bold)) {
+                    Section(header: Text(sections.key).sectionHeaderStyle()) {
                         ForEach(sections.value, id: \.packItemId) {item in
                             PackItemListCell(item: item.packItem)
                         }
