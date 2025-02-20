@@ -44,12 +44,12 @@ struct UtilitiesScreen: View {
                 Button("Backup Data", action: {
                     outputData = utilities.backupData()
                 })
-                .buttonStyle(.bordered).disabled(false)
+                .buttonStyle(.bordered).disabled(true)
                 
                 Button("Restore Data", action: {
                     print("Restore Data")
                 })
-                .buttonStyle(.bordered).disabled(false)
+                .buttonStyle(.bordered).disabled(true)
                 
             }
             .padding(20)
