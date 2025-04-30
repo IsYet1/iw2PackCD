@@ -11,6 +11,7 @@ struct CheckboxToggleStyle: ToggleStyle {
     @Environment(\.isEnabled) var isEnabled
     let style: Style // custom param
     let markType: MarkType
+    let size: CGFloat = 28
     
     func makeBody(configuration: Configuration) -> some View {
         Button(action: {
@@ -28,7 +29,9 @@ struct CheckboxToggleStyle: ToggleStyle {
             } else {
                 VStack {
                     Image(systemName: configuration.isOn ? "\(markType).\(style.sfSymbolName).fill" : style.sfSymbolName)
-                        .imageScale(.large)
+                        .resizable()
+                        .frame(width: size, height: size)
+//                        .imageScale(.large)
                         .hoverEffect(.highlight)
                     configuration.label
                         .font(.footnote)
