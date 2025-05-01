@@ -18,24 +18,25 @@ struct CheckboxToggleStyle: ToggleStyle {
             configuration.isOn.toggle() // toggle the state binding
         }, label: {
             if (style == .circleh) {
+                /* Add Item to Event cell. */
                 HStack {
                     Image(systemName: configuration.isOn ? "\(markType).\(style.sfSymbolName).fill" : style.sfSymbolName)
-                        .imageScale(.large)
+                        .resizable()
+                        .frame(width: size, height: size)
                         .hoverEffect(.highlight)
                     configuration.label
-                        .font(.footnote)
-                        .fontWeight(.light)
                 }
             } else {
+                /* VStack is used on the Event Items list page - Item List and Action Bar. */
                 VStack {
                     Image(systemName: configuration.isOn ? "\(markType).\(style.sfSymbolName).fill" : style.sfSymbolName)
                         .resizable()
                         .frame(width: size, height: size)
-//                        .imageScale(.large)
                         .hoverEffect(.highlight)
+                    /* Label is only used for the Action Bar items. Item List does not set a lable for this toggle */
                     configuration.label
                         .font(.footnote)
-                        .fontWeight(.light)
+//                        .fontWeight(.light)
                 }
                 
             }
@@ -49,8 +50,12 @@ struct CheckboxToggleStyle: ToggleStyle {
         case checkmark, xmark
     }
     
+    /*
+     circleh: Add items to an event. From the Add/Remove page and from the Item listing page - Event section
+     
+     */
     enum Style {
-        case square, circle, diamond, circleh, circlex
+        case square, circle, diamond, circleh
         
         var sfSymbolName: String {
             switch self {
@@ -62,8 +67,6 @@ struct CheckboxToggleStyle: ToggleStyle {
                 return "circle"
             case .diamond:
                 return "diamond"
-            case .circlex:
-                return "circle"
             }
         }
     }

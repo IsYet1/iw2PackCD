@@ -22,7 +22,7 @@ struct EventPackItemsListActions: View {
                         eventPackItemListVM.toggle(toggleType: .filterToUnstaged, isOn: $0)
                     }
                 ),
-                       label: {Text("Staged").font(.footnote)}
+                       label: {Text("Staged")}
                 )
                 .toggleStyle(CheckboxToggleStyle(style: .circle, markType: .xmark))
                 .disabled(eventPackItemListVM.eventItems.isEmpty)
@@ -35,7 +35,7 @@ struct EventPackItemsListActions: View {
                         eventPackItemListVM.toggle(toggleType: .filterToUnpacked, isOn: $0)
                     }
                 ),
-                       label: {Text("Packed").font(.footnote)}
+                       label: {Text("Packed")}
                 )
                 .toggleStyle(CheckboxToggleStyle(style: .circle, markType: .xmark))
                 .disabled(eventPackItemListVM.eventItems.isEmpty)
@@ -48,7 +48,7 @@ struct EventPackItemsListActions: View {
                         eventPackItemListVM.toggle(toggleType: .filterSkipped, isOn: $0)
                     }
                 ),
-                       label: {Text("Skipped").font(.footnote)}
+                       label: {Text("Skipped")}
                 )
                 .toggleStyle(CheckboxToggleStyle(style: .diamond, markType: .xmark))
                 .disabled(
@@ -66,7 +66,7 @@ struct EventPackItemsListActions: View {
                             eventPackItemListVM.toggle(toggleType: .byLocation, isOn: $0)
                         }
                        ),
-                       label: {Text("Location").font(.caption2)}
+                       label: {Text("Location")}
                 )
                 .toggleStyle(CheckboxToggleStyle(style: .square, markType: .checkmark))
                 .foregroundColor(.blue)
