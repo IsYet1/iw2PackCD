@@ -20,7 +20,7 @@ class PackItemEditVM: ObservableObject {
     
     var metaDataIsInvalid: Bool {
         get {
-            return vmCategory == nil || vmLocation == nil
+            return vmCategory == nil || vmLocation == nil || vmName.isEmpty
         }
     }
     
