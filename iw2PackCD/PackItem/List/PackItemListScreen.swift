@@ -11,6 +11,7 @@ struct PackItemListScreen: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     @State private var showForm: Bool = false
+    @State private var searchText: String = ""
     
     @StateObject private var packItemListVm = PackItemListVM()
     
@@ -19,16 +20,26 @@ struct PackItemListScreen: View {
         animation: .default)
     private var items: FetchedResults<PackItem>
     
+    var filteredItems: [Dictionary<String, [PackItemVM]>.Element] {
+        if searchText.isEmpty {
+            return packItemListVm.groupedSortedFiltered
+        } else {
+            return packItemListVm.groupedSortedFiltered.compactMap { section in
+                let filtered = section.value.filter { $0.packItem.name?.localizedCaseInsensitiveContains(searchText) ?? false }
+                return filtered.isEmpty ? nil : (section.key, filtered)
+            }
+        }
+    }
+    
     var body: some View {
         NavigationView {
             List {
-                ForEach(packItemListVm.groupedSortedFiltered, id:\.key) {sections in
-//                    Section(header: Text(sections.key).font(.title2).fontWeight(.bold)) {
+                ForEach(filteredItems, id:\.key) { sections in
                     Section(header: Text(sections.key).sectionHeaderStyle()) {
-                        ForEach(sections.value, id: \.packItemId) {item in
+                        ForEach(sections.value, id: \.packItemId) { item in
                             PackItemListCell(item: item.packItem)
                         }
-                        .onDelete {self.removeGlobalItem(at: $0, items: sections.value )}
+                        .onDelete { self.removeGlobalItem(at: $0, items: sections.value) }
                     }
                 }
             }
@@ -44,9 +55,10 @@ struct PackItemListScreen: View {
                     }
                 }
             }
-            .onAppear(perform: {
+            .searchable(text: $searchText, prompt: "Search items")
+            .onAppear {
                 packItemListVm.getAllPackItems(viewContext: viewContext)
-            })
+            }
             .sheet(isPresented: $showForm,
                    onDismiss: { packItemListVm.getAllPackItems(viewContext: viewContext) },
                    content: { PackItemAddScreen() }
@@ -54,12 +66,10 @@ struct PackItemListScreen: View {
         }
     }
     
-    private func removeGlobalItem( at indexSet: IndexSet, items: [PackItemVM] ){
-        //        print("*** Removing an item")
+    private func removeGlobalItem(at indexSet: IndexSet, items: [PackItemVM]) {
         if let itemIndex: Int = indexSet.first {
             let itemVMToDelete = items[itemIndex]
             let itemToDelete = itemVMToDelete.packItem
-            print(itemToDelete)
             try? itemToDelete.delete()
             packItemListVm.getAllPackItems(viewContext: viewContext)
         }
@@ -68,7 +78,6 @@ struct PackItemListScreen: View {
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             offsets.map { items[$0] }.forEach(viewContext.delete)
-            
             do {
                 try viewContext.save()
             } catch {
