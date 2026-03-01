@@ -37,7 +37,6 @@ struct StartView: View {
                 Label("Utilities", systemImage: "rectangle.and.pencil.and.ellipsis")
             }
             .tag(0)
-            
         }
     }
 }

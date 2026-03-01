@@ -118,6 +118,10 @@ struct EventPackItemsList: View {
                     Button("Add/Remove Items") {
                         self.showEditEventItemList = true
                     }
+                    .font(.footnote)
+                    .foregroundColor(.accentColor) // subtle action emphasis
+                    .contentShape(Rectangle()) // improves hit testing without visible background
+                    .padding(.leading, 26)
                 }
             }
         }
