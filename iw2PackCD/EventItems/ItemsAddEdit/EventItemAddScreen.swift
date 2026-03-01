@@ -17,9 +17,9 @@ struct EventItemAddScreen: View {
     var body: some View {
         VStack {
             HStack {
-                CloseButton()
+                CloseButton(title: "Done")
                Spacer()
-                Button("Add Items") {
+                Button("Create NEW Item(s)") {
                     showAddItemForm = true
                 }
             }.padding([.trailing], 20)
@@ -59,5 +59,4 @@ struct PackItemFormScreen_Previews: PreviewProvider {
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
-
 

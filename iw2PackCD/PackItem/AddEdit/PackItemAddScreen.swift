@@ -26,9 +26,8 @@ struct PackItemAddScreen: View {
             VStack {
                 Spacer()
                 Text("Please add at least one Category and one Location before adding Items.")
-                Button("Close") {
-                    presentationMode.wrappedValue.dismiss()
-                }.padding()
+                CloseButton(title: "Close")
+                    .padding()
                     .buttonStyle(.bordered)
                 Spacer()
             }
@@ -50,9 +49,8 @@ struct PackItemAddScreen: View {
                         .buttonStyle(.bordered)
                         .disabled(selectedCategory == nil || selectedLocation == nil || packItemName.isEmpty)
                     
-                    Button("Close") {
-                        presentationMode.wrappedValue.dismiss()
-                    }.padding()
+                    CloseButton(title: "Close")
+                        .padding()
                         .buttonStyle(.bordered)
                 }
             }
