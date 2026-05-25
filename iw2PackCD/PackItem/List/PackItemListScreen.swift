@@ -55,7 +55,7 @@ struct PackItemListScreen: View {
                     }
                 }
             }
-            .searchable(text: $searchText, prompt: "Search for items")
+            .searchable(text: $searchText, prompt: "Search for or Filter items")
             .onAppear {
                 packItemListVm.getAllPackItems(viewContext: viewContext)
             }
