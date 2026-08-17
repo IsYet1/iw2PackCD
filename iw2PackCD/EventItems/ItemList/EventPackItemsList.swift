@@ -121,7 +121,7 @@ struct EventPackItemsList: View {
                     .font(.footnote)
                     .foregroundColor(.accentColor) // subtle action emphasis
                     .contentShape(Rectangle()) // improves hit testing without visible background
-                    .padding(.leading, 26)
+//                    .padding(.leading, 6) // Remove this. Caused odd spacing on iPads
                 }
             }
         }
